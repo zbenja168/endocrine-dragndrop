@@ -30,6 +30,22 @@ PALETTE = [
     ("#3b82f6", "#2563eb", "#1d4ed8", (59, 130, 246)),   # 7 blue
 ]
 ENDO_IDENTITY = "#8b5cf6"  # violet for index/header
+
+# The block runs over three teaching weeks; the index groups its lectures the
+# same way, so a student revising "this week" can find their games in one place.
+WEEKS = [
+    ("Week 1", "Foundations, Anatomy & the Pituitary", range(1, 10)),
+    ("Week 2", "Thyroid, Parathyroid & Bone", range(10, 20)),
+    ("Week 3", "Adrenal, Pancreas & Diabetes", range(20, 32)),
+]
+
+
+def week_of(brick_num):
+    """The (label, subtitle) this brick belongs to, or None if unclassified."""
+    for label, sub, rng in WEEKS:
+        if brick_num in rng:
+            return (label, sub)
+    return None
 ENDO_IDENTITY_RGB = (139, 92, 246)
 
 # Subject icons rotate too (decorative only)
@@ -630,6 +646,7 @@ def main():
             "title": brick["brick_title"],
             "color": sec_color,
             "games": section_games,
+            "brick_num": brick["brick_num"],
         })
 
     total_games = len(all_games)
@@ -637,7 +654,25 @@ def main():
     total_bricks = len(bricks)
 
     sections_html = ""
+    open_week = None
     for sec in sections:
+        week = week_of(sec["brick_num"])
+        if week != open_week:
+            if open_week is not None:
+                sections_html += "</div>\n"
+            wk_games = sum(len(s["games"]) for s in sections
+                           if week_of(s["brick_num"]) == week)
+            wk_lectures = sum(1 for s in sections if week_of(s["brick_num"]) == week)
+            sections_html += f'''
+<div class="week" data-week>
+  <div class="week-head">
+    <span class="week-label">{week[0]}</span>
+    <span class="week-sub">{week[1]}</span>
+    <span class="week-count">{wk_lectures} lectures &middot; {wk_games} games</span>
+  </div>
+'''
+            open_week = week
+
         cards_html = ""
         for num, title, href in sec["games"]:
             cards_html += (
@@ -656,6 +691,8 @@ def main():
 {cards_html}  </div>
 </section>
 '''
+    if open_week is not None:
+        sections_html += "</div>\n"
 
     r, g, b = ENDO_IDENTITY_RGB
     iden_rgba = lambda a: f"rgba({r}, {g}, {b}, {a})"
@@ -688,6 +725,12 @@ def main():
   main{{max-width:1380px;margin:0 auto;padding:32px 16px 56px;}}
   .no-results{{text-align:center;color:var(--muted);padding:60px 20px;font-size:.9rem;display:none;}}
 
+  .week{{margin-bottom:44px;}}
+  .week-head{{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 22px;padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,{iden_rgba('.16')},{iden_rgba('.04')});border:1px solid {iden_rgba('.28')};}}
+  .week-label{{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;color:{ENDO_IDENTITY};}}
+  .week-sub{{font-size:.9rem;color:var(--text);opacity:.85;}}
+  .week-count{{margin-left:auto;font-size:.7rem;color:var(--muted);white-space:nowrap;}}
+  @media (max-width:640px){{.week-count{{margin-left:0;flex-basis:100%;}}}}
   .section{{margin-bottom:32px;}}
   .section-head{{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);}}
   .section-icon{{font-size:1.2rem;line-height:1;}}
@@ -736,6 +779,12 @@ document.getElementById('search').addEventListener('input', function() {{
     }});
     sec.style.display = secVisible ? '' : 'none';
     if (secVisible) anyVisible = true;
+  }});
+  // A week heading with nothing left under it is just noise while searching.
+  document.querySelectorAll('.week').forEach(wk => {{
+    const has = Array.from(wk.querySelectorAll('.section'))
+      .some(s => s.style.display !== 'none');
+    wk.style.display = has ? '' : 'none';
   }});
   document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
 }});

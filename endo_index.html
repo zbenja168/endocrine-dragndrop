@@ -26,6 +26,12 @@
   main{max-width:1380px;margin:0 auto;padding:32px 16px 56px;}
   .no-results{text-align:center;color:var(--muted);padding:60px 20px;font-size:.9rem;display:none;}
 
+  .week{margin-bottom:44px;}
+  .week-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 22px;padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,rgba(139, 92, 246, .16),rgba(139, 92, 246, .04));border:1px solid rgba(139, 92, 246, .28);}
+  .week-label{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;color:#8b5cf6;}
+  .week-sub{font-size:.9rem;color:var(--text);opacity:.85;}
+  .week-count{margin-left:auto;font-size:.7rem;color:var(--muted);white-space:nowrap;}
+  @media (max-width:640px){.week-count{margin-left:0;flex-basis:100%;}}
   .section{margin-bottom:32px;}
   .section-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);}
   .section-icon{font-size:1.2rem;line-height:1;}
@@ -58,6 +64,13 @@
 
 <main>
 <div class="no-results" id="noResults">No games match your search.</div>
+
+<div class="week" data-week>
+  <div class="week-head">
+    <span class="week-label">Week 1</span>
+    <span class="week-sub">Foundations, Anatomy & the Pituitary</span>
+    <span class="week-count">9 lectures &middot; 36 games</span>
+  </div>
 
 <section class="section" data-section>
   <div class="section-head">
@@ -184,6 +197,14 @@
     <a class="card" href="endo_36_managing_hypopituitarism.html" style="--c:#f59e0b"><span class="num">36</span><span class="ctitle">Managing the Patient With Hypopituitarism</span></a>
   </div>
 </section>
+</div>
+
+<div class="week" data-week>
+  <div class="week-head">
+    <span class="week-label">Week 2</span>
+    <span class="week-sub">Thyroid, Parathyroid & Bone</span>
+    <span class="week-count">10 lectures &middot; 40 games</span>
+  </div>
 
 <section class="section" data-section>
   <div class="section-head">
@@ -324,6 +345,14 @@
     <a class="card" href="endo_76_management_of_hypoparathyroidism.html" style="--c:#8b5cf6"><span class="num">76</span><span class="ctitle">Treating Hypoparathyroidism</span></a>
   </div>
 </section>
+</div>
+
+<div class="week" data-week>
+  <div class="week-head">
+    <span class="week-label">Week 3</span>
+    <span class="week-sub">Adrenal, Pancreas & Diabetes</span>
+    <span class="week-count">12 lectures &middot; 48 games</span>
+  </div>
 
 <section class="section" data-section>
   <div class="section-head">
@@ -492,6 +521,7 @@
     <a class="card" href="endo_124_diagnosis_and_treatment_tools.html" style="--c:#f97316"><span class="num">124</span><span class="ctitle">Diagnosing and Treating Hypoglycemia</span></a>
   </div>
 </section>
+</div>
 
 </main>
 
@@ -508,6 +538,12 @@ document.getElementById('search').addEventListener('input', function() {
     });
     sec.style.display = secVisible ? '' : 'none';
     if (secVisible) anyVisible = true;
+  });
+  // A week heading with nothing left under it is just noise while searching.
+  document.querySelectorAll('.week').forEach(wk => {
+    const has = Array.from(wk.querySelectorAll('.section'))
+      .some(s => s.style.display !== 'none');
+    wk.style.display = has ? '' : 'none';
   });
   document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
 });
