@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EndoStudy &ndash; Drag &amp; Drop Games</title>
+<style>
+  :root{--bg:#0a0805;--surface:#14110b;--surface2:#1d1812;--text:#f1f5f9;--muted:#94a3b8;--border:rgba(255,255,255,0.07);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
+
+  header{background:linear-gradient(160deg,#1a1305 0%,#2a1f08 50%,#0a0805 100%);border-bottom:1px solid var(--border);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden;}
+  header::after{content:'\1F52C';position:absolute;font-size:360px;opacity:.025;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+  header h1{font-size:2.4rem;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,#f8fafc 30%,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;position:relative;}
+  header p{color:var(--muted);font-size:.9rem;position:relative;}
+  .pills{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative;}
+  .pill{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.78rem;color:var(--muted);}
+  .pill b{color:#8b5cf6;}
+
+  .search-wrap{max-width:460px;margin:22px auto 0;position:relative;}
+  .search-wrap input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:10px 44px 10px 18px;color:var(--text);font-size:.85rem;outline:none;transition:.2s;}
+  .search-wrap input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139, 92, 246, .18);}
+  .search-wrap input::placeholder{color:var(--muted);}
+  .search-ico{position:absolute;right:15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.85rem;pointer-events:none;}
+
+  main{max-width:1380px;margin:0 auto;padding:32px 16px 56px;}
+  .no-results{text-align:center;color:var(--muted);padding:60px 20px;font-size:.9rem;display:none;}
+
+  .section{margin-bottom:32px;}
+  .section-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .section-icon{font-size:1.2rem;line-height:1;}
+  .section-title{font-size:.95rem;font-weight:700;color:var(--text);}
+  .section-badge{margin-left:auto;background:var(--surface2);border-radius:10px;padding:2px 8px;font-size:.68rem;color:var(--muted);}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:7px;}
+  a.card{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:11px 12px;text-decoration:none;color:var(--text);display:flex;align-items:flex-start;gap:9px;transition:.15s;}
+  a.card:hover{border-color:var(--c,#8b5cf6);background:var(--surface2);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.5);}
+  .num{flex-shrink:0;background:var(--c,#8b5cf6);color:#fff;border-radius:5px;padding:2px 5px;font-size:.6rem;font-weight:800;margin-top:1px;opacity:.9;letter-spacing:.3px;}
+  .ctitle{font-size:.75rem;line-height:1.45;color:var(--text);}
+</style>
+<script defer src="https://activetransport.app/static/tool-track.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>EndoStudy</h1>
+  <p>Drag &amp; Drop Study Games &nbsp;&middot;&nbsp; Endocrine</p>
+  <div class="pills">
+    <span class="pill"><b>124</b> games</span>
+    <span class="pill"><b>31</b> source bricks</span>
+    <span class="pill"><b>31</b> sections</span>
+  </div>
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search by topic or number&hellip;" autocomplete="off">
+    <span class="search-ico">&#x2315;</span>
+  </div>
+</header>
+
+<main>
+<div class="no-results" id="noResults">No games match your search.</div>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩸</span>
+    <span class="section-title">Functional Endocrine Pathways</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_01_control_elements.html" style="--c:#f59e0b"><span class="num">01</span><span class="ctitle">Control Elements of an Endocrine Pathway</span></a>
+    <a class="card" href="endo_02_molecular_components.html" style="--c:#f59e0b"><span class="num">02</span><span class="ctitle">Molecular Signaling Components</span></a>
+    <a class="card" href="endo_03_hormone_classes.html" style="--c:#f59e0b"><span class="num">03</span><span class="ctitle">Hormone Classes at a Glance</span></a>
+    <a class="card" href="endo_04_hpt_node_disruption.html" style="--c:#f59e0b"><span class="num">04</span><span class="ctitle">Localizing the Lesion in the HPT Axis</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧬</span>
+    <span class="section-title">Anatomy of the Endocrine System</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_05_classical_glands.html" style="--c:#10b981"><span class="num">05</span><span class="ctitle">The Classical Endocrine Glands</span></a>
+    <a class="card" href="endo_06_pituitary_neighbors.html" style="--c:#10b981"><span class="num">06</span><span class="ctitle">Neighbors of the Pituitary Gland</span></a>
+    <a class="card" href="endo_07_anterior_vs_posterior_pituitary.html" style="--c:#10b981"><span class="num">07</span><span class="ctitle">Anterior versus Posterior Pituitary</span></a>
+    <a class="card" href="endo_08_endocrine_vascular_supply.html" style="--c:#10b981"><span class="num">08</span><span class="ctitle">Blood Supply of the Endocrine Glands</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚗️</span>
+    <span class="section-title">Development of the Endocrine System</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_09_germ_layer_origins.html" style="--c:#8b5cf6"><span class="num">09</span><span class="ctitle">Germ Layer Origins of the Endocrine Glands</span></a>
+    <a class="card" href="endo_10_pituitary_lobes.html" style="--c:#8b5cf6"><span class="num">10</span><span class="ctitle">Two Lobes, Two Origins</span></a>
+    <a class="card" href="endo_11_thyroid_descent.html" style="--c:#8b5cf6"><span class="num">11</span><span class="ctitle">The Path of Thyroid Descent</span></a>
+    <a class="card" href="endo_12_developmental_anomalies.html" style="--c:#8b5cf6"><span class="num">12</span><span class="ctitle">When Endocrine Development Goes Wrong</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🔬</span>
+    <span class="section-title">Hypothalamic-Pituitary (H-P) Axis 1</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_13_anterior_pituitary_axes.html" style="--c:#06b6d4"><span class="num">13</span><span class="ctitle">Anterior Pituitary Hormones and Their Axes</span></a>
+    <a class="card" href="endo_14_anterior_vs_posterior.html" style="--c:#06b6d4"><span class="num">14</span><span class="ctitle">Two Glands Fused Into One</span></a>
+    <a class="card" href="endo_15_failure_level_map.html" style="--c:#06b6d4"><span class="num">15</span><span class="ctitle">Failure-Level Map on the Cortisol Axis</span></a>
+    <a class="card" href="endo_16_localize_the_lesion.html" style="--c:#06b6d4"><span class="num">16</span><span class="ctitle">Reading the Pattern to Localize the Lesion</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧪</span>
+    <span class="section-title">Histology of the Endocrine System</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_17_pituitary_cells.html" style="--c:#ec4899"><span class="num">17</span><span class="ctitle">Cells of the Pituitary Gland</span></a>
+    <a class="card" href="endo_18_thyroid_parathyroid.html" style="--c:#ec4899"><span class="num">18</span><span class="ctitle">Thyroid and Parathyroid on the Slide</span></a>
+    <a class="card" href="endo_19_adrenal_layers.html" style="--c:#ec4899"><span class="num">19</span><span class="ctitle">Layers of the Adrenal Gland (GFR)</span></a>
+    <a class="card" href="endo_20_hormone_source_match.html" style="--c:#ec4899"><span class="num">20</span><span class="ctitle">Trace the Hormone Back to Its Slide</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">💊</span>
+    <span class="section-title">Normal Growth and Sexual Development</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_21_periods_of_growth.html" style="--c:#84cc16"><span class="num">21</span><span class="ctitle">The Five Periods of Growth</span></a>
+    <a class="card" href="endo_22_tanner_stages.html" style="--c:#84cc16"><span class="num">22</span><span class="ctitle">Tanner Stages (Sexual Maturity Ratings)</span></a>
+    <a class="card" href="endo_23_pubertal_events.html" style="--c:#84cc16"><span class="num">23</span><span class="ctitle">Events of Sexual Maturation</span></a>
+    <a class="card" href="endo_24_growth_assessment_tools.html" style="--c:#84cc16"><span class="num">24</span><span class="ctitle">Tools for Assessing Growth</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩺</span>
+    <span class="section-title">Growth Hormone Deficiency and Excess</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_25_ghd_across_lifespan.html" style="--c:#f97316"><span class="num">25</span><span class="ctitle">GH Deficiency Across the Lifespan</span></a>
+    <a class="card" href="endo_26_gh_actions.html" style="--c:#f97316"><span class="num">26</span><span class="ctitle">Actions of Growth Hormone</span></a>
+    <a class="card" href="endo_27_gh_lab_patterns.html" style="--c:#f97316"><span class="num">27</span><span class="ctitle">Sorting Out the GH Axis Disorders</span></a>
+    <a class="card" href="endo_28_acromegaly_therapy.html" style="--c:#f97316"><span class="num">28</span><span class="ctitle">Treating GH Excess</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">Hyperpituitarism</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_29_adenoma_subtypes.html" style="--c:#3b82f6"><span class="num">29</span><span class="ctitle">Pituitary Adenomas by Cell Lineage</span></a>
+    <a class="card" href="endo_30_mass_effects.html" style="--c:#3b82f6"><span class="num">30</span><span class="ctitle">Mass Effects of an Enlarging Adenoma</span></a>
+    <a class="card" href="endo_31_diagnostic_workup.html" style="--c:#3b82f6"><span class="num">31</span><span class="ctitle">Working Up a Suspected Pituitary Adenoma</span></a>
+    <a class="card" href="endo_32_treatment_options.html" style="--c:#3b82f6"><span class="num">32</span><span class="ctitle">Treating Hyperpituitarism</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩸</span>
+    <span class="section-title">Hypopituitarism</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_33_causes_of_hypopituitarism.html" style="--c:#f59e0b"><span class="num">33</span><span class="ctitle">Causes of Hypopituitarism</span></a>
+    <a class="card" href="endo_34_hormone_deficiency_syndromes.html" style="--c:#f59e0b"><span class="num">34</span><span class="ctitle">Which Hormone Is Missing?</span></a>
+    <a class="card" href="endo_35_sheehan_apoplexy_empty_sella.html" style="--c:#f59e0b"><span class="num">35</span><span class="ctitle">Sheehan vs Apoplexy vs Empty Sella</span></a>
+    <a class="card" href="endo_36_managing_hypopituitarism.html" style="--c:#f59e0b"><span class="num">36</span><span class="ctitle">Managing the Patient With Hypopituitarism</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧬</span>
+    <span class="section-title">Hyperthyroidism and Thyroid Storm</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_37_causes_of_thyrotoxicosis.html" style="--c:#10b981"><span class="num">37</span><span class="ctitle">Causes of Thyrotoxicosis</span></a>
+    <a class="card" href="endo_38_high_versus_low_uptake.html" style="--c:#10b981"><span class="num">38</span><span class="ctitle">Sorting a Thyrotoxic Patient by Uptake</span></a>
+    <a class="card" href="endo_39_mechanism_based_treatment.html" style="--c:#10b981"><span class="num">39</span><span class="ctitle">Mechanism-Based Treatment of Thyrotoxicosis</span></a>
+    <a class="card" href="endo_40_storm_versus_lookalikes.html" style="--c:#10b981"><span class="num">40</span><span class="ctitle">Thyroid Storm and Its Look-Alikes</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚗️</span>
+    <span class="section-title">Hypothyroidism: Primary and Central Patterns, Hashimoto Thyroiditis, and Myxedema Coma</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_41_primary_vs_central.html" style="--c:#8b5cf6"><span class="num">41</span><span class="ctitle">Primary vs Central vs Subclinical Hypothyroidism</span></a>
+    <a class="card" href="endo_42_myxedema_vs_edema.html" style="--c:#8b5cf6"><span class="num">42</span><span class="ctitle">Myxedema, Pitting Edema, and Pretibial Myxedema</span></a>
+    <a class="card" href="endo_43_chronic_coma_congenital.html" style="--c:#8b5cf6"><span class="num">43</span><span class="ctitle">Chronic Hypothyroidism, Myxedema Coma, and Congenital Hypothyroidism</span></a>
+    <a class="card" href="endo_44_thyroid_lookalikes.html" style="--c:#8b5cf6"><span class="num">44</span><span class="ctitle">Thyroid Disorders That Mimic Hashimoto Thyroiditis</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🔬</span>
+    <span class="section-title">Thyroid Hormone Synthesis, Regulation, and Testing</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_45_synthesis_steps.html" style="--c:#06b6d4"><span class="num">45</span><span class="ctitle">Steps of Thyroid Hormone Synthesis</span></a>
+    <a class="card" href="endo_46_hormone_forms.html" style="--c:#06b6d4"><span class="num">46</span><span class="ctitle">T4, T3, Reverse T3, and Their Precursors</span></a>
+    <a class="card" href="endo_47_axis_failure_map.html" style="--c:#06b6d4"><span class="num">47</span><span class="ctitle">Reading the Thyroid Axis Failure Map</span></a>
+    <a class="card" href="endo_48_binding_proteins.html" style="--c:#06b6d4"><span class="num">48</span><span class="ctitle">Binding Proteins Versus True Thyroid Disease</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧪</span>
+    <span class="section-title">Differentiated Thyroid Cancers: Papillary and Follicular Thyroid Carcinoma</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_49_ptc_vs_ftc.html" style="--c:#ec4899"><span class="num">49</span><span class="ctitle">Papillary vs Follicular Thyroid Carcinoma</span></a>
+    <a class="card" href="endo_50_histology_clues.html" style="--c:#ec4899"><span class="num">50</span><span class="ctitle">Microscopic Clues in Differentiated Thyroid Cancer</span></a>
+    <a class="card" href="endo_51_molecular_patterns.html" style="--c:#ec4899"><span class="num">51</span><span class="ctitle">Molecular Drivers and What They Really Tell You</span></a>
+    <a class="card" href="endo_52_treatment_surveillance.html" style="--c:#ec4899"><span class="num">52</span><span class="ctitle">Treatment and Surveillance of Differentiated Thyroid Cancer</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">💊</span>
+    <span class="section-title">Medullary and Anaplastic Thyroid Carcinomas: C-Cell Biology, Inherited Risk, and Aggressive Neck Disease</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_53_three_thyroid_cancer_logics.html" style="--c:#84cc16"><span class="num">53</span><span class="ctitle">Differentiated vs Medullary vs Anaplastic</span></a>
+    <a class="card" href="endo_54_mtc_markers.html" style="--c:#84cc16"><span class="num">54</span><span class="ctitle">Markers and Stains in Medullary Thyroid Carcinoma</span></a>
+    <a class="card" href="endo_55_clue_to_next_step.html" style="--c:#84cc16"><span class="num">55</span><span class="ctitle">From Clue to Next Step</span></a>
+    <a class="card" href="endo_56_atc_red_flags.html" style="--c:#84cc16"><span class="num">56</span><span class="ctitle">Anaplastic Red Flags and the Urgent Response</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩺</span>
+    <span class="section-title">Multiple Endocrine Neoplasia Syndromes: MEN1, MEN2A, MEN2B, and MEN4</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_57_men_syndrome_compare.html" style="--c:#f97316"><span class="num">57</span><span class="ctitle">MEN1 vs MEN2A vs MEN2B vs MEN4</span></a>
+    <a class="card" href="endo_58_biochemical_localization.html" style="--c:#f97316"><span class="num">58</span><span class="ctitle">Localizing MEN-Associated Tumors</span></a>
+    <a class="card" href="endo_59_presentation_to_workup.html" style="--c:#f97316"><span class="num">59</span><span class="ctitle">From First Tumor to Next Step</span></a>
+    <a class="card" href="endo_60_men_tumor_histology.html" style="--c:#f97316"><span class="num">60</span><span class="ctitle">Histology of MEN-Associated Tumors</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">Thyroid Nodule Evaluation: TSH Testing, Ultrasound Risk Stratification, Fine-Needle Aspiration, and Bethesda Cytology</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_61_us_benign_vs_suspicious.html" style="--c:#3b82f6"><span class="num">61</span><span class="ctitle">Benign-Leaning vs Suspicious Ultrasound Patterns</span></a>
+    <a class="card" href="endo_62_hot_vs_cold_nodule.html" style="--c:#3b82f6"><span class="num">62</span><span class="ctitle">Hot vs Cold Thyroid Nodules</span></a>
+    <a class="card" href="endo_63_bethesda_categories.html" style="--c:#3b82f6"><span class="num">63</span><span class="ctitle">Bethesda Cytology: Result to Next Step</span></a>
+    <a class="card" href="endo_64_thyroid_cancer_patterns.html" style="--c:#3b82f6"><span class="num">64</span><span class="ctitle">How the Thyroid Cancers Announce Themselves</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩸</span>
+    <span class="section-title">Endocrine Bone Disorders</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_65_thin_soft_growing_bone.html" style="--c:#f59e0b"><span class="num">65</span><span class="ctitle">Osteoporosis vs Osteomalacia vs Rickets</span></a>
+    <a class="card" href="endo_66_hyperostotic_dysplasias.html" style="--c:#f59e0b"><span class="num">66</span><span class="ctitle">Hyperostotic Bone Diseases</span></a>
+    <a class="card" href="endo_67_signal_transduction_gnas.html" style="--c:#f59e0b"><span class="num">67</span><span class="ctitle">Post-Receptor Signal Transduction and GNAS</span></a>
+    <a class="card" href="endo_68_signature_bone_findings.html" style="--c:#f59e0b"><span class="num">68</span><span class="ctitle">Signature Findings in Endocrine Bone Disease</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧬</span>
+    <span class="section-title">Hyperparathyroidism: Primary, Secondary, and Tertiary</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_69_hpt_subtype_compare.html" style="--c:#10b981"><span class="num">69</span><span class="ctitle">Primary vs Secondary vs Tertiary Hyperparathyroidism</span></a>
+    <a class="card" href="endo_70_pth_actions.html" style="--c:#10b981"><span class="num">70</span><span class="ctitle">How PTH Raises Calcium and Lowers Phosphate</span></a>
+    <a class="card" href="endo_71_bone_and_hypercalcemia_complications.html" style="--c:#10b981"><span class="num">71</span><span class="ctitle">Complications of Chronic PTH Excess</span></a>
+    <a class="card" href="endo_72_diagnostics_and_therapy.html" style="--c:#10b981"><span class="num">72</span><span class="ctitle">Tests and Treatments for Hyperparathyroidism</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚗️</span>
+    <span class="section-title">Hypoparathyroidism</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_73_causes_of_low_pth.html" style="--c:#8b5cf6"><span class="num">73</span><span class="ctitle">Why Is PTH Signaling Failing?</span></a>
+    <a class="card" href="endo_74_acute_vs_chronic_findings.html" style="--c:#8b5cf6"><span class="num">74</span><span class="ctitle">Findings of Hypocalcemia</span></a>
+    <a class="card" href="endo_75_bedside_and_lab_workup.html" style="--c:#8b5cf6"><span class="num">75</span><span class="ctitle">Diagnosing Hypoparathyroidism</span></a>
+    <a class="card" href="endo_76_management_of_hypoparathyroidism.html" style="--c:#8b5cf6"><span class="num">76</span><span class="ctitle">Treating Hypoparathyroidism</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🔬</span>
+    <span class="section-title">Adrenal Insufficiency, Cushing Syndrome, and Cushing Disease: Localizing HPA Axis Dysfunction</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_77_ai_localization.html" style="--c:#06b6d4"><span class="num">77</span><span class="ctitle">Where Is the Cortisol Deficiency?</span></a>
+    <a class="card" href="endo_78_hpa_testing.html" style="--c:#06b6d4"><span class="num">78</span><span class="ctitle">Testing the HPA Axis</span></a>
+    <a class="card" href="endo_79_cortisol_excess_sources.html" style="--c:#06b6d4"><span class="num">79</span><span class="ctitle">Localizing Cortisol Excess</span></a>
+    <a class="card" href="endo_80_management_priorities.html" style="--c:#06b6d4"><span class="num">80</span><span class="ctitle">Management by Localization and Urgency</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧪</span>
+    <span class="section-title">Adrenal Steroid Biosynthesis and Regulation: Zones, Pathways, and Enzyme Deficiencies</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_81_adrenal_zones.html" style="--c:#ec4899"><span class="num">81</span><span class="ctitle">Zones of the Adrenal Gland</span></a>
+    <a class="card" href="endo_82_steroidogenic_enzymes.html" style="--c:#ec4899"><span class="num">82</span><span class="ctitle">Enzymes of Adrenal Steroidogenesis</span></a>
+    <a class="card" href="endo_83_zone_selective_regulation.html" style="--c:#ec4899"><span class="num">83</span><span class="ctitle">Cortisol vs Aldosterone vs Adrenal Androgens</span></a>
+    <a class="card" href="endo_84_cah_enzyme_blocks.html" style="--c:#ec4899"><span class="num">84</span><span class="ctitle">Congenital Adrenal Hyperplasia Blocks</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">💊</span>
+    <span class="section-title">Catecholamine Excess and Endocrine Hypertension: Pheochromocytoma and Paraganglioma</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_85_catecholamine_pathway.html" style="--c:#84cc16"><span class="num">85</span><span class="ctitle">Catecholamine Synthesis and Metabolism</span></a>
+    <a class="card" href="endo_86_ppgl_tumor_types.html" style="--c:#84cc16"><span class="num">86</span><span class="ctitle">Pheochromocytoma vs Sympathetic vs Parasympathetic Paraganglioma</span></a>
+    <a class="card" href="endo_87_endocrine_hypertension_workup.html" style="--c:#84cc16"><span class="num">87</span><span class="ctitle">Pattern Recognition in Endocrine Hypertension</span></a>
+    <a class="card" href="endo_88_ppgl_safe_management.html" style="--c:#84cc16"><span class="num">88</span><span class="ctitle">Preparing a Functional PPGL Safely</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩺</span>
+    <span class="section-title">Structure and Function of the Endocrine Pancreas</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_89_islet_hormones.html" style="--c:#f97316"><span class="num">89</span><span class="ctitle">Hormones of the Endocrine Pancreas</span></a>
+    <a class="card" href="endo_90_glut_transporters.html" style="--c:#f97316"><span class="num">90</span><span class="ctitle">The GLUT Transporter Family</span></a>
+    <a class="card" href="endo_91_insulin_vs_glucagon.html" style="--c:#f97316"><span class="num">91</span><span class="ctitle">Insulin versus Glucagon</span></a>
+    <a class="card" href="endo_92_beta_cell_secretion.html" style="--c:#f97316"><span class="num">92</span><span class="ctitle">How the Beta Cell Senses Glucose</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚡</span>
+    <span class="section-title">Type 1 Diabetes Mellitus (T1DM)</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_93_insulin_loss_chain.html" style="--c:#3b82f6"><span class="num">93</span><span class="ctitle">What Breaks When Insulin Disappears</span></a>
+    <a class="card" href="endo_94_t1dm_vs_t2dm_labs.html" style="--c:#3b82f6"><span class="num">94</span><span class="ctitle">Type 1 versus Type 2 at the Bedside and in the Lab</span></a>
+    <a class="card" href="endo_95_dm_diagnostic_tests.html" style="--c:#3b82f6"><span class="num">95</span><span class="ctitle">Diagnostic Thresholds for Diabetes Mellitus</span></a>
+    <a class="card" href="endo_96_t1dm_management.html" style="--c:#3b82f6"><span class="num">96</span><span class="ctitle">Managing Type 1 Diabetes</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩸</span>
+    <span class="section-title">Type 2 Diabetes Mellitus (T2D)</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_97_t1d_vs_t2d.html" style="--c:#f59e0b"><span class="num">97</span><span class="ctitle">Type 1 vs Type 2 Diabetes</span></a>
+    <a class="card" href="endo_98_insulin_resistance_tissues.html" style="--c:#f59e0b"><span class="num">98</span><span class="ctitle">Insulin Resistance, Tissue by Tissue</span></a>
+    <a class="card" href="endo_99_ada_diagnostic_criteria.html" style="--c:#f59e0b"><span class="num">99</span><span class="ctitle">ADA Diagnostic Criteria for Diabetes</span></a>
+    <a class="card" href="endo_100_presentation_clues.html" style="--c:#f59e0b"><span class="num">100</span><span class="ctitle">Clues at Presentation</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧬</span>
+    <span class="section-title">Endocrine Messages to the Kidney: Hyperaldosteronism, ADH Disorders, and Diabetes Insipidus</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_101_two_messages_one_kidney.html" style="--c:#10b981"><span class="num">101</span><span class="ctitle">Two Endocrine Messages, One Renal Executor</span></a>
+    <a class="card" href="endo_102_primary_vs_secondary_aldo.html" style="--c:#10b981"><span class="num">102</span><span class="ctitle">Primary vs Secondary Aldosteronism</span></a>
+    <a class="card" href="endo_103_four_water_disorders.html" style="--c:#10b981"><span class="num">103</span><span class="ctitle">Four Ways to Disrupt the Free-Water Message</span></a>
+    <a class="card" href="endo_104_mechanism_based_treatment.html" style="--c:#10b981"><span class="num">104</span><span class="ctitle">Treat the Disrupted Signal or the Renal Response</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">⚗️</span>
+    <span class="section-title">Treatment of Diabetes with Glucose-Lowering Agents</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_105_insulin_formulations.html" style="--c:#8b5cf6"><span class="num">105</span><span class="ctitle">Insulin Formulations by Pharmacokinetics</span></a>
+    <a class="card" href="endo_106_noninsulin_classes.html" style="--c:#8b5cf6"><span class="num">106</span><span class="ctitle">Non-Insulin Glucose-Lowering Classes</span></a>
+    <a class="card" href="endo_107_secretagogue_compare.html" style="--c:#8b5cf6"><span class="num">107</span><span class="ctitle">Three Ways to Raise Insulin Secretion</span></a>
+    <a class="card" href="endo_108_who_gets_what.html" style="--c:#8b5cf6"><span class="num">108</span><span class="ctitle">Picking the Drug for the Patient</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🔬</span>
+    <span class="section-title">Adrenal Masses: Incidentaloma, Functional Workup, and Adrenal Tumors</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_109_hormone_phenotypes.html" style="--c:#06b6d4"><span class="num">109</span><span class="ctitle">Hormone Phenotypes of a Functional Adrenal Mass</span></a>
+    <a class="card" href="endo_110_biochemical_workup.html" style="--c:#06b6d4"><span class="num">110</span><span class="ctitle">Biochemical Workup of an Adrenal Incidentaloma</span></a>
+    <a class="card" href="endo_111_lesion_imaging_id.html" style="--c:#06b6d4"><span class="num">111</span><span class="ctitle">Naming the Adrenal Lesion from Its Imaging</span></a>
+    <a class="card" href="endo_112_three_triage_questions.html" style="--c:#06b6d4"><span class="num">112</span><span class="ctitle">The Three Questions Every Adrenal Mass Must Answer</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🧪</span>
+    <span class="section-title">Diabetic Ketoacidosis (DKA) and Hyperosmolar Hyperglycemic State (HHS)</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_113_dka_vs_hhs_clinical.html" style="--c:#ec4899"><span class="num">113</span><span class="ctitle">DKA vs HHS at the Bedside</span></a>
+    <a class="card" href="endo_114_diagnostic_lab_criteria.html" style="--c:#ec4899"><span class="num">114</span><span class="ctitle">Diagnostic Labs: DKA, HHS, and Why</span></a>
+    <a class="card" href="endo_115_potassium_guided_therapy.html" style="--c:#ec4899"><span class="num">115</span><span class="ctitle">Potassium Decides When Insulin Starts</span></a>
+    <a class="card" href="endo_116_treatment_framework.html" style="--c:#ec4899"><span class="num">116</span><span class="ctitle">Treating DKA and HHS</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">💊</span>
+    <span class="section-title">Chronic Complications of Diabetes Mellitus</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_117_hyperglycemic_damage_pathways.html" style="--c:#84cc16"><span class="num">117</span><span class="ctitle">How Hyperglycemia Damages Tissue</span></a>
+    <a class="card" href="endo_118_npdr_vs_pdr.html" style="--c:#84cc16"><span class="num">118</span><span class="ctitle">Non-Proliferative vs Proliferative Retinopathy</span></a>
+    <a class="card" href="endo_119_neuropathy_syndromes.html" style="--c:#84cc16"><span class="num">119</span><span class="ctitle">Syndromes of Diabetic Neuropathy</span></a>
+    <a class="card" href="endo_120_cv_risk_management.html" style="--c:#84cc16"><span class="num">120</span><span class="ctitle">Preventing Macrovascular Disease in Diabetes</span></a>
+  </div>
+</section>
+
+<section class="section" data-section>
+  <div class="section-head">
+    <span class="section-icon">🩺</span>
+    <span class="section-title">Hypoglycemia</span>
+    <span class="section-badge">4 games</span>
+  </div>
+  <div class="cards">
+    <a class="card" href="endo_121_fasting_vs_reactive.html" style="--c:#f97316"><span class="num">121</span><span class="ctitle">Fasting vs Reactive Hypoglycemia</span></a>
+    <a class="card" href="endo_122_causes_of_fasting_hypoglycemia.html" style="--c:#f97316"><span class="num">122</span><span class="ctitle">SHAKIER: Causes of Fasting Hypoglycemia</span></a>
+    <a class="card" href="endo_123_insulin_lab_patterns.html" style="--c:#f97316"><span class="num">123</span><span class="ctitle">Reading the Insulin Panel</span></a>
+    <a class="card" href="endo_124_diagnosis_and_treatment_tools.html" style="--c:#f97316"><span class="num">124</span><span class="ctitle">Diagnosing and Treating Hypoglycemia</span></a>
+  </div>
+</section>
+
+</main>
+
+<script>
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  let anyVisible = false;
+  document.querySelectorAll('.section').forEach(sec => {
+    let secVisible = false;
+    sec.querySelectorAll('.card').forEach(c => {
+      const match = c.textContent.toLowerCase().includes(q);
+      c.style.display = match ? '' : 'none';
+      if (match) secVisible = true;
+    });
+    sec.style.display = secVisible ? '' : 'none';
+    if (secVisible) anyVisible = true;
+  });
+  document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+});
+</script>
+</body>
+</html>
