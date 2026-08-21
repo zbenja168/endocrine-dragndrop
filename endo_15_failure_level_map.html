@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f97316; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(249, 115, 22, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(249, 115, 22, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f97316 0%, #c2410c 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,15 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('primary_failure', this)">Primary failure</button>
-                    <button class="tab" onclick="switchTab('secondary_failure', this)">Secondary failure</button>
-                    <button class="tab" onclick="switchTab('primary_overproduction', this)">Primary overproduction</button>
-                    <button class="tab" onclick="switchTab('secondary_overproduction', this)">Secondary overproduction</button>
+                    <button class="tab active" onclick="switchTab('plasma_acth', this)">Plasma ACTH</button>
+                    <button class="tab" onclick="switchTab('serum_cortisol', this)">Serum cortisol</button>
+                    <button class="tab" onclick="switchTab('tier_that_has_failed', this)">Tier that has failed</button>
+                    <button class="tab" onclick="switchTab('classic_example', this)">Classic example</button>
+                    <button class="tab" onclick="switchTab('what_the_tropic_hormone_tells_you', this)">What the tropic hormone tells you</button>
                 </div>
-                <div id="primary_failure-bank" class="word-bank active"></div>
-                <div id="secondary_failure-bank" class="word-bank"></div>
-                <div id="primary_overproduction-bank" class="word-bank"></div>
-                <div id="secondary_overproduction-bank" class="word-bank"></div>
+                <div id="plasma_acth-bank" class="word-bank active"></div>
+                <div id="serum_cortisol-bank" class="word-bank"></div>
+                <div id="tier_that_has_failed-bank" class="word-bank"></div>
+                <div id="classic_example-bank" class="word-bank"></div>
+                <div id="what_the_tropic_hormone_tells_you-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -162,39 +164,37 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["primary_failure", "secondary_failure", "primary_overproduction", "secondary_overproduction"];
-        const categoryLabels = {"primary_failure": "Primary failure", "secondary_failure": "Secondary failure", "primary_overproduction": "Primary overproduction", "secondary_overproduction": "Secondary overproduction"};
+        const categoryKeys = ["plasma_acth", "serum_cortisol", "tier_that_has_failed", "classic_example", "what_the_tropic_hormone_tells_you"];
+        const categoryLabels = {"plasma_acth": "Plasma ACTH", "serum_cortisol": "Serum cortisol", "tier_that_has_failed": "Tier that has failed", "classic_example": "Classic example", "what_the_tropic_hormone_tells_you": "What the tropic hormone tells you"};
 
         const gameData = {
-            "Plasma ACTH": {
-                "primary_failure": "High, because the intact pituitary is compensating",
-                "secondary_failure": "Inappropriately normal or low, with no compensation",
-                "primary_overproduction": "Low, because feedback has suppressed it",
-                "secondary_overproduction": "High, because the pituitary is driving the axis"
+            "Primary failure": {
+                "plasma_acth": "High, because the intact pituitary is compensating",
+                "serum_cortisol": "Low despite maximal pituitary drive",
+                "tier_that_has_failed": "Target gland, with hypothalamus and pituitary intact",
+                "classic_example": "Addison disease",
+                "what_the_tropic_hormone_tells_you": "It rose appropriately, so look below the pituitary"
             },
-            "Serum cortisol": {
-                "primary_failure": "Low despite maximal pituitary drive",
-                "secondary_failure": "Low because the adrenal is never stimulated",
-                "primary_overproduction": "High and made independently of ACTH",
-                "secondary_overproduction": "High and made in response to excess ACTH"
+            "Secondary failure": {
+                "plasma_acth": "Inappropriately normal or low, with no compensation",
+                "serum_cortisol": "Low because the adrenal is never stimulated",
+                "tier_that_has_failed": "Anterior pituitary, which cannot make tropic hormone",
+                "classic_example": "Pituitary tumor or surgical damage to the pituitary",
+                "what_the_tropic_hormone_tells_you": "It failed to rise, so the lesion is at the pituitary"
             },
-            "Tier that has failed": {
-                "primary_failure": "Target gland, with hypothalamus and pituitary intact",
-                "secondary_failure": "Anterior pituitary, which cannot make tropic hormone",
-                "primary_overproduction": "Target gland, escaping all upstream control",
-                "secondary_overproduction": "Anterior pituitary, generating an unregulated signal"
+            "Primary overproduction": {
+                "plasma_acth": "Low, because feedback has suppressed it",
+                "serum_cortisol": "High and made independently of ACTH",
+                "tier_that_has_failed": "Target gland, escaping all upstream control",
+                "classic_example": "Cortisol-secreting adrenal tumor",
+                "what_the_tropic_hormone_tells_you": "It was suppressed, so the excess starts downstream"
             },
-            "Classic example": {
-                "primary_failure": "Addison disease",
-                "secondary_failure": "Pituitary tumor or surgical damage to the pituitary",
-                "primary_overproduction": "Cortisol-secreting adrenal tumor",
-                "secondary_overproduction": "Cushing disease from a corticotroph adenoma"
-            },
-            "What the tropic hormone tells you": {
-                "primary_failure": "It rose appropriately, so look below the pituitary",
-                "secondary_failure": "It failed to rise, so the lesion is at the pituitary",
-                "primary_overproduction": "It was suppressed, so the excess starts downstream",
-                "secondary_overproduction": "It is high alongside the target hormone, so the pituitary is the source"
+            "Secondary overproduction": {
+                "plasma_acth": "High, because the pituitary is driving the axis",
+                "serum_cortisol": "High and made in response to excess ACTH",
+                "tier_that_has_failed": "Anterior pituitary, generating an unregulated signal",
+                "classic_example": "Cushing disease from a corticotroph adenoma",
+                "what_the_tropic_hormone_tells_you": "It is high alongside the target hormone, so the pituitary is the source"
             }
         };
 

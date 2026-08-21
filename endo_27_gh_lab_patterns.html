@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #8b5cf6; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(139, 92, 246, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(139, 92, 246, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('gh_deficiency', this)">GH deficiency</button>
-                    <button class="tab" onclick="switchTab('gh_excess', this)">GH excess</button>
-                    <button class="tab" onclick="switchTab('laron_syndrome', this)">Laron syndrome</button>
+                    <button class="tab active" onclick="switchTab('serum_gh', this)">Serum GH</button>
+                    <button class="tab" onclick="switchTab('serum_igf_1', this)">Serum IGF-1</button>
+                    <button class="tab" onclick="switchTab('underlying_lesion', this)">Underlying lesion</button>
+                    <button class="tab" onclick="switchTab('confirmatory_test', this)">Confirmatory test</button>
+                    <button class="tab" onclick="switchTab('treatment', this)">Treatment</button>
+                    <button class="tab" onclick="switchTab('growth_pattern_in_a_child', this)">Growth pattern in a child</button>
                 </div>
-                <div id="gh_deficiency-bank" class="word-bank active"></div>
-                <div id="gh_excess-bank" class="word-bank"></div>
-                <div id="laron_syndrome-bank" class="word-bank"></div>
+                <div id="serum_gh-bank" class="word-bank active"></div>
+                <div id="serum_igf_1-bank" class="word-bank"></div>
+                <div id="underlying_lesion-bank" class="word-bank"></div>
+                <div id="confirmatory_test-bank" class="word-bank"></div>
+                <div id="treatment-bank" class="word-bank"></div>
+                <div id="growth_pattern_in_a_child-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,39 +166,33 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["gh_deficiency", "gh_excess", "laron_syndrome"];
-        const categoryLabels = {"gh_deficiency": "GH deficiency", "gh_excess": "GH excess", "laron_syndrome": "Laron syndrome"};
+        const categoryKeys = ["serum_gh", "serum_igf_1", "underlying_lesion", "confirmatory_test", "treatment", "growth_pattern_in_a_child"];
+        const categoryLabels = {"serum_gh": "Serum GH", "serum_igf_1": "Serum IGF-1", "underlying_lesion": "Underlying lesion", "confirmatory_test": "Confirmatory test", "treatment": "Treatment", "growth_pattern_in_a_child": "Growth pattern in a child"};
 
         const gameData = {
-            "Serum GH": {
-                "gh_deficiency": "Low, and fails to rise with provocative agents",
-                "gh_excess": "High, and fails to fall after a glucose load",
-                "laron_syndrome": "High, because low IGF-1 removes feedback inhibition"
+            "GH deficiency": {
+                "serum_gh": "Low, and fails to rise with provocative agents",
+                "serum_igf_1": "Low, and the more useful screening value than GH",
+                "underlying_lesion": "Usually idiopathic; also tumor, trauma, radiation, or autoimmune damage",
+                "confirmatory_test": "GH stimulation test with L-dopa, clonidine, arginine, or glucagon",
+                "treatment": "Recombinant GH injections",
+                "growth_pattern_in_a_child": "Short stature with delayed bone age and high weight-to-height ratio"
             },
-            "Serum IGF-1": {
-                "gh_deficiency": "Low, and the more useful screening value than GH",
-                "gh_excess": "Elevated, and the best initial test for the disorder",
-                "laron_syndrome": "Low despite plentiful circulating GH"
+            "GH excess": {
+                "serum_gh": "High, and fails to fall after a glucose load",
+                "serum_igf_1": "Elevated, and the best initial test for the disorder",
+                "underlying_lesion": "GH-secreting pituitary adenoma with somatotroph hyperplasia",
+                "confirmatory_test": "GH suppression test using an oral glucose load",
+                "treatment": "Surgical resection of the adenoma, then medical therapy",
+                "growth_pattern_in_a_child": "Excessive linear growth, usually recognized around puberty"
             },
-            "Underlying lesion": {
-                "gh_deficiency": "Usually idiopathic; also tumor, trauma, radiation, or autoimmune damage",
-                "gh_excess": "GH-secreting pituitary adenoma with somatotroph hyperplasia",
-                "laron_syndrome": "Autosomal recessive mutation of the GH receptor"
-            },
-            "Confirmatory test": {
-                "gh_deficiency": "GH stimulation test with L-dopa, clonidine, arginine, or glucagon",
-                "gh_excess": "GH suppression test using an oral glucose load",
-                "laron_syndrome": "Genetic analysis showing the GH receptor mutation"
-            },
-            "Treatment": {
-                "gh_deficiency": "Recombinant GH injections",
-                "gh_excess": "Surgical resection of the adenoma, then medical therapy",
-                "laron_syndrome": "Recombinant IGF-1 injections, since GH cannot work"
-            },
-            "Growth pattern in a child": {
-                "gh_deficiency": "Short stature with delayed bone age and high weight-to-height ratio",
-                "gh_excess": "Excessive linear growth, usually recognized around puberty",
-                "laron_syndrome": "Severe growth failure with prominent forehead and saddle nose"
+            "Laron syndrome": {
+                "serum_gh": "High, because low IGF-1 removes feedback inhibition",
+                "serum_igf_1": "Low despite plentiful circulating GH",
+                "underlying_lesion": "Autosomal recessive mutation of the GH receptor",
+                "confirmatory_test": "Genetic analysis showing the GH receptor mutation",
+                "treatment": "Recombinant IGF-1 injections, since GH cannot work",
+                "growth_pattern_in_a_child": "Severe growth failure with prominent forehead and saddle nose"
             }
         };
 

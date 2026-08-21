@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f59e0b; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,11 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('papillary_thyroid_carcinoma', this)">Papillary thyroid carcinoma</button>
-                    <button class="tab" onclick="switchTab('follicular_thyroid_carcinoma', this)">Follicular thyroid carcinoma</button>
+                    <button class="tab active" onclick="switchTab('how_common', this)">How common</button>
+                    <button class="tab" onclick="switchTab('diagnostic_clue', this)">Diagnostic clue</button>
+                    <button class="tab" onclick="switchTab('value_of_fine_needle_aspiration', this)">Value of fine-needle aspiration</button>
+                    <button class="tab" onclick="switchTab('route_of_spread', this)">Route of spread</button>
+                    <button class="tab" onclick="switchTab('typical_metastatic_site', this)">Typical metastatic site</button>
+                    <button class="tab" onclick="switchTab('molecular_pattern', this)">Molecular pattern</button>
                 </div>
-                <div id="papillary_thyroid_carcinoma-bank" class="word-bank active"></div>
-                <div id="follicular_thyroid_carcinoma-bank" class="word-bank"></div>
+                <div id="how_common-bank" class="word-bank active"></div>
+                <div id="diagnostic_clue-bank" class="word-bank"></div>
+                <div id="value_of_fine_needle_aspiration-bank" class="word-bank"></div>
+                <div id="route_of_spread-bank" class="word-bank"></div>
+                <div id="typical_metastatic_site-bank" class="word-bank"></div>
+                <div id="molecular_pattern-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -158,33 +166,25 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["papillary_thyroid_carcinoma", "follicular_thyroid_carcinoma"];
-        const categoryLabels = {"papillary_thyroid_carcinoma": "Papillary thyroid carcinoma", "follicular_thyroid_carcinoma": "Follicular thyroid carcinoma"};
+        const categoryKeys = ["how_common", "diagnostic_clue", "value_of_fine_needle_aspiration", "route_of_spread", "typical_metastatic_site", "molecular_pattern"];
+        const categoryLabels = {"how_common": "How common", "diagnostic_clue": "Diagnostic clue", "value_of_fine_needle_aspiration": "Value of fine-needle aspiration", "route_of_spread": "Route of spread", "typical_metastatic_site": "Typical metastatic site", "molecular_pattern": "Molecular pattern"};
 
         const gameData = {
-            "How common": {
-                "papillary_thyroid_carcinoma": "The most common thyroid cancer overall",
-                "follicular_thyroid_carcinoma": "Less common differentiated cancer of follicular pattern"
+            "Papillary thyroid carcinoma": {
+                "how_common": "The most common thyroid cancer overall",
+                "diagnostic_clue": "Nuclear phenotype: clearing, grooves, pseudoinclusions, psammoma bodies",
+                "value_of_fine_needle_aspiration": "Cytology alone can show the diagnostic nuclear features",
+                "route_of_spread": "Lymphatic spread to cervical lymph nodes",
+                "typical_metastatic_site": "Cervical nodes, even when the primary tumor is small",
+                "molecular_pattern": "MAPK-pathway pattern, including BRAF V600E and RET fusions"
             },
-            "Diagnostic clue": {
-                "papillary_thyroid_carcinoma": "Nuclear phenotype: clearing, grooves, pseudoinclusions, psammoma bodies",
-                "follicular_thyroid_carcinoma": "Capsular and/or vascular invasion seen in tissue"
-            },
-            "Value of fine-needle aspiration": {
-                "papillary_thyroid_carcinoma": "Cytology alone can show the diagnostic nuclear features",
-                "follicular_thyroid_carcinoma": "Cytology says only 'follicular neoplasm'; invasion cannot be assessed"
-            },
-            "Route of spread": {
-                "papillary_thyroid_carcinoma": "Lymphatic spread to cervical lymph nodes",
-                "follicular_thyroid_carcinoma": "Hematogenous, blood-borne spread"
-            },
-            "Typical metastatic site": {
-                "papillary_thyroid_carcinoma": "Cervical nodes, even when the primary tumor is small",
-                "follicular_thyroid_carcinoma": "Bone and lung"
-            },
-            "Molecular pattern": {
-                "papillary_thyroid_carcinoma": "MAPK-pathway pattern, including BRAF V600E and RET fusions",
-                "follicular_thyroid_carcinoma": "RAS-like pattern, including PAX8::PPAR-gamma fusion"
+            "Follicular thyroid carcinoma": {
+                "how_common": "Less common differentiated cancer of follicular pattern",
+                "diagnostic_clue": "Capsular and/or vascular invasion seen in tissue",
+                "value_of_fine_needle_aspiration": "Cytology says only 'follicular neoplasm'; invasion cannot be assessed",
+                "route_of_spread": "Hematogenous, blood-borne spread",
+                "typical_metastatic_site": "Bone and lung",
+                "molecular_pattern": "RAS-like pattern, including PAX8::PPAR-gamma fusion"
             }
         };
 

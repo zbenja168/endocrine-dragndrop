@@ -72,32 +72,28 @@ BRICK = {
             "slug": "zone_selective_regulation",
             "title": "Cortisol vs Aldosterone vs Adrenal Androgens",
             "subtitle": "Sort each regulatory feature under the adrenal output it controls",
-            "categories": ["Cortisol", "Aldosterone", "Adrenal androgens"],
+            "categories": ["Dominant stimulus", "Cellular signaling detail", "Restraining or opposing signal", "When output rises", "Effect of losing ACTH drive"],
             "data": {
-                "Dominant stimulus": {
-                    "Cortisol": "CRH then ACTH along the hypothalamic-pituitary-adrenal axis",
-                    "Aldosterone": "Renin-angiotensin-aldosterone system plus serum potassium",
-                    "Adrenal androgens": "ACTH-dependent substrate delivery with no LH/FSH equivalent"
+                "Cortisol": {
+                    "Dominant stimulus": "CRH then ACTH along the hypothalamic-pituitary-adrenal axis",
+                    "Cellular signaling detail": "ACTH binds MC2R; cAMP signaling that needs the MRAP accessory protein",
+                    "Restraining or opposing signal": "Cortisol feeds back to suppress hypothalamic CRH and pituitary ACTH",
+                    "When output rises": "Early morning peak, plus acute stress, hypoglycemia, and IL-1/IL-6/TNF-alpha",
+                    "Effect of losing ACTH drive": "Output falls quickly and the fasciculata atrophies over time"
                 },
-                "Cellular signaling detail": {
-                    "Cortisol": "ACTH binds MC2R; cAMP signaling that needs the MRAP accessory protein",
-                    "Aldosterone": "Angiotensin II raises intracellular calcium and induces CYP11B2",
-                    "Adrenal androgens": "17,20-lyase activity of CYP17A1, augmented by cytochrome b5"
+                "Aldosterone": {
+                    "Dominant stimulus": "Renin-angiotensin-aldosterone system plus serum potassium",
+                    "Cellular signaling detail": "Angiotensin II raises intracellular calcium and induces CYP11B2",
+                    "Restraining or opposing signal": "Atrial natriuretic peptide suppresses synthesis during volume expansion",
+                    "When output rises": "Low renal perfusion, low distal sodium delivery, or hyperkalemia",
+                    "Effect of losing ACTH drive": "Largely preserved, since ACTH is only a minor transient stimulus"
                 },
-                "Restraining or opposing signal": {
-                    "Cortisol": "Cortisol feeds back to suppress hypothalamic CRH and pituitary ACTH",
-                    "Aldosterone": "Atrial natriuretic peptide suppresses synthesis during volume expansion",
-                    "Adrenal androgens": "No dedicated feedback loop; flux is set by reticularis programming"
-                },
-                "When output rises": {
-                    "Cortisol": "Early morning peak, plus acute stress, hypoglycemia, and IL-1/IL-6/TNF-alpha",
-                    "Aldosterone": "Low renal perfusion, low distal sodium delivery, or hyperkalemia",
-                    "Adrenal androgens": "Adrenarche in mid-childhood as the reticularis matures"
-                },
-                "Effect of losing ACTH drive": {
-                    "Cortisol": "Output falls quickly and the fasciculata atrophies over time",
-                    "Aldosterone": "Largely preserved, since ACTH is only a minor transient stimulus",
-                    "Adrenal androgens": "DHEA and DHEA-S fall as the reticularis loses trophic support"
+                "Adrenal androgens": {
+                    "Dominant stimulus": "ACTH-dependent substrate delivery with no LH/FSH equivalent",
+                    "Cellular signaling detail": "17,20-lyase activity of CYP17A1, augmented by cytochrome b5",
+                    "Restraining or opposing signal": "No dedicated feedback loop; flux is set by reticularis programming",
+                    "When output rises": "Adrenarche in mid-childhood as the reticularis matures",
+                    "Effect of losing ACTH drive": "DHEA and DHEA-S fall as the reticularis loses trophic support"
                 }
             }
         },
@@ -105,32 +101,28 @@ BRICK = {
             "slug": "cah_enzyme_blocks",
             "title": "Congenital Adrenal Hyperplasia Blocks",
             "subtitle": "Sort each finding under the enzyme deficiency that produces it",
-            "categories": ["21-hydroxylase deficiency", "11beta-hydroxylase deficiency", "17alpha-hydroxylase deficiency"],
+            "categories": ["Cortisol synthesis", "Mineralocorticoid status", "Adrenal androgen output", "Blood pressure and volume", "Classic presentation"],
             "data": {
-                "Cortisol synthesis": {
-                    "21-hydroxylase deficiency": "Impaired, so ACTH rises and the cortex hyperplasias",
-                    "11beta-hydroxylase deficiency": "Impaired at the final step from 11-deoxycortisol",
-                    "17alpha-hydroxylase deficiency": "Impaired because 17-hydroxylated intermediates cannot form"
+                "21-hydroxylase deficiency": {
+                    "Cortisol synthesis": "Impaired, so ACTH rises and the cortex hyperplasias",
+                    "Mineralocorticoid status": "Aldosterone synthesis also blocked, producing salt wasting",
+                    "Adrenal androgen output": "Increased, as blocked precursors are diverted to androgens",
+                    "Blood pressure and volume": "Hypotension and dehydration from salt loss",
+                    "Classic presentation": "Vomiting, lethargic newborn with hyponatremia and hyperkalemia"
                 },
-                "Mineralocorticoid status": {
-                    "21-hydroxylase deficiency": "Aldosterone synthesis also blocked, producing salt wasting",
-                    "11beta-hydroxylase deficiency": "DOC accumulates and acts as a mineralocorticoid",
-                    "17alpha-hydroxylase deficiency": "DOC and corticosterone drive mineralocorticoid excess"
+                "11beta-hydroxylase deficiency": {
+                    "Cortisol synthesis": "Impaired at the final step from 11-deoxycortisol",
+                    "Mineralocorticoid status": "DOC accumulates and acts as a mineralocorticoid",
+                    "Adrenal androgen output": "Increased, giving virilization alongside the enzyme block",
+                    "Blood pressure and volume": "Hypertension from retained sodium and volume",
+                    "Classic presentation": "Child with early pubic hair and elevated blood pressure"
                 },
-                "Adrenal androgen output": {
-                    "21-hydroxylase deficiency": "Increased, as blocked precursors are diverted to androgens",
-                    "11beta-hydroxylase deficiency": "Increased, giving virilization alongside the enzyme block",
-                    "17alpha-hydroxylase deficiency": "Decreased, since androgens need CYP17A1 to be made"
-                },
-                "Blood pressure and volume": {
-                    "21-hydroxylase deficiency": "Hypotension and dehydration from salt loss",
-                    "11beta-hydroxylase deficiency": "Hypertension from retained sodium and volume",
-                    "17alpha-hydroxylase deficiency": "Hypertension from sustained mineralocorticoid activity"
-                },
-                "Classic presentation": {
-                    "21-hydroxylase deficiency": "Vomiting, lethargic newborn with hyponatremia and hyperkalemia",
-                    "11beta-hydroxylase deficiency": "Child with early pubic hair and elevated blood pressure",
-                    "17alpha-hydroxylase deficiency": "Teen with primary amenorrhea and absent secondary sexual development"
+                "17alpha-hydroxylase deficiency": {
+                    "Cortisol synthesis": "Impaired because 17-hydroxylated intermediates cannot form",
+                    "Mineralocorticoid status": "DOC and corticosterone drive mineralocorticoid excess",
+                    "Adrenal androgen output": "Decreased, since androgens need CYP17A1 to be made",
+                    "Blood pressure and volume": "Hypertension from sustained mineralocorticoid activity",
+                    "Classic presentation": "Teen with primary amenorrhea and absent secondary sexual development"
                 }
             }
         }

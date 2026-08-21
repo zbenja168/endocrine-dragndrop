@@ -44,31 +44,23 @@ BRICK = {
             "slug": "npdr_vs_pdr",
             "title": "Non-Proliferative vs Proliferative Retinopathy",
             "subtitle": "Sort each feature into the stage of diabetic retinopathy it belongs to",
-            "categories": ["Non-proliferative (NPDR)", "Proliferative (PDR)"],
+            "categories": ["Defining vascular change", "Fundoscopic findings", "Earliest or defining lesion", "Key mediator", "How vision is lost", "Targeted management"],
             "data": {
-                "Defining vascular change": {
-                    "Non-proliferative (NPDR)": "Retinal microvascular damage without abnormal new vessel growth",
-                    "Proliferative (PDR)": "Neovascularization arising from the optic disc or retinal vessels"
+                "Non-proliferative (NPDR)": {
+                    "Defining vascular change": "Retinal microvascular damage without abnormal new vessel growth",
+                    "Fundoscopic findings": "Microaneurysms, intraretinal hemorrhages, cotton-wool spots, hard exudates",
+                    "Earliest or defining lesion": "Microaneurysms from pericyte loss appear first in mild disease",
+                    "Key mediator": "Sorbitol, AGE-RAGE injury, and basement membrane thickening",
+                    "How vision is lost": "Macular edema blurs acuity and can occur at any stage",
+                    "Targeted management": "Glycemic and blood pressure control with yearly dilated exams"
                 },
-                "Fundoscopic findings": {
-                    "Non-proliferative (NPDR)": "Microaneurysms, intraretinal hemorrhages, cotton-wool spots, hard exudates",
-                    "Proliferative (PDR)": "Fragile new vessels at the disc or along retinal vessels"
-                },
-                "Earliest or defining lesion": {
-                    "Non-proliferative (NPDR)": "Microaneurysms from pericyte loss appear first in mild disease",
-                    "Proliferative (PDR)": "Capillary closure and retinal ischemia precede the new vessels"
-                },
-                "Key mediator": {
-                    "Non-proliferative (NPDR)": "Sorbitol, AGE-RAGE injury, and basement membrane thickening",
-                    "Proliferative (PDR)": "Hypoxia-driven VEGF, with IGF-1 and other growth factors"
-                },
-                "How vision is lost": {
-                    "Non-proliferative (NPDR)": "Macular edema blurs acuity and can occur at any stage",
-                    "Proliferative (PDR)": "Vitreous hemorrhage, fibrosis, and tractional retinal detachment"
-                },
-                "Targeted management": {
-                    "Non-proliferative (NPDR)": "Glycemic and blood pressure control with yearly dilated exams",
-                    "Proliferative (PDR)": "Laser photocoagulation to inhibit vessel proliferation"
+                "Proliferative (PDR)": {
+                    "Defining vascular change": "Neovascularization arising from the optic disc or retinal vessels",
+                    "Fundoscopic findings": "Fragile new vessels at the disc or along retinal vessels",
+                    "Earliest or defining lesion": "Capillary closure and retinal ischemia precede the new vessels",
+                    "Key mediator": "Hypoxia-driven VEGF, with IGF-1 and other growth factors",
+                    "How vision is lost": "Vitreous hemorrhage, fibrosis, and tractional retinal detachment",
+                    "Targeted management": "Laser photocoagulation to inhibit vessel proliferation"
                 }
             }
         },

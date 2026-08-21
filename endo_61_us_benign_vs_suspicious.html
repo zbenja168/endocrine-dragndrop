@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #ec4899; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(236, 72, 153, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(236, 72, 153, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,11 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('benign_leaning_pattern', this)">Benign-leaning pattern</button>
-                    <button class="tab" onclick="switchTab('suspicious_pattern', this)">Suspicious pattern</button>
+                    <button class="tab active" onclick="switchTab('composition', this)">Composition</button>
+                    <button class="tab" onclick="switchTab('margins', this)">Margins</button>
+                    <button class="tab" onclick="switchTab('echogenic_foci', this)">Echogenic foci</button>
+                    <button class="tab" onclick="switchTab('shape', this)">Shape</button>
+                    <button class="tab" onclick="switchTab('surrounding_structures', this)">Surrounding structures</button>
+                    <button class="tab" onclick="switchTab('effect_on_the_fna_size_threshold', this)">Effect on the FNA size threshold</button>
                 </div>
-                <div id="benign_leaning_pattern-bank" class="word-bank active"></div>
-                <div id="suspicious_pattern-bank" class="word-bank"></div>
+                <div id="composition-bank" class="word-bank active"></div>
+                <div id="margins-bank" class="word-bank"></div>
+                <div id="echogenic_foci-bank" class="word-bank"></div>
+                <div id="shape-bank" class="word-bank"></div>
+                <div id="surrounding_structures-bank" class="word-bank"></div>
+                <div id="effect_on_the_fna_size_threshold-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -158,33 +166,25 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["benign_leaning_pattern", "suspicious_pattern"];
-        const categoryLabels = {"benign_leaning_pattern": "Benign-leaning pattern", "suspicious_pattern": "Suspicious pattern"};
+        const categoryKeys = ["composition", "margins", "echogenic_foci", "shape", "surrounding_structures", "effect_on_the_fna_size_threshold"];
+        const categoryLabels = {"composition": "Composition", "margins": "Margins", "echogenic_foci": "Echogenic foci", "shape": "Shape", "surrounding_structures": "Surrounding structures", "effect_on_the_fna_size_threshold": "Effect on the FNA size threshold"};
 
         const gameData = {
-            "Composition": {
-                "benign_leaning_pattern": "Purely cystic or spongiform composition",
-                "suspicious_pattern": "Solid hypoechoic or very hypoechoic composition"
+            "Benign-leaning pattern": {
+                "composition": "Purely cystic or spongiform composition",
+                "margins": "Smooth, well-defined margins",
+                "echogenic_foci": "Comet-tail artifact arising from cystic spaces",
+                "shape": "Wider-than-tall shape",
+                "surrounding_structures": "No extrathyroidal extension and no suspicious cervical nodes",
+                "effect_on_the_fna_size_threshold": "Larger size needed before biopsy is considered"
             },
-            "Margins": {
-                "benign_leaning_pattern": "Smooth, well-defined margins",
-                "suspicious_pattern": "Irregular, microlobulated, or infiltrative margins"
-            },
-            "Echogenic foci": {
-                "benign_leaning_pattern": "Comet-tail artifact arising from cystic spaces",
-                "suspicious_pattern": "Punctate echogenic foci within the nodule"
-            },
-            "Shape": {
-                "benign_leaning_pattern": "Wider-than-tall shape",
-                "suspicious_pattern": "Taller-than-wide shape"
-            },
-            "Surrounding structures": {
-                "benign_leaning_pattern": "No extrathyroidal extension and no suspicious cervical nodes",
-                "suspicious_pattern": "Extrathyroidal extension with suspicious cervical lymph nodes"
-            },
-            "Effect on the FNA size threshold": {
-                "benign_leaning_pattern": "Larger size needed before biopsy is considered",
-                "suspicious_pattern": "Lower threshold; biopsy considered at smaller sizes"
+            "Suspicious pattern": {
+                "composition": "Solid hypoechoic or very hypoechoic composition",
+                "margins": "Irregular, microlobulated, or infiltrative margins",
+                "echogenic_foci": "Punctate echogenic foci within the nodule",
+                "shape": "Taller-than-wide shape",
+                "surrounding_structures": "Extrathyroidal extension with suspicious cervical lymph nodes",
+                "effect_on_the_fna_size_threshold": "Lower threshold; biopsy considered at smaller sizes"
             }
         };
 

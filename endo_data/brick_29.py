@@ -6,31 +6,23 @@ BRICK = {
             "slug": "dka_vs_hhs_clinical",
             "title": "DKA vs HHS at the Bedside",
             "subtitle": "Sort each clinical feature into the hyperglycemic emergency it characterizes",
-            "categories": ["Diabetic ketoacidosis (DKA)", "Hyperosmolar hyperglycemic state (HHS)"],
+            "categories": ["Usual diabetes type", "Speed of onset", "Ketone production", "Respiratory findings", "Neurologic findings", "Typical fluid deficit"],
             "data": {
-                "Usual diabetes type": {
-                    "Diabetic ketoacidosis (DKA)": "Type 1 diabetes, including new-onset or missed insulin doses",
-                    "Hyperosmolar hyperglycemic state (HHS)": "Type 2 diabetes, often with impaired thirst or limited water access"
+                "Diabetic ketoacidosis (DKA)": {
+                    "Usual diabetes type": "Type 1 diabetes, including new-onset or missed insulin doses",
+                    "Speed of onset": "Rapid, over hours to about a day",
+                    "Ketone production": "Unrestrained lipolysis makes acetoacetate and beta-hydroxybutyrate",
+                    "Respiratory findings": "Kussmaul respirations with fruity, acetone-like breath odor",
+                    "Neurologic findings": "Altered consciousness less common and usually milder",
+                    "Typical fluid deficit": "Roughly 3-6 L from a shorter period of osmotic losses"
                 },
-                "Speed of onset": {
-                    "Diabetic ketoacidosis (DKA)": "Rapid, over hours to about a day",
-                    "Hyperosmolar hyperglycemic state (HHS)": "Insidious, evolving over days to weeks"
-                },
-                "Ketone production": {
-                    "Diabetic ketoacidosis (DKA)": "Unrestrained lipolysis makes acetoacetate and beta-hydroxybutyrate",
-                    "Hyperosmolar hyperglycemic state (HHS)": "Residual insulin suppresses lipolysis, so ketogenesis stays minimal"
-                },
-                "Respiratory findings": {
-                    "Diabetic ketoacidosis (DKA)": "Kussmaul respirations with fruity, acetone-like breath odor",
-                    "Hyperosmolar hyperglycemic state (HHS)": "No compensatory hyperpnea, since significant acidosis does not develop"
-                },
-                "Neurologic findings": {
-                    "Diabetic ketoacidosis (DKA)": "Altered consciousness less common and usually milder",
-                    "Hyperosmolar hyperglycemic state (HHS)": "Lethargy, stupor, coma, focal deficits, or seizures"
-                },
-                "Typical fluid deficit": {
-                    "Diabetic ketoacidosis (DKA)": "Roughly 3-6 L from a shorter period of osmotic losses",
-                    "Hyperosmolar hyperglycemic state (HHS)": "Roughly 8-12 L from prolonged osmotic diuresis"
+                "Hyperosmolar hyperglycemic state (HHS)": {
+                    "Usual diabetes type": "Type 2 diabetes, often with impaired thirst or limited water access",
+                    "Speed of onset": "Insidious, evolving over days to weeks",
+                    "Ketone production": "Residual insulin suppresses lipolysis, so ketogenesis stays minimal",
+                    "Respiratory findings": "No compensatory hyperpnea, since significant acidosis does not develop",
+                    "Neurologic findings": "Lethargy, stupor, coma, focal deficits, or seizures",
+                    "Typical fluid deficit": "Roughly 8-12 L from prolonged osmotic diuresis"
                 }
             }
         },
@@ -76,27 +68,25 @@ BRICK = {
             "slug": "potassium_guided_therapy",
             "title": "Potassium Decides When Insulin Starts",
             "subtitle": "Sort each management decision under the presenting serum potassium that dictates it",
-            "categories": ["Potassium below 3.5 mEq/L", "Potassium 3.5-5.5 mEq/L", "Potassium above 5.5 mEq/L"],
+            "categories": ["Insulin decision", "Potassium decision", "What the value reflects", "Main hazard if mishandled"],
             "data": {
-                "Insulin decision": {
-                    "Potassium below 3.5 mEq/L": "Hold the insulin infusion temporarily",
-                    "Potassium 3.5-5.5 mEq/L": "Start the insulin infusion now",
-                    "Potassium above 5.5 mEq/L": "Start insulin, which will help drive potassium into cells"
+                "Potassium below 3.5 mEq/L": {
+                    "Insulin decision": "Hold the insulin infusion temporarily",
+                    "Potassium decision": "Replace potassium first, before any insulin is given",
+                    "What the value reflects": "Total-body depletion already showing up in the serum",
+                    "Main hazard if mishandled": "Life-threatening hypokalemia and arrhythmia if insulin goes first"
                 },
-                "Potassium decision": {
-                    "Potassium below 3.5 mEq/L": "Replace potassium first, before any insulin is given",
-                    "Potassium 3.5-5.5 mEq/L": "Give potassium replacement as needed during therapy",
-                    "Potassium above 5.5 mEq/L": "Withhold potassium initially and recheck frequently"
+                "Potassium 3.5-5.5 mEq/L": {
+                    "Insulin decision": "Start the insulin infusion now",
+                    "Potassium decision": "Give potassium replacement as needed during therapy",
+                    "What the value reflects": "Reassuring number that still masks a large total-body deficit",
+                    "Main hazard if mishandled": "Potassium falling out of range as insulin takes effect"
                 },
-                "What the value reflects": {
-                    "Potassium below 3.5 mEq/L": "Total-body depletion already showing up in the serum",
-                    "Potassium 3.5-5.5 mEq/L": "Reassuring number that still masks a large total-body deficit",
-                    "Potassium above 5.5 mEq/L": "Extracellular shift from absent insulin and acidemia"
-                },
-                "Main hazard if mishandled": {
-                    "Potassium below 3.5 mEq/L": "Life-threatening hypokalemia and arrhythmia if insulin goes first",
-                    "Potassium 3.5-5.5 mEq/L": "Potassium falling out of range as insulin takes effect",
-                    "Potassium above 5.5 mEq/L": "Worsening hyperkalemia if supplementation is added too early"
+                "Potassium above 5.5 mEq/L": {
+                    "Insulin decision": "Start insulin, which will help drive potassium into cells",
+                    "Potassium decision": "Withhold potassium initially and recheck frequently",
+                    "What the value reflects": "Extracellular shift from absent insulin and acidemia",
+                    "Main hazard if mishandled": "Worsening hyperkalemia if supplementation is added too early"
                 }
             }
         },

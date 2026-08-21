@@ -44,32 +44,28 @@ BRICK = {
             "slug": "high_versus_low_uptake",
             "title": "Sorting a Thyrotoxic Patient by Uptake",
             "subtitle": "Sort each feature under the state it belongs to",
-            "categories": ["Graves disease", "Thyroiditis", "Exogenous hormone exposure"],
+            "categories": ["Is the gland synthesizing hormone?", "Radioactive iodine uptake", "Serum thyroglobulin", "Value of a thionamide", "Mechanism-matched treatment"],
             "data": {
-                "Is the gland synthesizing hormone?": {
-                    "Graves disease": "Yes, true hyperthyroidism driven by receptor stimulation",
-                    "Thyroiditis": "No, stored hormone is leaking from damaged follicles",
-                    "Exogenous hormone exposure": "No, the gland is suppressed by negative feedback"
+                "Graves disease": {
+                    "Is the gland synthesizing hormone?": "Yes, true hyperthyroidism driven by receptor stimulation",
+                    "Radioactive iodine uptake": "Diffusely increased",
+                    "Serum thyroglobulin": "Made by an actively stimulated gland",
+                    "Value of a thionamide": "Useful, because it blocks the increased new synthesis",
+                    "Mechanism-matched treatment": "Antithyroid drug, radioactive iodine, or surgery"
                 },
-                "Radioactive iodine uptake": {
-                    "Graves disease": "Diffusely increased",
-                    "Thyroiditis": "Low, because trapping is not driving the hormone excess",
-                    "Exogenous hormone exposure": "Low, because the source bypasses the gland"
+                "Thyroiditis": {
+                    "Is the gland synthesizing hormone?": "No, stored hormone is leaking from damaged follicles",
+                    "Radioactive iodine uptake": "Low, because trapping is not driving the hormone excess",
+                    "Serum thyroglobulin": "May be elevated as damaged follicles spill their contents",
+                    "Value of a thionamide": "Usually unhelpful, since new synthesis is not the problem",
+                    "Mechanism-matched treatment": "Supportive and anti-inflammatory therapy while the leak resolves"
                 },
-                "Serum thyroglobulin": {
-                    "Graves disease": "Made by an actively stimulated gland",
-                    "Thyroiditis": "May be elevated as damaged follicles spill their contents",
-                    "Exogenous hormone exposure": "Often low, since no endogenous hormone is released"
-                },
-                "Value of a thionamide": {
-                    "Graves disease": "Useful, because it blocks the increased new synthesis",
-                    "Thyroiditis": "Usually unhelpful, since new synthesis is not the problem",
-                    "Exogenous hormone exposure": "Unhelpful, since the hormone is not made in the gland"
-                },
-                "Mechanism-matched treatment": {
-                    "Graves disease": "Antithyroid drug, radioactive iodine, or surgery",
-                    "Thyroiditis": "Supportive and anti-inflammatory therapy while the leak resolves",
-                    "Exogenous hormone exposure": "Stop or reduce the outside source and control symptoms"
+                "Exogenous hormone exposure": {
+                    "Is the gland synthesizing hormone?": "No, the gland is suppressed by negative feedback",
+                    "Radioactive iodine uptake": "Low, because the source bypasses the gland",
+                    "Serum thyroglobulin": "Often low, since no endogenous hormone is released",
+                    "Value of a thionamide": "Unhelpful, since the hormone is not made in the gland",
+                    "Mechanism-matched treatment": "Stop or reduce the outside source and control symptoms"
                 }
             }
         },
@@ -115,32 +111,28 @@ BRICK = {
             "slug": "storm_versus_lookalikes",
             "title": "Thyroid Storm and Its Look-Alikes",
             "subtitle": "Sort each feature under the clinical state it belongs to",
-            "categories": ["Thyroid storm", "Uncomplicated thyrotoxicosis", "Nonthyroidal illness syndrome"],
+            "categories": ["Defining feature", "TSH pattern", "Thyroid hormone pattern", "Typical setting", "Management priority"],
             "data": {
-                "Defining feature": {
-                    "Thyroid storm": "Multisystem decompensation: fever, agitation, cardiovascular instability",
-                    "Uncomplicated thyrotoxicosis": "Excess hormone effect without systemic decompensation",
-                    "Nonthyroidal illness syndrome": "Altered thyroid tests without primary thyroid disease"
+                "Thyroid storm": {
+                    "Defining feature": "Multisystem decompensation: fever, agitation, cardiovascular instability",
+                    "TSH pattern": "Suppressed, but no lab value defines the emergency",
+                    "Thyroid hormone pattern": "Free T4 elevated, though no threshold makes the diagnosis",
+                    "Typical setting": "Untreated thyrotoxicosis plus infection, surgery, trauma, or childbirth",
+                    "Management priority": "Stacked blockade plus treatment of the precipitating trigger"
                 },
-                "TSH pattern": {
-                    "Thyroid storm": "Suppressed, but no lab value defines the emergency",
-                    "Uncomplicated thyrotoxicosis": "Suppressed, which is what first flags the state",
-                    "Nonthyroidal illness syndrome": "Normal or low during severe systemic illness"
+                "Uncomplicated thyrotoxicosis": {
+                    "Defining feature": "Excess hormone effect without systemic decompensation",
+                    "TSH pattern": "Suppressed, which is what first flags the state",
+                    "Thyroid hormone pattern": "Free T4 and/or free T3 clearly elevated",
+                    "Typical setting": "Graves, nodular disease, thyroiditis, or exogenous hormone",
+                    "Management priority": "Identify the mechanism, then match therapy to it"
                 },
-                "Thyroid hormone pattern": {
-                    "Thyroid storm": "Free T4 elevated, though no threshold makes the diagnosis",
-                    "Uncomplicated thyrotoxicosis": "Free T4 and/or free T3 clearly elevated",
-                    "Nonthyroidal illness syndrome": "Low T3 with normal or low free T4; reverse T3 rises"
-                },
-                "Typical setting": {
-                    "Thyroid storm": "Untreated thyrotoxicosis plus infection, surgery, trauma, or childbirth",
-                    "Uncomplicated thyrotoxicosis": "Graves, nodular disease, thyroiditis, or exogenous hormone",
-                    "Nonthyroidal illness syndrome": "Critically ill patient with no autonomous hormone production"
-                },
-                "Management priority": {
-                    "Thyroid storm": "Stacked blockade plus treatment of the precipitating trigger",
-                    "Uncomplicated thyrotoxicosis": "Identify the mechanism, then match therapy to it",
-                    "Nonthyroidal illness syndrome": "Treat the underlying illness, not the thyroid number"
+                "Nonthyroidal illness syndrome": {
+                    "Defining feature": "Altered thyroid tests without primary thyroid disease",
+                    "TSH pattern": "Normal or low during severe systemic illness",
+                    "Thyroid hormone pattern": "Low T3 with normal or low free T4; reverse T3 rises",
+                    "Typical setting": "Critically ill patient with no autonomous hormone production",
+                    "Management priority": "Treat the underlying illness, not the thyroid number"
                 }
             }
         }

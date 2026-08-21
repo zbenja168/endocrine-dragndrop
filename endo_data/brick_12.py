@@ -105,32 +105,28 @@ BRICK = {
             "slug": "binding_proteins",
             "title": "Binding Proteins Versus True Thyroid Disease",
             "subtitle": "Sort each laboratory feature under the state it belongs to",
-            "categories": ["Increased thyroid-binding globulin", "Decreased binding proteins", "Primary hypothyroidism"],
+            "categories": ["Total T4 and total T3", "Free T4", "TSH", "Typical cause", "Correct interpretation"],
             "data": {
-                "Total T4 and total T3": {
-                    "Increased thyroid-binding globulin": "Increased, because more hormone is protein-bound",
-                    "Decreased binding proteins": "Decreased, because there is less protein to carry hormone",
-                    "Primary hypothyroidism": "Low, because the gland is making less hormone"
+                "Increased thyroid-binding globulin": {
+                    "Total T4 and total T3": "Increased, because more hormone is protein-bound",
+                    "Free T4": "Usually normal; binding changes do not create hormone",
+                    "TSH": "Normal, though early pregnancy hCG can lower it slightly",
+                    "Typical cause": "Pregnancy or estrogen therapy",
+                    "Correct interpretation": "High total hormone without true hyperthyroidism"
                 },
-                "Free T4": {
-                    "Increased thyroid-binding globulin": "Usually normal; binding changes do not create hormone",
-                    "Decreased binding proteins": "Normal, since biologically available hormone is preserved",
-                    "Primary hypothyroidism": "Low, reflecting a true hormone deficiency"
+                "Decreased binding proteins": {
+                    "Total T4 and total T3": "Decreased, because there is less protein to carry hormone",
+                    "Free T4": "Normal, since biologically available hormone is preserved",
+                    "TSH": "Normal, because feedback sees normal free hormone",
+                    "Typical cause": "Androgens, severe liver disease, nephrotic protein loss, drugs",
+                    "Correct interpretation": "Low total hormone without true hypothyroidism"
                 },
-                "TSH": {
-                    "Increased thyroid-binding globulin": "Normal, though early pregnancy hCG can lower it slightly",
-                    "Decreased binding proteins": "Normal, because feedback sees normal free hormone",
-                    "Primary hypothyroidism": "Elevated, as the pituitary tries to drive the gland"
-                },
-                "Typical cause": {
-                    "Increased thyroid-binding globulin": "Pregnancy or estrogen therapy",
-                    "Decreased binding proteins": "Androgens, severe liver disease, nephrotic protein loss, drugs",
-                    "Primary hypothyroidism": "Disease of the thyroid gland itself"
-                },
-                "Correct interpretation": {
-                    "Increased thyroid-binding globulin": "High total hormone without true hyperthyroidism",
-                    "Decreased binding proteins": "Low total hormone without true hypothyroidism",
-                    "Primary hypothyroidism": "Real hormone deficiency, confirmed by the free hormone level"
+                "Primary hypothyroidism": {
+                    "Total T4 and total T3": "Low, because the gland is making less hormone",
+                    "Free T4": "Low, reflecting a true hormone deficiency",
+                    "TSH": "Elevated, as the pituitary tries to drive the gland",
+                    "Typical cause": "Disease of the thyroid gland itself",
+                    "Correct interpretation": "Real hormone deficiency, confirmed by the free hormone level"
                 }
             }
         }

@@ -44,31 +44,23 @@ BRICK = {
             "slug": "pituitary_lobes",
             "title": "Two Lobes, Two Origins",
             "subtitle": "Sort each developmental feature under the pituitary lobe it belongs to",
-            "categories": ["Anterior lobe (adenohypophysis)", "Posterior lobe (neurohypophysis)"],
+            "categories": ["Tissue of origin", "Germ layer", "Direction of growth in the embryo", "Mature tissue type", "How the hypothalamus controls it", "Hormones released"],
             "data": {
-                "Tissue of origin": {
-                    "Anterior lobe (adenohypophysis)": "Rathke pouch from the roof of the primitive mouth",
-                    "Posterior lobe (neurohypophysis)": "Neuroectoderm of the developing diencephalon"
+                "Anterior lobe (adenohypophysis)": {
+                    "Tissue of origin": "Rathke pouch from the roof of the primitive mouth",
+                    "Germ layer": "Oral ectoderm",
+                    "Direction of growth in the embryo": "Grows upward from the oral cavity toward the brain",
+                    "Mature tissue type": "Glandular tissue with hormone-producing cells",
+                    "How the hypothalamus controls it": "Through the hypophyseal portal system that matures with the gland",
+                    "Hormones released": "GH, prolactin, ACTH, TSH, FSH, and LH"
                 },
-                "Germ layer": {
-                    "Anterior lobe (adenohypophysis)": "Oral ectoderm",
-                    "Posterior lobe (neurohypophysis)": "Neuroectoderm"
-                },
-                "Direction of growth in the embryo": {
-                    "Anterior lobe (adenohypophysis)": "Grows upward from the oral cavity toward the brain",
-                    "Posterior lobe (neurohypophysis)": "Grows downward from the brain to meet the ascending pouch"
-                },
-                "Mature tissue type": {
-                    "Anterior lobe (adenohypophysis)": "Glandular tissue with hormone-producing cells",
-                    "Posterior lobe (neurohypophysis)": "Neural tissue containing hypothalamic axons"
-                },
-                "How the hypothalamus controls it": {
-                    "Anterior lobe (adenohypophysis)": "Through the hypophyseal portal system that matures with the gland",
-                    "Posterior lobe (neurohypophysis)": "Directly, by axons that release hormone from their terminals"
-                },
-                "Hormones released": {
-                    "Anterior lobe (adenohypophysis)": "GH, prolactin, ACTH, TSH, FSH, and LH",
-                    "Posterior lobe (neurohypophysis)": "ADH and oxytocin"
+                "Posterior lobe (neurohypophysis)": {
+                    "Tissue of origin": "Neuroectoderm of the developing diencephalon",
+                    "Germ layer": "Neuroectoderm",
+                    "Direction of growth in the embryo": "Grows downward from the brain to meet the ascending pouch",
+                    "Mature tissue type": "Neural tissue containing hypothalamic axons",
+                    "How the hypothalamus controls it": "Directly, by axons that release hormone from their terminals",
+                    "Hormones released": "ADH and oxytocin"
                 }
             }
         },

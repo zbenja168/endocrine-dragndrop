@@ -6,37 +6,31 @@ BRICK = {
             "slug": "ai_localization",
             "title": "Where Is the Cortisol Deficiency?",
             "subtitle": "Sort each feature under the level of HPA-axis failure it points to",
-            "categories": ["Primary (Addison disease)", "Secondary or tertiary (central)", "Glucocorticoid-induced"],
+            "categories": ["Level of the defect", "Plasma ACTH", "Aldosterone and renin", "Serum potassium", "Skin findings", "Usual cause"],
             "data": {
-                "Level of the defect": {
-                    "Primary (Addison disease)": "Adrenal cortex itself is destroyed or damaged",
-                    "Secondary or tertiary (central)": "Pituitary or hypothalamus fails to drive the cortex",
-                    "Glucocorticoid-induced": "Prescribed steroid feedback shuts off CRH and ACTH"
+                "Primary (Addison disease)": {
+                    "Level of the defect": "Adrenal cortex itself is destroyed or damaged",
+                    "Plasma ACTH": "Elevated, because cortisol negative feedback is lost",
+                    "Aldosterone and renin": "Aldosterone often deficient with elevated plasma renin",
+                    "Serum potassium": "Hyperkalemia is a strong clue to this level",
+                    "Skin findings": "Darkened palmar creases, scars, and mucous membranes",
+                    "Usual cause": "Autoimmune adrenalitis, infection, hemorrhage, metastases, infiltration"
                 },
-                "Plasma ACTH": {
-                    "Primary (Addison disease)": "Elevated, because cortisol negative feedback is lost",
-                    "Secondary or tertiary (central)": "Low or inappropriately normal from pituitary or hypothalamic disease",
-                    "Glucocorticoid-induced": "Suppressed by chronic exogenous glucocorticoid exposure"
+                "Secondary or tertiary (central)": {
+                    "Level of the defect": "Pituitary or hypothalamus fails to drive the cortex",
+                    "Plasma ACTH": "Low or inappropriately normal from pituitary or hypothalamic disease",
+                    "Aldosterone and renin": "Preserved; RAAS and potassium still drive the zona glomerulosa",
+                    "Serum potassium": "Severe hyperkalemia is unlikely at this level",
+                    "Skin findings": "No hyperpigmentation, because ACTH drive is reduced",
+                    "Usual cause": "Pituitary or hypothalamic disease reducing ACTH or CRH output"
                 },
-                "Aldosterone and renin": {
-                    "Primary (Addison disease)": "Aldosterone often deficient with elevated plasma renin",
-                    "Secondary or tertiary (central)": "Preserved; RAAS and potassium still drive the zona glomerulosa",
-                    "Glucocorticoid-induced": "Preserved, since the cortex is intact but under-stimulated"
-                },
-                "Serum potassium": {
-                    "Primary (Addison disease)": "Hyperkalemia is a strong clue to this level",
-                    "Secondary or tertiary (central)": "Severe hyperkalemia is unlikely at this level",
-                    "Glucocorticoid-induced": "Cortisol deficiency without much rise in potassium"
-                },
-                "Skin findings": {
-                    "Primary (Addison disease)": "Darkened palmar creases, scars, and mucous membranes",
-                    "Secondary or tertiary (central)": "No hyperpigmentation, because ACTH drive is reduced",
-                    "Glucocorticoid-induced": "No hyperpigmentation; features may instead look cushingoid"
-                },
-                "Usual cause": {
-                    "Primary (Addison disease)": "Autoimmune adrenalitis, infection, hemorrhage, metastases, infiltration",
-                    "Secondary or tertiary (central)": "Pituitary or hypothalamic disease reducing ACTH or CRH output",
-                    "Glucocorticoid-induced": "Abrupt discontinuation of prolonged glucocorticoid therapy"
+                "Glucocorticoid-induced": {
+                    "Level of the defect": "Prescribed steroid feedback shuts off CRH and ACTH",
+                    "Plasma ACTH": "Suppressed by chronic exogenous glucocorticoid exposure",
+                    "Aldosterone and renin": "Preserved, since the cortex is intact but under-stimulated",
+                    "Serum potassium": "Cortisol deficiency without much rise in potassium",
+                    "Skin findings": "No hyperpigmentation; features may instead look cushingoid",
+                    "Usual cause": "Abrupt discontinuation of prolonged glucocorticoid therapy"
                 }
             }
         },

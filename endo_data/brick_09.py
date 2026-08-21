@@ -82,32 +82,28 @@ BRICK = {
             "slug": "sheehan_apoplexy_empty_sella",
             "title": "Sheehan vs Apoplexy vs Empty Sella",
             "subtitle": "Sort each feature under the sellar syndrome it belongs to",
-            "categories": ["Sheehan syndrome", "Pituitary apoplexy", "Empty sella syndrome"],
+            "categories": ["Underlying event", "Tempo of onset", "Hallmark presentation", "Pituitary hormone levels", "Initial management"],
             "data": {
-                "Underlying event": {
-                    "Sheehan syndrome": "Infarction of the pituitary after postpartum hemorrhage",
-                    "Pituitary apoplexy": "Sudden hemorrhage into the pituitary gland",
-                    "Empty sella syndrome": "Cerebrospinal fluid filling the bony sella around the gland"
+                "Sheehan syndrome": {
+                    "Underlying event": "Infarction of the pituitary after postpartum hemorrhage",
+                    "Tempo of onset": "Hypotension at delivery, then deficits over the following weeks",
+                    "Hallmark presentation": "Failure to breastfeed with lethargy and anorexia after delivery",
+                    "Pituitary hormone levels": "Loss of one or more hormones, usually following the initial symptoms",
+                    "Initial management": "Glucocorticoids for suspected adrenal insufficiency before levothyroxine"
                 },
-                "Tempo of onset": {
-                    "Sheehan syndrome": "Hypotension at delivery, then deficits over the following weeks",
-                    "Pituitary apoplexy": "Abrupt, with symptoms beginning within minutes to hours",
-                    "Empty sella syndrome": "Chronic and silent, discovered incidentally on imaging"
+                "Pituitary apoplexy": {
+                    "Underlying event": "Sudden hemorrhage into the pituitary gland",
+                    "Tempo of onset": "Abrupt, with symptoms beginning within minutes to hours",
+                    "Hallmark presentation": "Severe headache with diplopia and rapidly worsening vision",
+                    "Pituitary hormone levels": "Acute hypopituitarism with abruptly reduced cortisol",
+                    "Initial management": "Urgent vision and cranial nerve checks with neurosurgical consultation"
                 },
-                "Hallmark presentation": {
-                    "Sheehan syndrome": "Failure to breastfeed with lethargy and anorexia after delivery",
-                    "Pituitary apoplexy": "Severe headache with diplopia and rapidly worsening vision",
-                    "Empty sella syndrome": "No symptoms attributable to the pituitary at all"
-                },
-                "Pituitary hormone levels": {
-                    "Sheehan syndrome": "Loss of one or more hormones, usually following the initial symptoms",
-                    "Pituitary apoplexy": "Acute hypopituitarism with abruptly reduced cortisol",
-                    "Empty sella syndrome": "Usually normal pituitary hormone levels"
-                },
-                "Initial management": {
-                    "Sheehan syndrome": "Glucocorticoids for suspected adrenal insufficiency before levothyroxine",
-                    "Pituitary apoplexy": "Urgent vision and cranial nerve checks with neurosurgical consultation",
-                    "Empty sella syndrome": "No treatment needed, because it usually causes no harm"
+                "Empty sella syndrome": {
+                    "Underlying event": "Cerebrospinal fluid filling the bony sella around the gland",
+                    "Tempo of onset": "Chronic and silent, discovered incidentally on imaging",
+                    "Hallmark presentation": "No symptoms attributable to the pituitary at all",
+                    "Pituitary hormone levels": "Usually normal pituitary hormone levels",
+                    "Initial management": "No treatment needed, because it usually causes no harm"
                 }
             }
         },

@@ -6,31 +6,23 @@ BRICK = {
             "slug": "ptc_vs_ftc",
             "title": "Papillary vs Follicular Thyroid Carcinoma",
             "subtitle": "Sort each feature under the differentiated thyroid cancer it describes",
-            "categories": ["Papillary thyroid carcinoma", "Follicular thyroid carcinoma"],
+            "categories": ["How common", "Diagnostic clue", "Value of fine-needle aspiration", "Route of spread", "Typical metastatic site", "Molecular pattern"],
             "data": {
-                "How common": {
-                    "Papillary thyroid carcinoma": "The most common thyroid cancer overall",
-                    "Follicular thyroid carcinoma": "Less common differentiated cancer of follicular pattern"
+                "Papillary thyroid carcinoma": {
+                    "How common": "The most common thyroid cancer overall",
+                    "Diagnostic clue": "Nuclear phenotype: clearing, grooves, pseudoinclusions, psammoma bodies",
+                    "Value of fine-needle aspiration": "Cytology alone can show the diagnostic nuclear features",
+                    "Route of spread": "Lymphatic spread to cervical lymph nodes",
+                    "Typical metastatic site": "Cervical nodes, even when the primary tumor is small",
+                    "Molecular pattern": "MAPK-pathway pattern, including BRAF V600E and RET fusions"
                 },
-                "Diagnostic clue": {
-                    "Papillary thyroid carcinoma": "Nuclear phenotype: clearing, grooves, pseudoinclusions, psammoma bodies",
-                    "Follicular thyroid carcinoma": "Capsular and/or vascular invasion seen in tissue"
-                },
-                "Value of fine-needle aspiration": {
-                    "Papillary thyroid carcinoma": "Cytology alone can show the diagnostic nuclear features",
-                    "Follicular thyroid carcinoma": "Cytology says only 'follicular neoplasm'; invasion cannot be assessed"
-                },
-                "Route of spread": {
-                    "Papillary thyroid carcinoma": "Lymphatic spread to cervical lymph nodes",
-                    "Follicular thyroid carcinoma": "Hematogenous, blood-borne spread"
-                },
-                "Typical metastatic site": {
-                    "Papillary thyroid carcinoma": "Cervical nodes, even when the primary tumor is small",
-                    "Follicular thyroid carcinoma": "Bone and lung"
-                },
-                "Molecular pattern": {
-                    "Papillary thyroid carcinoma": "MAPK-pathway pattern, including BRAF V600E and RET fusions",
-                    "Follicular thyroid carcinoma": "RAS-like pattern, including PAX8::PPAR-gamma fusion"
+                "Follicular thyroid carcinoma": {
+                    "How common": "Less common differentiated cancer of follicular pattern",
+                    "Diagnostic clue": "Capsular and/or vascular invasion seen in tissue",
+                    "Value of fine-needle aspiration": "Cytology says only 'follicular neoplasm'; invasion cannot be assessed",
+                    "Route of spread": "Hematogenous, blood-borne spread",
+                    "Typical metastatic site": "Bone and lung",
+                    "Molecular pattern": "RAS-like pattern, including PAX8::PPAR-gamma fusion"
                 }
             }
         },

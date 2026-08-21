@@ -6,32 +6,28 @@ BRICK = {
             "slug": "ghd_across_lifespan",
             "title": "GH Deficiency Across the Lifespan",
             "subtitle": "Sort each feature under the age group it belongs to",
-            "categories": ["Newborn", "Child", "Adult"],
+            "categories": ["Why the deficiency is easy to miss", "Typical presentation", "What prompts the evaluation", "Usual cause", "Treatment"],
             "data": {
-                "Why the deficiency is easy to miss": {
-                    "Newborn": "Thyroid hormone drives growth for the first 2 years, so growth is normal",
-                    "Child": "Commoner causes of growth failure mimic it and must be excluded first",
-                    "Adult": "Symptoms are absent or look like ordinary age-related change"
+                "Newborn": {
+                    "Why the deficiency is easy to miss": "Thyroid hormone drives growth for the first 2 years, so growth is normal",
+                    "Typical presentation": "Hypoglycemia, prolonged jaundice, small genitalia, midline craniofacial defects",
+                    "What prompts the evaluation": "Another sign such as neonatal hypoglycemia or ambiguous genitalia",
+                    "Usual cause": "Congenital, including rare genetic and syndromic causes",
+                    "Treatment": "Recombinant GH to support growth through infancy"
                 },
-                "Typical presentation": {
-                    "Newborn": "Hypoglycemia, prolonged jaundice, small genitalia, midline craniofacial defects",
-                    "Child": "Poor linear growth, doll-like facies, delayed bone age, motor delay",
-                    "Adult": "Low muscle mass, high fat mass, low bone density, more fractures"
+                "Child": {
+                    "Why the deficiency is easy to miss": "Commoner causes of growth failure mimic it and must be excluded first",
+                    "Typical presentation": "Poor linear growth, doll-like facies, delayed bone age, motor delay",
+                    "What prompts the evaluation": "Height more than 3 SD below expected or falling off the growth curve",
+                    "Usual cause": "Most often idiopathic, sometimes tumor, trauma, radiation, or autoimmune",
+                    "Treatment": "Recombinant GH until the epiphyseal plates are nearly closed"
                 },
-                "What prompts the evaluation": {
-                    "Newborn": "Another sign such as neonatal hypoglycemia or ambiguous genitalia",
-                    "Child": "Height more than 3 SD below expected or falling off the growth curve",
-                    "Adult": "Known hypothalamic-pituitary disease making deficiency likely"
-                },
-                "Usual cause": {
-                    "Newborn": "Congenital, including rare genetic and syndromic causes",
-                    "Child": "Most often idiopathic, sometimes tumor, trauma, radiation, or autoimmune",
-                    "Adult": "Rare overall, and mostly caused by pituitary tumors"
-                },
-                "Treatment": {
-                    "Newborn": "Recombinant GH to support growth through infancy",
-                    "Child": "Recombinant GH until the epiphyseal plates are nearly closed",
-                    "Adult": "GH injections titrated by blood monitoring, with no height gain"
+                "Adult": {
+                    "Why the deficiency is easy to miss": "Symptoms are absent or look like ordinary age-related change",
+                    "Typical presentation": "Low muscle mass, high fat mass, low bone density, more fractures",
+                    "What prompts the evaluation": "Known hypothalamic-pituitary disease making deficiency likely",
+                    "Usual cause": "Rare overall, and mostly caused by pituitary tumors",
+                    "Treatment": "GH injections titrated by blood monitoring, with no height gain"
                 }
             }
         },
@@ -72,37 +68,31 @@ BRICK = {
             "slug": "gh_lab_patterns",
             "title": "Sorting Out the GH Axis Disorders",
             "subtitle": "Sort each finding under the disorder it belongs to",
-            "categories": ["GH deficiency", "GH excess", "Laron syndrome"],
+            "categories": ["Serum GH", "Serum IGF-1", "Underlying lesion", "Confirmatory test", "Treatment", "Growth pattern in a child"],
             "data": {
-                "Serum GH": {
-                    "GH deficiency": "Low, and fails to rise with provocative agents",
-                    "GH excess": "High, and fails to fall after a glucose load",
-                    "Laron syndrome": "High, because low IGF-1 removes feedback inhibition"
+                "GH deficiency": {
+                    "Serum GH": "Low, and fails to rise with provocative agents",
+                    "Serum IGF-1": "Low, and the more useful screening value than GH",
+                    "Underlying lesion": "Usually idiopathic; also tumor, trauma, radiation, or autoimmune damage",
+                    "Confirmatory test": "GH stimulation test with L-dopa, clonidine, arginine, or glucagon",
+                    "Treatment": "Recombinant GH injections",
+                    "Growth pattern in a child": "Short stature with delayed bone age and high weight-to-height ratio"
                 },
-                "Serum IGF-1": {
-                    "GH deficiency": "Low, and the more useful screening value than GH",
-                    "GH excess": "Elevated, and the best initial test for the disorder",
-                    "Laron syndrome": "Low despite plentiful circulating GH"
+                "GH excess": {
+                    "Serum GH": "High, and fails to fall after a glucose load",
+                    "Serum IGF-1": "Elevated, and the best initial test for the disorder",
+                    "Underlying lesion": "GH-secreting pituitary adenoma with somatotroph hyperplasia",
+                    "Confirmatory test": "GH suppression test using an oral glucose load",
+                    "Treatment": "Surgical resection of the adenoma, then medical therapy",
+                    "Growth pattern in a child": "Excessive linear growth, usually recognized around puberty"
                 },
-                "Underlying lesion": {
-                    "GH deficiency": "Usually idiopathic; also tumor, trauma, radiation, or autoimmune damage",
-                    "GH excess": "GH-secreting pituitary adenoma with somatotroph hyperplasia",
-                    "Laron syndrome": "Autosomal recessive mutation of the GH receptor"
-                },
-                "Confirmatory test": {
-                    "GH deficiency": "GH stimulation test with L-dopa, clonidine, arginine, or glucagon",
-                    "GH excess": "GH suppression test using an oral glucose load",
-                    "Laron syndrome": "Genetic analysis showing the GH receptor mutation"
-                },
-                "Treatment": {
-                    "GH deficiency": "Recombinant GH injections",
-                    "GH excess": "Surgical resection of the adenoma, then medical therapy",
-                    "Laron syndrome": "Recombinant IGF-1 injections, since GH cannot work"
-                },
-                "Growth pattern in a child": {
-                    "GH deficiency": "Short stature with delayed bone age and high weight-to-height ratio",
-                    "GH excess": "Excessive linear growth, usually recognized around puberty",
-                    "Laron syndrome": "Severe growth failure with prominent forehead and saddle nose"
+                "Laron syndrome": {
+                    "Serum GH": "High, because low IGF-1 removes feedback inhibition",
+                    "Serum IGF-1": "Low despite plentiful circulating GH",
+                    "Underlying lesion": "Autosomal recessive mutation of the GH receptor",
+                    "Confirmatory test": "Genetic analysis showing the GH receptor mutation",
+                    "Treatment": "Recombinant IGF-1 injections, since GH cannot work",
+                    "Growth pattern in a child": "Severe growth failure with prominent forehead and saddle nose"
                 }
             }
         },

@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #06b6d4; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(6, 182, 212, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(6, 182, 212, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #06b6d4 0%, #0e7490 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,15 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('primary_hypothyroidism', this)">Primary hypothyroidism</button>
-                    <button class="tab" onclick="switchTab('secondary_hypothyroidism', this)">Secondary hypothyroidism</button>
-                    <button class="tab" onclick="switchTab('tsh_secreting_pituitary_adenoma', this)">TSH-secreting pituitary adenoma</button>
+                    <button class="tab active" onclick="switchTab('disrupted_node', this)">Disrupted node</button>
+                    <button class="tab" onclick="switchTab('tsh_level', this)">TSH level</button>
+                    <button class="tab" onclick="switchTab('t3_t4_level', this)">T3/T4 level</button>
+                    <button class="tab" onclick="switchTab('mechanism', this)">Mechanism</button>
                 </div>
-                <div id="primary_hypothyroidism-bank" class="word-bank active"></div>
-                <div id="secondary_hypothyroidism-bank" class="word-bank"></div>
-                <div id="tsh_secreting_pituitary_adenoma-bank" class="word-bank"></div>
+                <div id="disrupted_node-bank" class="word-bank active"></div>
+                <div id="tsh_level-bank" class="word-bank"></div>
+                <div id="t3_t4_level-bank" class="word-bank"></div>
+                <div id="mechanism-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,29 +162,27 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["primary_hypothyroidism", "secondary_hypothyroidism", "tsh_secreting_pituitary_adenoma"];
-        const categoryLabels = {"primary_hypothyroidism": "Primary hypothyroidism", "secondary_hypothyroidism": "Secondary hypothyroidism", "tsh_secreting_pituitary_adenoma": "TSH-secreting pituitary adenoma"};
+        const categoryKeys = ["disrupted_node", "tsh_level", "t3_t4_level", "mechanism"];
+        const categoryLabels = {"disrupted_node": "Disrupted node", "tsh_level": "TSH level", "t3_t4_level": "T3/T4 level", "mechanism": "Mechanism"};
 
         const gameData = {
-            "Disrupted node": {
-                "primary_hypothyroidism": "Thyroid gland",
-                "secondary_hypothyroidism": "Anterior pituitary",
-                "tsh_secreting_pituitary_adenoma": "Pituitary adenoma"
+            "Primary hypothyroidism": {
+                "disrupted_node": "Thyroid gland",
+                "tsh_level": "High",
+                "t3_t4_level": "Low, with an intact pituitary drive",
+                "mechanism": "T3/T4 absent, so negative feedback on TSH is lost"
             },
-            "TSH level": {
-                "primary_hypothyroidism": "High",
-                "secondary_hypothyroidism": "Low",
-                "tsh_secreting_pituitary_adenoma": "High despite elevated thyroid hormone"
+            "Secondary hypothyroidism": {
+                "disrupted_node": "Anterior pituitary",
+                "tsh_level": "Low",
+                "t3_t4_level": "Low, because the gland is never stimulated",
+                "mechanism": "TSH signal absent, so the thyroid is unstimulated"
             },
-            "T3/T4 level": {
-                "primary_hypothyroidism": "Low, with an intact pituitary drive",
-                "secondary_hypothyroidism": "Low, because the gland is never stimulated",
-                "tsh_secreting_pituitary_adenoma": "High"
-            },
-            "Mechanism": {
-                "primary_hypothyroidism": "T3/T4 absent, so negative feedback on TSH is lost",
-                "secondary_hypothyroidism": "TSH signal absent, so the thyroid is unstimulated",
-                "tsh_secreting_pituitary_adenoma": "TSH produced autonomously, so feedback is bypassed"
+            "TSH-secreting pituitary adenoma": {
+                "disrupted_node": "Pituitary adenoma",
+                "tsh_level": "High despite elevated thyroid hormone",
+                "t3_t4_level": "High",
+                "mechanism": "TSH produced autonomously, so feedback is bypassed"
             }
         };
 

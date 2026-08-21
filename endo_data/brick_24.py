@@ -39,31 +39,23 @@ BRICK = {
             "slug": "t1dm_vs_t2dm_labs",
             "title": "Type 1 versus Type 2 at the Bedside and in the Lab",
             "subtitle": "Sort each feature into the type of diabetes it characterizes",
-            "categories": ["Type 1 diabetes mellitus", "Type 2 diabetes mellitus"],
+            "categories": ["C-peptide", "Islet autoantibodies", "Nature of the insulin defect", "Risk of ketoacidosis", "Typical body habitus", "Tempo of symptom onset"],
             "data": {
-                "C-peptide": {
-                    "Type 1 diabetes mellitus": "Low or absent, reflecting destroyed beta cells",
-                    "Type 2 diabetes mellitus": "Normal or elevated, reflecting preserved secretion"
+                "Type 1 diabetes mellitus": {
+                    "C-peptide": "Low or absent, reflecting destroyed beta cells",
+                    "Islet autoantibodies": "Anti-GAD, IA-2, or ZnT8 usually present at diagnosis",
+                    "Nature of the insulin defect": "Absolute deficiency after autoimmune beta-cell destruction",
+                    "Risk of ketoacidosis": "High, and DKA may be the very first presentation",
+                    "Typical body habitus": "Lean, often with recent unintentional weight loss",
+                    "Tempo of symptom onset": "Abrupt, with symptoms progressing over days to weeks"
                 },
-                "Islet autoantibodies": {
-                    "Type 1 diabetes mellitus": "Anti-GAD, IA-2, or ZnT8 usually present at diagnosis",
-                    "Type 2 diabetes mellitus": "Absent in the typical case"
-                },
-                "Nature of the insulin defect": {
-                    "Type 1 diabetes mellitus": "Absolute deficiency after autoimmune beta-cell destruction",
-                    "Type 2 diabetes mellitus": "Relative deficiency in the setting of insulin resistance"
-                },
-                "Risk of ketoacidosis": {
-                    "Type 1 diabetes mellitus": "High, and DKA may be the very first presentation",
-                    "Type 2 diabetes mellitus": "Low unless a major physiologic stress intervenes"
-                },
-                "Typical body habitus": {
-                    "Type 1 diabetes mellitus": "Lean, often with recent unintentional weight loss",
-                    "Type 2 diabetes mellitus": "Overweight or obese"
-                },
-                "Tempo of symptom onset": {
-                    "Type 1 diabetes mellitus": "Abrupt, with symptoms progressing over days to weeks",
-                    "Type 2 diabetes mellitus": "Gradual, with few catabolic features"
+                "Type 2 diabetes mellitus": {
+                    "C-peptide": "Normal or elevated, reflecting preserved secretion",
+                    "Islet autoantibodies": "Absent in the typical case",
+                    "Nature of the insulin defect": "Relative deficiency in the setting of insulin resistance",
+                    "Risk of ketoacidosis": "Low unless a major physiologic stress intervenes",
+                    "Typical body habitus": "Overweight or obese",
+                    "Tempo of symptom onset": "Gradual, with few catabolic features"
                 }
             }
         },

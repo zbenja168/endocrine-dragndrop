@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #10b981; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('hypothyroid_myxedema', this)">Hypothyroid myxedema</button>
-                    <button class="tab" onclick="switchTab('ordinary_pitting_edema', this)">Ordinary pitting edema</button>
-                    <button class="tab" onclick="switchTab('pretibial_myxedema', this)">Pretibial myxedema</button>
+                    <button class="tab active" onclick="switchTab('what_accumulates_in_the_tissue', this)">What accumulates in the tissue</button>
+                    <button class="tab" onclick="switchTab('behavior_under_pressure', this)">Behavior under pressure</button>
+                    <button class="tab" onclick="switchTab('underlying_disease_state', this)">Underlying disease state</button>
+                    <button class="tab" onclick="switchTab('typical_distribution', this)">Typical distribution</button>
+                    <button class="tab" onclick="switchTab('other_findings_it_explains', this)">Other findings it explains</button>
                 </div>
-                <div id="hypothyroid_myxedema-bank" class="word-bank active"></div>
-                <div id="ordinary_pitting_edema-bank" class="word-bank"></div>
-                <div id="pretibial_myxedema-bank" class="word-bank"></div>
+                <div id="what_accumulates_in_the_tissue-bank" class="word-bank active"></div>
+                <div id="behavior_under_pressure-bank" class="word-bank"></div>
+                <div id="underlying_disease_state-bank" class="word-bank"></div>
+                <div id="typical_distribution-bank" class="word-bank"></div>
+                <div id="other_findings_it_explains-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["hypothyroid_myxedema", "ordinary_pitting_edema", "pretibial_myxedema"];
-        const categoryLabels = {"hypothyroid_myxedema": "Hypothyroid myxedema", "ordinary_pitting_edema": "Ordinary pitting edema", "pretibial_myxedema": "Pretibial myxedema"};
+        const categoryKeys = ["what_accumulates_in_the_tissue", "behavior_under_pressure", "underlying_disease_state", "typical_distribution", "other_findings_it_explains"];
+        const categoryLabels = {"what_accumulates_in_the_tissue": "What accumulates in the tissue", "behavior_under_pressure": "Behavior under pressure", "underlying_disease_state": "Underlying disease state", "typical_distribution": "Typical distribution", "other_findings_it_explains": "Other findings it explains"};
 
         const gameData = {
-            "What accumulates in the tissue": {
-                "hypothyroid_myxedema": "Hydrophilic glycosaminoglycans, including hyaluronic acid-rich mucopolysaccharides",
-                "ordinary_pitting_edema": "Excess free fluid within the interstitial space",
-                "pretibial_myxedema": "Glycosaminoglycan-rich dermal swelling localized to the shins"
+            "Hypothyroid myxedema": {
+                "what_accumulates_in_the_tissue": "Hydrophilic glycosaminoglycans, including hyaluronic acid-rich mucopolysaccharides",
+                "behavior_under_pressure": "Thickened, doughy, and often nonpitting",
+                "underlying_disease_state": "Severe or longstanding hypothyroidism",
+                "typical_distribution": "Periorbital puffiness, coarse facies, macroglossia, thick skin, swollen hands and feet",
+                "other_findings_it_explains": "Carpal tunnel syndrome from swelling around the median nerve, and hoarseness"
             },
-            "Behavior under pressure": {
-                "hypothyroid_myxedema": "Thickened, doughy, and often nonpitting",
-                "ordinary_pitting_edema": "Displaced by pressure, leaving a pit behind",
-                "pretibial_myxedema": "Firm nonpitting plaques that do not indent"
+            "Ordinary pitting edema": {
+                "what_accumulates_in_the_tissue": "Excess free fluid within the interstitial space",
+                "behavior_under_pressure": "Displaced by pressure, leaving a pit behind",
+                "underlying_disease_state": "Salt-and-water overload rather than thyroid disease",
+                "typical_distribution": "Dependent areas where displaceable fluid collects",
+                "other_findings_it_explains": "Nothing thyroid-specific; it reflects fluid balance alone"
             },
-            "Underlying disease state": {
-                "hypothyroid_myxedema": "Severe or longstanding hypothyroidism",
-                "ordinary_pitting_edema": "Salt-and-water overload rather than thyroid disease",
-                "pretibial_myxedema": "Graves disease with thyroid-stimulating hormone receptor antibody activity"
-            },
-            "Typical distribution": {
-                "hypothyroid_myxedema": "Periorbital puffiness, coarse facies, macroglossia, thick skin, swollen hands and feet",
-                "ordinary_pitting_edema": "Dependent areas where displaceable fluid collects",
-                "pretibial_myxedema": "Classically the shins, also called thyroid dermopathy"
-            },
-            "Other findings it explains": {
-                "hypothyroid_myxedema": "Carpal tunnel syndrome from swelling around the median nerve, and hoarseness",
-                "ordinary_pitting_edema": "Nothing thyroid-specific; it reflects fluid balance alone",
-                "pretibial_myxedema": "Belongs with the hyperthyroidism and Graves disease material"
+            "Pretibial myxedema": {
+                "what_accumulates_in_the_tissue": "Glycosaminoglycan-rich dermal swelling localized to the shins",
+                "behavior_under_pressure": "Firm nonpitting plaques that do not indent",
+                "underlying_disease_state": "Graves disease with thyroid-stimulating hormone receptor antibody activity",
+                "typical_distribution": "Classically the shins, also called thyroid dermopathy",
+                "other_findings_it_explains": "Belongs with the hyperthyroidism and Graves disease material"
             }
         };
 

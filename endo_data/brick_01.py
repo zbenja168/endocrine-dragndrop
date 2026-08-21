@@ -94,27 +94,25 @@ BRICK = {
             "slug": "hpt_node_disruption",
             "title": "Localizing the Lesion in the HPT Axis",
             "subtitle": "Sort each feature under the disruption pattern it belongs to",
-            "categories": ["Primary hypothyroidism", "Secondary hypothyroidism", "TSH-secreting pituitary adenoma"],
+            "categories": ["Disrupted node", "TSH level", "T3/T4 level", "Mechanism"],
             "data": {
-                "Disrupted node": {
-                    "Primary hypothyroidism": "Thyroid gland",
-                    "Secondary hypothyroidism": "Anterior pituitary",
-                    "TSH-secreting pituitary adenoma": "Pituitary adenoma"
+                "Primary hypothyroidism": {
+                    "Disrupted node": "Thyroid gland",
+                    "TSH level": "High",
+                    "T3/T4 level": "Low, with an intact pituitary drive",
+                    "Mechanism": "T3/T4 absent, so negative feedback on TSH is lost"
                 },
-                "TSH level": {
-                    "Primary hypothyroidism": "High",
-                    "Secondary hypothyroidism": "Low",
-                    "TSH-secreting pituitary adenoma": "High despite elevated thyroid hormone"
+                "Secondary hypothyroidism": {
+                    "Disrupted node": "Anterior pituitary",
+                    "TSH level": "Low",
+                    "T3/T4 level": "Low, because the gland is never stimulated",
+                    "Mechanism": "TSH signal absent, so the thyroid is unstimulated"
                 },
-                "T3/T4 level": {
-                    "Primary hypothyroidism": "Low, with an intact pituitary drive",
-                    "Secondary hypothyroidism": "Low, because the gland is never stimulated",
-                    "TSH-secreting pituitary adenoma": "High"
-                },
-                "Mechanism": {
-                    "Primary hypothyroidism": "T3/T4 absent, so negative feedback on TSH is lost",
-                    "Secondary hypothyroidism": "TSH signal absent, so the thyroid is unstimulated",
-                    "TSH-secreting pituitary adenoma": "TSH produced autonomously, so feedback is bypassed"
+                "TSH-secreting pituitary adenoma": {
+                    "Disrupted node": "Pituitary adenoma",
+                    "TSH level": "High despite elevated thyroid hormone",
+                    "T3/T4 level": "High",
+                    "Mechanism": "TSH produced autonomously, so feedback is bypassed"
                 }
             }
         }

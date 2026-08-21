@@ -6,32 +6,28 @@ BRICK = {
             "slug": "fasting_vs_reactive",
             "title": "Fasting vs Reactive Hypoglycemia",
             "subtitle": "Sort each feature into the pattern of hypoglycemia it belongs to",
-            "categories": ["Fasting hypoglycemia", "Reactive hypoglycemia", "Idiopathic postprandial syndrome"],
+            "categories": ["Timing of symptoms", "Glucose level during a spell", "Usual cause", "Confirmatory test", "Management"],
             "data": {
-                "Timing of symptoms": {
-                    "Fasting hypoglycemia": "In the morning before eating, or during the day if a meal is missed",
-                    "Reactive hypoglycemia": "After meals, typically 2 to 4 hours later",
-                    "Idiopathic postprandial syndrome": "After meals, with the same jittery postprandial complaints"
+                "Fasting hypoglycemia": {
+                    "Timing of symptoms": "In the morning before eating, or during the day if a meal is missed",
+                    "Glucose level during a spell": "Often severely low, low enough to cause marked symptoms",
+                    "Usual cause": "Glucose-lowering drugs, low cortisol, or kidney or liver disease",
+                    "Confirmatory test": "Supervised 72-hour fast with glucose and insulin every 6 hours",
+                    "Management": "Find and correct the underlying cause and adjust the offending drug"
                 },
-                "Glucose level during a spell": {
-                    "Fasting hypoglycemia": "Often severely low, low enough to cause marked symptoms",
-                    "Reactive hypoglycemia": "Low but seldom low enough to produce severe symptoms",
-                    "Idiopathic postprandial syndrome": "No documented fall in blood glucose at all"
+                "Reactive hypoglycemia": {
+                    "Timing of symptoms": "After meals, typically 2 to 4 hours later",
+                    "Glucose level during a spell": "Low but seldom low enough to produce severe symptoms",
+                    "Usual cause": "Upper GI surgery causing rapid glucose transit and an insulin surge",
+                    "Confirmatory test": "Supervised mixed meal test with hourly glucose for 5 hours",
+                    "Management": "Frequent meals, less refined sugar, and more physical activity"
                 },
-                "Usual cause": {
-                    "Fasting hypoglycemia": "Glucose-lowering drugs, low cortisol, or kidney or liver disease",
-                    "Reactive hypoglycemia": "Upper GI surgery causing rapid glucose transit and an insulin surge",
-                    "Idiopathic postprandial syndrome": "Unknown; no underlying disease is identified"
-                },
-                "Confirmatory test": {
-                    "Fasting hypoglycemia": "Supervised 72-hour fast with glucose and insulin every 6 hours",
-                    "Reactive hypoglycemia": "Supervised mixed meal test with hourly glucose for 5 hours",
-                    "Idiopathic postprandial syndrome": "Testing shows symptoms while glucose stays above 55 mg/dL"
-                },
-                "Management": {
-                    "Fasting hypoglycemia": "Find and correct the underlying cause and adjust the offending drug",
-                    "Reactive hypoglycemia": "Frequent meals, less refined sugar, and more physical activity",
-                    "Idiopathic postprandial syndrome": "Frequent snacks and avoidance of simple sugars in the diet"
+                "Idiopathic postprandial syndrome": {
+                    "Timing of symptoms": "After meals, with the same jittery postprandial complaints",
+                    "Glucose level during a spell": "No documented fall in blood glucose at all",
+                    "Usual cause": "Unknown; no underlying disease is identified",
+                    "Confirmatory test": "Testing shows symptoms while glucose stays above 55 mg/dL",
+                    "Management": "Frequent snacks and avoidance of simple sugars in the diet"
                 }
             }
         },
@@ -77,32 +73,28 @@ BRICK = {
             "slug": "insulin_lab_patterns",
             "title": "Reading the Insulin Panel",
             "subtitle": "Place each laboratory value under the cause of hyperinsulinemic hypoglycemia it points to",
-            "categories": ["Factitious insulin use", "Factitious sulfonylurea use", "Insulinoma"],
+            "categories": ["Insulin level", "Proinsulin level", "C-peptide level", "Sulfonylurea screen", "Underlying problem"],
             "data": {
-                "Insulin level": {
-                    "Factitious insulin use": "Elevated from the injected drug itself",
-                    "Factitious sulfonylurea use": "Normal to mildly elevated",
-                    "Insulinoma": "Markedly elevated, the highest of the three"
+                "Factitious insulin use": {
+                    "Insulin level": "Elevated from the injected drug itself",
+                    "Proinsulin level": "Normal to low, since injected insulin contains no precursor",
+                    "C-peptide level": "Normal to low, absent from pharmacologic insulin",
+                    "Sulfonylurea screen": "Absent, no drug detected in serum",
+                    "Underlying problem": "Self-administered injections of preprocessed pharmacologic insulin"
                 },
-                "Proinsulin level": {
-                    "Factitious insulin use": "Normal to low, since injected insulin contains no precursor",
-                    "Factitious sulfonylurea use": "Normal to mildly elevated",
-                    "Insulinoma": "Markedly elevated along with insulin"
+                "Factitious sulfonylurea use": {
+                    "Insulin level": "Normal to mildly elevated",
+                    "Proinsulin level": "Normal to mildly elevated",
+                    "C-peptide level": "Elevated because the drug stimulates the patient's own beta cells",
+                    "Sulfonylurea screen": "Present, which is what identifies covert drug use",
+                    "Underlying problem": "Covert ingestion of an antihyperglycemic pill"
                 },
-                "C-peptide level": {
-                    "Factitious insulin use": "Normal to low, absent from pharmacologic insulin",
-                    "Factitious sulfonylurea use": "Elevated because the drug stimulates the patient's own beta cells",
-                    "Insulinoma": "Elevated from autonomous tumor secretion"
-                },
-                "Sulfonylurea screen": {
-                    "Factitious insulin use": "Absent, no drug detected in serum",
-                    "Factitious sulfonylurea use": "Present, which is what identifies covert drug use",
-                    "Insulinoma": "Absent, no drug detected in serum"
-                },
-                "Underlying problem": {
-                    "Factitious insulin use": "Self-administered injections of preprocessed pharmacologic insulin",
-                    "Factitious sulfonylurea use": "Covert ingestion of an antihyperglycemic pill",
-                    "Insulinoma": "Rare tumor of the pancreatic islet beta cells"
+                "Insulinoma": {
+                    "Insulin level": "Markedly elevated, the highest of the three",
+                    "Proinsulin level": "Markedly elevated along with insulin",
+                    "C-peptide level": "Elevated from autonomous tumor secretion",
+                    "Sulfonylurea screen": "Absent, no drug detected in serum",
+                    "Underlying problem": "Rare tumor of the pancreatic islet beta cells"
                 }
             }
         },

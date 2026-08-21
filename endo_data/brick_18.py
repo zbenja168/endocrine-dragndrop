@@ -6,37 +6,31 @@ BRICK = {
             "slug": "hpt_subtype_compare",
             "title": "Primary vs Secondary vs Tertiary Hyperparathyroidism",
             "subtitle": "Sort each lab value, cause, and treatment under the subtype of hyperparathyroidism it belongs to",
-            "categories": ["Primary", "Secondary", "Tertiary"],
+            "categories": ["Serum PTH", "Serum calcium", "Serum phosphate", "Calcitriol (1,25-dihydroxy vitamin D)", "Usual underlying cause", "Preferred management"],
             "data": {
-                "Serum PTH": {
-                    "Primary": "High, driven autonomously by the diseased gland itself",
-                    "Secondary": "High, an appropriate response to chronic hypocalcemia",
-                    "Tertiary": "High and autonomous after years of overstimulation"
+                "Primary": {
+                    "Serum PTH": "High, driven autonomously by the diseased gland itself",
+                    "Serum calcium": "Elevated; often the first clue on an incidental blood test",
+                    "Serum phosphate": "Decreased, or at the lower limit of the normal range",
+                    "Calcitriol (1,25-dihydroxy vitamin D)": "Increased, because high PTH stimulates 1-alpha-hydroxylase",
+                    "Usual underlying cause": "Parathyroid adenoma on one of the four glands",
+                    "Preferred management": "Surgical removal of the adenoma; bisphosphonate or cinacalcet if surgery is not an option"
                 },
-                "Serum calcium": {
-                    "Primary": "Elevated; often the first clue on an incidental blood test",
-                    "Secondary": "Low to normal despite the markedly elevated PTH",
-                    "Tertiary": "Usually elevated, from hyperplasia of all four glands"
+                "Secondary": {
+                    "Serum PTH": "High, an appropriate response to chronic hypocalcemia",
+                    "Serum calcium": "Low to normal despite the markedly elevated PTH",
+                    "Serum phosphate": "Elevated, from low glomerular filtration of phosphate",
+                    "Calcitriol (1,25-dihydroxy vitamin D)": "Low, because the diseased kidney stops producing it",
+                    "Usual underlying cause": "Chronic kidney disease; also malabsorption or vitamin D deficiency",
+                    "Preferred management": "Dietary phosphate restriction, phosphate binders, vitamin D receptor activator"
                 },
-                "Serum phosphate": {
-                    "Primary": "Decreased, or at the lower limit of the normal range",
-                    "Secondary": "Elevated, from low glomerular filtration of phosphate",
-                    "Tertiary": "Usually elevated, from renal phosphate retention in ESRD"
-                },
-                "Calcitriol (1,25-dihydroxy vitamin D)": {
-                    "Primary": "Increased, because high PTH stimulates 1-alpha-hydroxylase",
-                    "Secondary": "Low, because the diseased kidney stops producing it",
-                    "Tertiary": "Usually low, still limited by end-stage kidney disease"
-                },
-                "Usual underlying cause": {
-                    "Primary": "Parathyroid adenoma on one of the four glands",
-                    "Secondary": "Chronic kidney disease; also malabsorption or vitamin D deficiency",
-                    "Tertiary": "End-stage renal disease treated with long-term dialysis"
-                },
-                "Preferred management": {
-                    "Primary": "Surgical removal of the adenoma; bisphosphonate or cinacalcet if surgery is not an option",
-                    "Secondary": "Dietary phosphate restriction, phosphate binders, vitamin D receptor activator",
-                    "Tertiary": "Parathyroidectomy; secretion may subside after kidney transplant"
+                "Tertiary": {
+                    "Serum PTH": "High and autonomous after years of overstimulation",
+                    "Serum calcium": "Usually elevated, from hyperplasia of all four glands",
+                    "Serum phosphate": "Usually elevated, from renal phosphate retention in ESRD",
+                    "Calcitriol (1,25-dihydroxy vitamin D)": "Usually low, still limited by end-stage kidney disease",
+                    "Usual underlying cause": "End-stage renal disease treated with long-term dialysis",
+                    "Preferred management": "Parathyroidectomy; secretion may subside after kidney transplant"
                 }
             }
         },

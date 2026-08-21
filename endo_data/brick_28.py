@@ -100,27 +100,25 @@ BRICK = {
             "slug": "three_triage_questions",
             "title": "The Three Questions Every Adrenal Mass Must Answer",
             "subtitle": "Sort each row into the triage question it belongs to",
-            "categories": ["Is the mass functional?", "Is the mass malignant?", "Is the mass dangerous to touch?"],
+            "categories": ["What the question asks", "How it is answered", "Finding that raises concern", "Rule to remember"],
             "data": {
-                "What the question asks": {
-                    "Is the mass functional?": "Does this lesion secrete a clinically important hormone excess?",
-                    "Is the mass malignant?": "Do the imaging features look benign, indeterminate, or suspicious?",
-                    "Is the mass dangerous to touch?": "Could manipulating it trigger a catecholamine surge?"
+                "Is the mass functional?": {
+                    "What the question asks": "Does this lesion secrete a clinically important hormone excess?",
+                    "How it is answered": "Biochemical testing of cortisol, aldosterone, and catecholamine axes",
+                    "Finding that raises concern": "Hypokalemic hypertension, easy bruising, or rapid virilization",
+                    "Rule to remember": "Assume potentially functional until the workup says otherwise"
                 },
-                "How it is answered": {
-                    "Is the mass functional?": "Biochemical testing of cortisol, aldosterone, and catecholamine axes",
-                    "Is the mass malignant?": "Noncontrast CT attenuation, homogeneity, size, margins, interval growth",
-                    "Is the mass dangerous to touch?": "Plasma free or 24-hour urinary fractionated metanephrines"
+                "Is the mass malignant?": {
+                    "What the question asks": "Do the imaging features look benign, indeterminate, or suspicious?",
+                    "How it is answered": "Noncontrast CT attenuation, homogeneity, size, margins, interval growth",
+                    "Finding that raises concern": "Larger than 4 cm, heterogeneous, necrotic, invasive, or growing",
+                    "Rule to remember": "Imaging characterizes the mass but never proves function"
                 },
-                "Finding that raises concern": {
-                    "Is the mass functional?": "Hypokalemic hypertension, easy bruising, or rapid virilization",
-                    "Is the mass malignant?": "Larger than 4 cm, heterogeneous, necrotic, invasive, or growing",
-                    "Is the mass dangerous to touch?": "Episodic headache, palpitations, sweating, tremor, and pallor"
-                },
-                "Rule to remember": {
-                    "Is the mass functional?": "Assume potentially functional until the workup says otherwise",
-                    "Is the mass malignant?": "Imaging characterizes the mass but never proves function",
-                    "Is the mass dangerous to touch?": "Do not biopsy until pheochromocytoma has been excluded"
+                "Is the mass dangerous to touch?": {
+                    "What the question asks": "Could manipulating it trigger a catecholamine surge?",
+                    "How it is answered": "Plasma free or 24-hour urinary fractionated metanephrines",
+                    "Finding that raises concern": "Episodic headache, palpitations, sweating, tremor, and pallor",
+                    "Rule to remember": "Do not biopsy until pheochromocytoma has been excluded"
                 }
             }
         }

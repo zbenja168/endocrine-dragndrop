@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f59e0b; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,11 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('type_1_diabetes_mellitus', this)">Type 1 diabetes mellitus</button>
-                    <button class="tab" onclick="switchTab('type_2_diabetes_mellitus', this)">Type 2 diabetes mellitus</button>
+                    <button class="tab active" onclick="switchTab('tempo_of_onset', this)">Tempo of onset</button>
+                    <button class="tab" onclick="switchTab('body_habitus', this)">Body habitus</button>
+                    <button class="tab" onclick="switchTab('c_peptide_level', this)">C-peptide level</button>
+                    <button class="tab" onclick="switchTab('islet_autoantibodies', this)">Islet autoantibodies</button>
+                    <button class="tab" onclick="switchTab('characteristic_acute_crisis', this)">Characteristic acute crisis</button>
+                    <button class="tab" onclick="switchTab('skin_and_exam_clues', this)">Skin and exam clues</button>
                 </div>
-                <div id="type_1_diabetes_mellitus-bank" class="word-bank active"></div>
-                <div id="type_2_diabetes_mellitus-bank" class="word-bank"></div>
+                <div id="tempo_of_onset-bank" class="word-bank active"></div>
+                <div id="body_habitus-bank" class="word-bank"></div>
+                <div id="c_peptide_level-bank" class="word-bank"></div>
+                <div id="islet_autoantibodies-bank" class="word-bank"></div>
+                <div id="characteristic_acute_crisis-bank" class="word-bank"></div>
+                <div id="skin_and_exam_clues-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -158,33 +166,25 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["type_1_diabetes_mellitus", "type_2_diabetes_mellitus"];
-        const categoryLabels = {"type_1_diabetes_mellitus": "Type 1 diabetes mellitus", "type_2_diabetes_mellitus": "Type 2 diabetes mellitus"};
+        const categoryKeys = ["tempo_of_onset", "body_habitus", "c_peptide_level", "islet_autoantibodies", "characteristic_acute_crisis", "skin_and_exam_clues"];
+        const categoryLabels = {"tempo_of_onset": "Tempo of onset", "body_habitus": "Body habitus", "c_peptide_level": "C-peptide level", "islet_autoantibodies": "Islet autoantibodies", "characteristic_acute_crisis": "Characteristic acute crisis", "skin_and_exam_clues": "Skin and exam clues"};
 
         const gameData = {
-            "Tempo of onset": {
-                "type_1_diabetes_mellitus": "Acute, symptomatic presentation over days to weeks",
-                "type_2_diabetes_mellitus": "Gradual onset over years, often found incidentally on screening"
+            "Type 1 diabetes mellitus": {
+                "tempo_of_onset": "Acute, symptomatic presentation over days to weeks",
+                "body_habitus": "Typically younger and leaner, often with weight loss",
+                "c_peptide_level": "Low or undetectable from marked beta-cell loss",
+                "islet_autoantibodies": "GAD65, IA-2, ZnT8 present in most new-onset cases",
+                "characteristic_acute_crisis": "Diabetic ketoacidosis from absent insulin secretion",
+                "skin_and_exam_clues": "Few insulin-resistance signs; dehydration and weight loss dominate"
             },
-            "Body habitus": {
-                "type_1_diabetes_mellitus": "Typically younger and leaner, often with weight loss",
-                "type_2_diabetes_mellitus": "Obese with predominantly abdominal (visceral) fat"
-            },
-            "C-peptide level": {
-                "type_1_diabetes_mellitus": "Low or undetectable from marked beta-cell loss",
-                "type_2_diabetes_mellitus": "Normal or elevated, reflecting preserved beta-cell function"
-            },
-            "Islet autoantibodies": {
-                "type_1_diabetes_mellitus": "GAD65, IA-2, ZnT8 present in most new-onset cases",
-                "type_2_diabetes_mellitus": "Generally absent, supporting the diagnosis clinically"
-            },
-            "Characteristic acute crisis": {
-                "type_1_diabetes_mellitus": "Diabetic ketoacidosis from absent insulin secretion",
-                "type_2_diabetes_mellitus": "Hyperosmolar hyperglycemic state, since residual insulin blocks ketogenesis"
-            },
-            "Skin and exam clues": {
-                "type_1_diabetes_mellitus": "Few insulin-resistance signs; dehydration and weight loss dominate",
-                "type_2_diabetes_mellitus": "Acanthosis nigricans, central obesity, hypertension, dyslipidemia"
+            "Type 2 diabetes mellitus": {
+                "tempo_of_onset": "Gradual onset over years, often found incidentally on screening",
+                "body_habitus": "Obese with predominantly abdominal (visceral) fat",
+                "c_peptide_level": "Normal or elevated, reflecting preserved beta-cell function",
+                "islet_autoantibodies": "Generally absent, supporting the diagnosis clinically",
+                "characteristic_acute_crisis": "Hyperosmolar hyperglycemic state, since residual insulin blocks ketogenesis",
+                "skin_and_exam_clues": "Acanthosis nigricans, central obesity, hypertension, dyslipidemia"
             }
         };
 

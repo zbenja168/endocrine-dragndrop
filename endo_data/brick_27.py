@@ -82,37 +82,31 @@ BRICK = {
             "slug": "secretagogue_compare",
             "title": "Three Ways to Raise Insulin Secretion",
             "subtitle": "Sort each feature under the insulin-releasing drug class it describes",
-            "categories": ["GLP-1 receptor agonists", "DPP-4 inhibitors", "Sulfonylureas"],
+            "categories": ["Relationship to incretin signaling", "Route of administration", "Hypoglycemia risk", "Effect on body weight", "Serious adverse effect", "Best clinical niche"],
             "data": {
-                "Relationship to incretin signaling": {
-                    "GLP-1 receptor agonists": "Directly bind and activate the GLP-1 receptor as incretin mimetics",
-                    "DPP-4 inhibitors": "Block the enzyme that degrades GLP-1, raising endogenous incretin levels",
-                    "Sulfonylureas": "None; they act on the beta-cell K+ channel independent of incretins"
+                "GLP-1 receptor agonists": {
+                    "Relationship to incretin signaling": "Directly bind and activate the GLP-1 receptor as incretin mimetics",
+                    "Route of administration": "Subcutaneous injection, some lasting up to a week",
+                    "Hypoglycemia risk": "Rare, because insulin release stays glucose-dependent",
+                    "Effect on body weight": "Weight loss from satiety and delayed gastric emptying",
+                    "Serious adverse effect": "Acute pancreatitis on top of common GI upset",
+                    "Best clinical niche": "Obesity with coronary artery disease or HbA1c above 9% on metformin"
                 },
-                "Route of administration": {
-                    "GLP-1 receptor agonists": "Subcutaneous injection, some lasting up to a week",
-                    "DPP-4 inhibitors": "Oral gliptins such as sitagliptin and linagliptin",
-                    "Sulfonylureas": "Oral, inexpensive, and long time-tested"
+                "DPP-4 inhibitors": {
+                    "Relationship to incretin signaling": "Block the enzyme that degrades GLP-1, raising endogenous incretin levels",
+                    "Route of administration": "Oral gliptins such as sitagliptin and linagliptin",
+                    "Hypoglycemia risk": "Minimal; generally well tolerated in this respect",
+                    "Effect on body weight": "Weight neutral",
+                    "Serious adverse effect": "Hypersensitivity, severe joint pain; saxagliptin and HF hospitalization",
+                    "Best clinical niche": "Add-on therapy when a modest, well-tolerated drop is enough"
                 },
-                "Hypoglycemia risk": {
-                    "GLP-1 receptor agonists": "Rare, because insulin release stays glucose-dependent",
-                    "DPP-4 inhibitors": "Minimal; generally well tolerated in this respect",
-                    "Sulfonylureas": "High, and the main reason they fell to second- or third-line"
-                },
-                "Effect on body weight": {
-                    "GLP-1 receptor agonists": "Weight loss from satiety and delayed gastric emptying",
-                    "DPP-4 inhibitors": "Weight neutral",
-                    "Sulfonylureas": "Weight gain from increased insulin and fat storage"
-                },
-                "Serious adverse effect": {
-                    "GLP-1 receptor agonists": "Acute pancreatitis on top of common GI upset",
-                    "DPP-4 inhibitors": "Hypersensitivity, severe joint pain; saxagliptin and HF hospitalization",
-                    "Sulfonylureas": "Confusion, falls, coma, and early-onset dementia in the elderly"
-                },
-                "Best clinical niche": {
-                    "GLP-1 receptor agonists": "Obesity with coronary artery disease or HbA1c above 9% on metformin",
-                    "DPP-4 inhibitors": "Add-on therapy when a modest, well-tolerated drop is enough",
-                    "Sulfonylureas": "Cost-limited patients who are not prone to hypoglycemia"
+                "Sulfonylureas": {
+                    "Relationship to incretin signaling": "None; they act on the beta-cell K+ channel independent of incretins",
+                    "Route of administration": "Oral, inexpensive, and long time-tested",
+                    "Hypoglycemia risk": "High, and the main reason they fell to second- or third-line",
+                    "Effect on body weight": "Weight gain from increased insulin and fat storage",
+                    "Serious adverse effect": "Confusion, falls, coma, and early-onset dementia in the elderly",
+                    "Best clinical niche": "Cost-limited patients who are not prone to hypoglycemia"
                 }
             }
         },

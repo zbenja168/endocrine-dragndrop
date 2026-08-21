@@ -39,32 +39,28 @@ BRICK = {
             "slug": "ppgl_tumor_types",
             "title": "Pheochromocytoma vs Sympathetic vs Parasympathetic Paraganglioma",
             "subtitle": "Sort each feature under the neural crest-derived tumor it describes",
-            "categories": ["Pheochromocytoma", "Sympathetic paraganglioma", "Parasympathetic paraganglioma"],
+            "categories": ["Site of origin", "Secretory phenotype", "Usual presentation", "Typical biochemical clue", "Imaging emphasis"],
             "data": {
-                "Site of origin": {
-                    "Pheochromocytoma": "Chromaffin cells of the adrenal medulla",
-                    "Sympathetic paraganglioma": "Extra-adrenal paraganglia of thorax, abdomen, or pelvis",
-                    "Parasympathetic paraganglioma": "Paraganglia of the head and neck"
+                "Pheochromocytoma": {
+                    "Site of origin": "Chromaffin cells of the adrenal medulla",
+                    "Secretory phenotype": "Epinephrine, norepinephrine, or both",
+                    "Usual presentation": "Episodic or sustained hypertension with headache, palpitations, diaphoresis",
+                    "Typical biochemical clue": "Metanephrine elevation, indicating epinephrine production",
+                    "Imaging emphasis": "Contrast-enhanced CT of abdomen and pelvis after biochemical confirmation"
                 },
-                "Secretory phenotype": {
-                    "Pheochromocytoma": "Epinephrine, norepinephrine, or both",
-                    "Sympathetic paraganglioma": "Often catecholamine-secreting, norepinephrine predominant",
-                    "Parasympathetic paraganglioma": "Usually nonsecretory"
+                "Sympathetic paraganglioma": {
+                    "Site of origin": "Extra-adrenal paraganglia of thorax, abdomen, or pelvis",
+                    "Secretory phenotype": "Often catecholamine-secreting, norepinephrine predominant",
+                    "Usual presentation": "Catecholamine excess arising from a mass below the diaphragm",
+                    "Typical biochemical clue": "Normetanephrine-predominant elevation",
+                    "Imaging emphasis": "Functional imaging added because disease is extra-adrenal"
                 },
-                "Usual presentation": {
-                    "Pheochromocytoma": "Episodic or sustained hypertension with headache, palpitations, diaphoresis",
-                    "Sympathetic paraganglioma": "Catecholamine excess arising from a mass below the diaphragm",
-                    "Parasympathetic paraganglioma": "Local mass effect rather than adrenergic spells"
-                },
-                "Typical biochemical clue": {
-                    "Pheochromocytoma": "Metanephrine elevation, indicating epinephrine production",
-                    "Sympathetic paraganglioma": "Normetanephrine-predominant elevation",
-                    "Parasympathetic paraganglioma": "Metanephrines are commonly normal"
-                },
-                "Imaging emphasis": {
-                    "Pheochromocytoma": "Contrast-enhanced CT of abdomen and pelvis after biochemical confirmation",
-                    "Sympathetic paraganglioma": "Functional imaging added because disease is extra-adrenal",
-                    "Parasympathetic paraganglioma": "MRI and MR angiography for skull base and cranial nerve relationships"
+                "Parasympathetic paraganglioma": {
+                    "Site of origin": "Paraganglia of the head and neck",
+                    "Secretory phenotype": "Usually nonsecretory",
+                    "Usual presentation": "Local mass effect rather than adrenergic spells",
+                    "Typical biochemical clue": "Metanephrines are commonly normal",
+                    "Imaging emphasis": "MRI and MR angiography for skull base and cranial nerve relationships"
                 }
             }
         },

@@ -6,32 +6,28 @@ BRICK = {
             "slug": "three_thyroid_cancer_logics",
             "title": "Differentiated vs Medullary vs Anaplastic",
             "subtitle": "Sort each feature under the thyroid cancer logic it belongs to",
-            "categories": ["Differentiated (papillary/follicular)", "Medullary", "Anaplastic"],
+            "categories": ["Cell of origin", "Surveillance marker", "Defining diagnostic feature", "Management logic", "Clinical tempo"],
             "data": {
-                "Cell of origin": {
-                    "Differentiated (papillary/follicular)": "Thyroid follicular epithelial cells",
-                    "Medullary": "Parafollicular C cells, which produce calcitonin",
-                    "Anaplastic": "Poorly differentiated or undifferentiated thyroid cells"
+                "Differentiated (papillary/follicular)": {
+                    "Cell of origin": "Thyroid follicular epithelial cells",
+                    "Surveillance marker": "Thyroglobulin, a follicular-cell product",
+                    "Defining diagnostic feature": "Nuclear clearing and psammoma bodies, or capsular/vascular invasion",
+                    "Management logic": "Uses iodine handling and thyroid-stimulating hormone responsiveness",
+                    "Clinical tempo": "Slow nodule-surveillance problem in most patients"
                 },
-                "Surveillance marker": {
-                    "Differentiated (papillary/follicular)": "Thyroglobulin, a follicular-cell product",
-                    "Medullary": "Calcitonin, with carcinoembryonic antigen used in monitoring",
-                    "Anaplastic": "No differentiated-cell marker; imaging and clinical course drive follow-up"
+                "Medullary": {
+                    "Cell of origin": "Parafollicular C cells, which produce calcitonin",
+                    "Surveillance marker": "Calcitonin, with carcinoembryonic antigen used in monitoring",
+                    "Defining diagnostic feature": "Nests in fibrous stroma with amyloid; calcitonin and chromogranin positive",
+                    "Management logic": "Inherited-risk evaluation and perioperative safety before thyroidectomy",
+                    "Clinical tempo": "Nodule or neck mass, sometimes with diarrhea or flushing"
                 },
-                "Defining diagnostic feature": {
-                    "Differentiated (papillary/follicular)": "Nuclear clearing and psammoma bodies, or capsular/vascular invasion",
-                    "Medullary": "Nests in fibrous stroma with amyloid; calcitonin and chromogranin positive",
-                    "Anaplastic": "High-grade undifferentiated carcinoma invading adjacent neck structures"
-                },
-                "Management logic": {
-                    "Differentiated (papillary/follicular)": "Uses iodine handling and thyroid-stimulating hormone responsiveness",
-                    "Medullary": "Inherited-risk evaluation and perioperative safety before thyroidectomy",
-                    "Anaplastic": "Airway-risk logic with urgent multidisciplinary treatment planning"
-                },
-                "Clinical tempo": {
-                    "Differentiated (papillary/follicular)": "Slow nodule-surveillance problem in most patients",
-                    "Medullary": "Nodule or neck mass, sometimes with diarrhea or flushing",
-                    "Anaplastic": "Hard mass enlarging over days to weeks in an older adult"
+                "Anaplastic": {
+                    "Cell of origin": "Poorly differentiated or undifferentiated thyroid cells",
+                    "Surveillance marker": "No differentiated-cell marker; imaging and clinical course drive follow-up",
+                    "Defining diagnostic feature": "High-grade undifferentiated carcinoma invading adjacent neck structures",
+                    "Management logic": "Airway-risk logic with urgent multidisciplinary treatment planning",
+                    "Clinical tempo": "Hard mass enlarging over days to weeks in an older adult"
                 }
             }
         },

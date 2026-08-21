@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #84cc16; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(132, 204, 22, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(132, 204, 22, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,11 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('anterior_pituitary', this)">Anterior pituitary</button>
-                    <button class="tab" onclick="switchTab('posterior_pituitary', this)">Posterior pituitary</button>
+                    <button class="tab active" onclick="switchTab('tissue_of_origin', this)">Tissue of origin</button>
+                    <button class="tab" onclick="switchTab('route_of_the_signal_from_the_hypothalamus', this)">Route of the signal from the hypothalamus</button>
+                    <button class="tab" onclick="switchTab('where_its_hormones_are_synthesized', this)">Where its hormones are synthesized</button>
+                    <button class="tab" onclick="switchTab('number_of_steps_to_reach_the_effect', this)">Number of steps to reach the effect</button>
+                    <button class="tab" onclick="switchTab('hormones_released', this)">Hormones released</button>
                 </div>
-                <div id="anterior_pituitary-bank" class="word-bank active"></div>
-                <div id="posterior_pituitary-bank" class="word-bank"></div>
+                <div id="tissue_of_origin-bank" class="word-bank active"></div>
+                <div id="route_of_the_signal_from_the_hypothalamus-bank" class="word-bank"></div>
+                <div id="where_its_hormones_are_synthesized-bank" class="word-bank"></div>
+                <div id="number_of_steps_to_reach_the_effect-bank" class="word-bank"></div>
+                <div id="hormones_released-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -158,29 +164,23 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["anterior_pituitary", "posterior_pituitary"];
-        const categoryLabels = {"anterior_pituitary": "Anterior pituitary", "posterior_pituitary": "Posterior pituitary"};
+        const categoryKeys = ["tissue_of_origin", "route_of_the_signal_from_the_hypothalamus", "where_its_hormones_are_synthesized", "number_of_steps_to_reach_the_effect", "hormones_released"];
+        const categoryLabels = {"tissue_of_origin": "Tissue of origin", "route_of_the_signal_from_the_hypothalamus": "Route of the signal from the hypothalamus", "where_its_hormones_are_synthesized": "Where its hormones are synthesized", "number_of_steps_to_reach_the_effect": "Number of steps to reach the effect", "hormones_released": "Hormones released"};
 
         const gameData = {
-            "Tissue of origin": {
-                "anterior_pituitary": "Glandular epithelium",
-                "posterior_pituitary": "Hypothalamic neural tissue"
+            "Anterior pituitary": {
+                "tissue_of_origin": "Glandular epithelium",
+                "route_of_the_signal_from_the_hypothalamus": "Releasing hormones carried by hypophyseal portal vessels",
+                "where_its_hormones_are_synthesized": "In the pituitary cells that secrete the tropic hormones",
+                "number_of_steps_to_reach_the_effect": "Three tiers, with signal amplification at each step",
+                "hormones_released": "FSH, LH, ACTH, TSH, prolactin, and GH"
             },
-            "Route of the signal from the hypothalamus": {
-                "anterior_pituitary": "Releasing hormones carried by hypophyseal portal vessels",
-                "posterior_pituitary": "Direct axonal transport through the infundibulum"
-            },
-            "Where its hormones are synthesized": {
-                "anterior_pituitary": "In the pituitary cells that secrete the tropic hormones",
-                "posterior_pituitary": "In hypothalamic supraoptic and paraventricular neurons"
-            },
-            "Number of steps to reach the effect": {
-                "anterior_pituitary": "Three tiers, with signal amplification at each step",
-                "posterior_pituitary": "One step, because the hypothalamic neuron is the gland"
-            },
-            "Hormones released": {
-                "anterior_pituitary": "FSH, LH, ACTH, TSH, prolactin, and GH",
-                "posterior_pituitary": "Oxytocin and vasopressin (ADH)"
+            "Posterior pituitary": {
+                "tissue_of_origin": "Hypothalamic neural tissue",
+                "route_of_the_signal_from_the_hypothalamus": "Direct axonal transport through the infundibulum",
+                "where_its_hormones_are_synthesized": "In hypothalamic supraoptic and paraventricular neurons",
+                "number_of_steps_to_reach_the_effect": "One step, because the hypothalamic neuron is the gland",
+                "hormones_released": "Oxytocin and vasopressin (ADH)"
             }
         };
 

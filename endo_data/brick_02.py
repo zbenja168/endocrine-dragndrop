@@ -72,31 +72,23 @@ BRICK = {
             "slug": "anterior_vs_posterior_pituitary",
             "title": "Anterior versus Posterior Pituitary",
             "subtitle": "Sort each feature under the pituitary lobe it describes",
-            "categories": ["Anterior pituitary", "Posterior pituitary"],
+            "categories": ["Alternative name", "Tissue type", "Link to the hypothalamus", "Hormones released", "Arterial supply", "Vulnerability to ischemia"],
             "data": {
-                "Alternative name": {
-                    "Anterior pituitary": "Adenohypophysis",
-                    "Posterior pituitary": "Neurohypophysis"
+                "Anterior pituitary": {
+                    "Alternative name": "Adenohypophysis",
+                    "Tissue type": "True glandular tissue that synthesizes its own hormones",
+                    "Link to the hypothalamus": "Hypothalamo-hypophyseal portal veins, with no direct neural input",
+                    "Hormones released": "GH, TSH, ACTH, prolactin, FSH, and LH",
+                    "Arterial supply": "Portal capillaries fed by the superior hypophyseal arteries",
+                    "Vulnerability to ischemia": "High; portal perfusion allows necrosis in Sheehan syndrome"
                 },
-                "Tissue type": {
-                    "Anterior pituitary": "True glandular tissue that synthesizes its own hormones",
-                    "Posterior pituitary": "Nerve fibers from hypothalamic neurons, not a true gland"
-                },
-                "Link to the hypothalamus": {
-                    "Anterior pituitary": "Hypothalamo-hypophyseal portal veins, with no direct neural input",
-                    "Posterior pituitary": "Axons descending through the infundibulum from the hypothalamus"
-                },
-                "Hormones released": {
-                    "Anterior pituitary": "GH, TSH, ACTH, prolactin, FSH, and LH",
-                    "Posterior pituitary": "Antidiuretic hormone and oxytocin"
-                },
-                "Arterial supply": {
-                    "Anterior pituitary": "Portal capillaries fed by the superior hypophyseal arteries",
-                    "Posterior pituitary": "Supplied directly by the inferior hypophyseal arteries"
-                },
-                "Vulnerability to ischemia": {
-                    "Anterior pituitary": "High; portal perfusion allows necrosis in Sheehan syndrome",
-                    "Posterior pituitary": "Lower, because direct arterial inflow perfuses it"
+                "Posterior pituitary": {
+                    "Alternative name": "Neurohypophysis",
+                    "Tissue type": "Nerve fibers from hypothalamic neurons, not a true gland",
+                    "Link to the hypothalamus": "Axons descending through the infundibulum from the hypothalamus",
+                    "Hormones released": "Antidiuretic hormone and oxytocin",
+                    "Arterial supply": "Supplied directly by the inferior hypophyseal arteries",
+                    "Vulnerability to ischemia": "Lower, because direct arterial inflow perfuses it"
                 }
             }
         },

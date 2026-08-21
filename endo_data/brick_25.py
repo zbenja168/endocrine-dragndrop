@@ -6,31 +6,23 @@ BRICK = {
             "slug": "t1d_vs_t2d",
             "title": "Type 1 vs Type 2 Diabetes",
             "subtitle": "Sort each clinical or laboratory feature into the type of diabetes it points toward",
-            "categories": ["Type 1 diabetes mellitus", "Type 2 diabetes mellitus"],
+            "categories": ["Tempo of onset", "Body habitus", "C-peptide level", "Islet autoantibodies", "Characteristic acute crisis", "Skin and exam clues"],
             "data": {
-                "Tempo of onset": {
-                    "Type 1 diabetes mellitus": "Acute, symptomatic presentation over days to weeks",
-                    "Type 2 diabetes mellitus": "Gradual onset over years, often found incidentally on screening"
+                "Type 1 diabetes mellitus": {
+                    "Tempo of onset": "Acute, symptomatic presentation over days to weeks",
+                    "Body habitus": "Typically younger and leaner, often with weight loss",
+                    "C-peptide level": "Low or undetectable from marked beta-cell loss",
+                    "Islet autoantibodies": "GAD65, IA-2, ZnT8 present in most new-onset cases",
+                    "Characteristic acute crisis": "Diabetic ketoacidosis from absent insulin secretion",
+                    "Skin and exam clues": "Few insulin-resistance signs; dehydration and weight loss dominate"
                 },
-                "Body habitus": {
-                    "Type 1 diabetes mellitus": "Typically younger and leaner, often with weight loss",
-                    "Type 2 diabetes mellitus": "Obese with predominantly abdominal (visceral) fat"
-                },
-                "C-peptide level": {
-                    "Type 1 diabetes mellitus": "Low or undetectable from marked beta-cell loss",
-                    "Type 2 diabetes mellitus": "Normal or elevated, reflecting preserved beta-cell function"
-                },
-                "Islet autoantibodies": {
-                    "Type 1 diabetes mellitus": "GAD65, IA-2, ZnT8 present in most new-onset cases",
-                    "Type 2 diabetes mellitus": "Generally absent, supporting the diagnosis clinically"
-                },
-                "Characteristic acute crisis": {
-                    "Type 1 diabetes mellitus": "Diabetic ketoacidosis from absent insulin secretion",
-                    "Type 2 diabetes mellitus": "Hyperosmolar hyperglycemic state, since residual insulin blocks ketogenesis"
-                },
-                "Skin and exam clues": {
-                    "Type 1 diabetes mellitus": "Few insulin-resistance signs; dehydration and weight loss dominate",
-                    "Type 2 diabetes mellitus": "Acanthosis nigricans, central obesity, hypertension, dyslipidemia"
+                "Type 2 diabetes mellitus": {
+                    "Tempo of onset": "Gradual onset over years, often found incidentally on screening",
+                    "Body habitus": "Obese with predominantly abdominal (visceral) fat",
+                    "C-peptide level": "Normal or elevated, reflecting preserved beta-cell function",
+                    "Islet autoantibodies": "Generally absent, supporting the diagnosis clinically",
+                    "Characteristic acute crisis": "Hyperosmolar hyperglycemic state, since residual insulin blocks ketogenesis",
+                    "Skin and exam clues": "Acanthosis nigricans, central obesity, hypertension, dyslipidemia"
                 }
             }
         },

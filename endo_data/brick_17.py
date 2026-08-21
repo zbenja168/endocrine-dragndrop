@@ -6,32 +6,28 @@ BRICK = {
             "slug": "thin_soft_growing_bone",
             "title": "Osteoporosis vs Osteomalacia vs Rickets",
             "subtitle": "Sort each feature under the bone-weakening disorder it belongs to",
-            "categories": ["Osteoporosis", "Osteomalacia", "Rickets"],
+            "categories": ["Core bone defect", "Who is affected", "Usual cause", "Classic clinical picture", "Typical laboratory pattern"],
             "data": {
-                "Core bone defect": {
-                    "Osteoporosis": "Resorption exceeds formation, so bone mass is lost (thin bone)",
-                    "Osteomalacia": "Defective mineralization of existing bone matrix (soft bone)",
-                    "Rickets": "Growth-plate cartilage and bone enlarge because they fail to mineralize"
+                "Osteoporosis": {
+                    "Core bone defect": "Resorption exceeds formation, so bone mass is lost (thin bone)",
+                    "Who is affected": "Adults, especially postmenopausal women and older patients",
+                    "Usual cause": "Aging, estrogen loss, diabetes, smoking, inactivity, GI surgery",
+                    "Classic clinical picture": "Silent until a hip, wrist, or vertebral fracture; kyphosis with height loss",
+                    "Typical laboratory pattern": "Calcium, phosphorus, and vitamin D all normal; diagnosed by DEXA T score"
                 },
-                "Who is affected": {
-                    "Osteoporosis": "Adults, especially postmenopausal women and older patients",
-                    "Osteomalacia": "Adults with impaired vitamin D supply or activation",
-                    "Rickets": "Children whose growth plates are still open"
+                "Osteomalacia": {
+                    "Core bone defect": "Defective mineralization of existing bone matrix (soft bone)",
+                    "Who is affected": "Adults with impaired vitamin D supply or activation",
+                    "Usual cause": "Vitamin D deficiency; also liver or kidney disease, antiepileptics",
+                    "Classic clinical picture": "Cryptic bone pain, muscle weakness, trouble walking, pseudofractures",
+                    "Typical laboratory pattern": "Low vitamin D, low calcium and/or phosphate, high alkaline phosphatase"
                 },
-                "Usual cause": {
-                    "Osteoporosis": "Aging, estrogen loss, diabetes, smoking, inactivity, GI surgery",
-                    "Osteomalacia": "Vitamin D deficiency; also liver or kidney disease, antiepileptics",
-                    "Rickets": "Low intake or malabsorption of calcium, phosphorus, or vitamin D"
-                },
-                "Classic clinical picture": {
-                    "Osteoporosis": "Silent until a hip, wrist, or vertebral fracture; kyphosis with height loss",
-                    "Osteomalacia": "Cryptic bone pain, muscle weakness, trouble walking, pseudofractures",
-                    "Rickets": "Bowed legs, thickened wrists and ankles, rachitic rosary, delayed walking"
-                },
-                "Typical laboratory pattern": {
-                    "Osteoporosis": "Calcium, phosphorus, and vitamin D all normal; diagnosed by DEXA T score",
-                    "Osteomalacia": "Low vitamin D, low calcium and/or phosphate, high alkaline phosphatase",
-                    "Rickets": "Deficiency of calcium, phosphorus, or vitamin D depending on the cause"
+                "Rickets": {
+                    "Core bone defect": "Growth-plate cartilage and bone enlarge because they fail to mineralize",
+                    "Who is affected": "Children whose growth plates are still open",
+                    "Usual cause": "Low intake or malabsorption of calcium, phosphorus, or vitamin D",
+                    "Classic clinical picture": "Bowed legs, thickened wrists and ankles, rachitic rosary, delayed walking",
+                    "Typical laboratory pattern": "Deficiency of calcium, phosphorus, or vitamin D depending on the cause"
                 }
             }
         },
@@ -39,37 +35,31 @@ BRICK = {
             "slug": "hyperostotic_dysplasias",
             "title": "Hyperostotic Bone Diseases",
             "subtitle": "Match each feature to the disorder of excessive bone formation",
-            "categories": ["Craniodiaphyseal dysplasia", "Craniometaphyseal dysplasia", "Osteopetrosis"],
+            "categories": ["Gene and inheritance", "Bone cell at fault", "Direction of the mutation", "Long bone imaging clue", "Laboratory and marrow findings", "Treatment approach"],
             "data": {
-                "Gene and inheritance": {
-                    "Craniodiaphyseal dysplasia": "SOST at 17q21.31, autosomal dominant",
-                    "Craniometaphyseal dysplasia": "ANKH at 5p15.2, autosomal dominant",
-                    "Osteopetrosis": "Multiple genes; dominant or recessive depending on the kindred"
+                "Craniodiaphyseal dysplasia": {
+                    "Gene and inheritance": "SOST at 17q21.31, autosomal dominant",
+                    "Bone cell at fault": "Osteoblasts, the cells that lay down bone",
+                    "Direction of the mutation": "Upregulating mutation drives osteoblast hyperfunctioning",
+                    "Long bone imaging clue": "Policeman's night stick configuration of the femurs",
+                    "Laboratory and marrow findings": "Increased PTH and alkaline phosphatase levels",
+                    "Treatment approach": "Symptom driven; no medical therapy reverses the hyperostosis"
                 },
-                "Bone cell at fault": {
-                    "Craniodiaphyseal dysplasia": "Osteoblasts, the cells that lay down bone",
-                    "Craniometaphyseal dysplasia": "Osteocytic osteocytes, which coordinate remodeling",
-                    "Osteopetrosis": "Osteoclasts, the cells that resorb bone"
+                "Craniometaphyseal dysplasia": {
+                    "Gene and inheritance": "ANKH at 5p15.2, autosomal dominant",
+                    "Bone cell at fault": "Osteocytic osteocytes, which coordinate remodeling",
+                    "Direction of the mutation": "ANKH mutation disrupts osteocyte control of remodeling",
+                    "Long bone imaging clue": "Erlenmeyer flask flaring of the distal femoral metaphyses",
+                    "Laboratory and marrow findings": "No distinctive labs; diagnosis is clinical, radiographic, and by DNA",
+                    "Treatment approach": "Symptom driven; risky surgery to decompress cranial foramina"
                 },
-                "Direction of the mutation": {
-                    "Craniodiaphyseal dysplasia": "Upregulating mutation drives osteoblast hyperfunctioning",
-                    "Craniometaphyseal dysplasia": "ANKH mutation disrupts osteocyte control of remodeling",
-                    "Osteopetrosis": "Downregulating mutations cause osteoclast hypofunctioning"
-                },
-                "Long bone imaging clue": {
-                    "Craniodiaphyseal dysplasia": "Policeman's night stick configuration of the femurs",
-                    "Craniometaphyseal dysplasia": "Erlenmeyer flask flaring of the distal femoral metaphyses",
-                    "Osteopetrosis": "Generalized dense bone that still fractures easily"
-                },
-                "Laboratory and marrow findings": {
-                    "Craniodiaphyseal dysplasia": "Increased PTH and alkaline phosphatase levels",
-                    "Craniometaphyseal dysplasia": "No distinctive labs; diagnosis is clinical, radiographic, and by DNA",
-                    "Osteopetrosis": "Marrow hypocellularity with compensatory extramedullary hematopoiesis"
-                },
-                "Treatment approach": {
-                    "Craniodiaphyseal dysplasia": "Symptom driven; no medical therapy reverses the hyperostosis",
-                    "Craniometaphyseal dysplasia": "Symptom driven; risky surgery to decompress cranial foramina",
-                    "Osteopetrosis": "Bone marrow transplant, because osteoclasts are transplantable cells"
+                "Osteopetrosis": {
+                    "Gene and inheritance": "Multiple genes; dominant or recessive depending on the kindred",
+                    "Bone cell at fault": "Osteoclasts, the cells that resorb bone",
+                    "Direction of the mutation": "Downregulating mutations cause osteoclast hypofunctioning",
+                    "Long bone imaging clue": "Generalized dense bone that still fractures easily",
+                    "Laboratory and marrow findings": "Marrow hypocellularity with compensatory extramedullary hematopoiesis",
+                    "Treatment approach": "Bone marrow transplant, because osteoclasts are transplantable cells"
                 }
             }
         },

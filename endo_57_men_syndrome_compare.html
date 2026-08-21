@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f59e0b; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,15 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('men1', this)">MEN1</button>
-                    <button class="tab" onclick="switchTab('men2a', this)">MEN2A</button>
-                    <button class="tab" onclick="switchTab('men2b', this)">MEN2B</button>
-                    <button class="tab" onclick="switchTab('men4', this)">MEN4</button>
+                    <button class="tab active" onclick="switchTab('causative_gene', this)">Causative gene</button>
+                    <button class="tab" onclick="switchTab('genetic_mechanism', this)">Genetic mechanism</button>
+                    <button class="tab" onclick="switchTab('core_tumor_pattern', this)">Core tumor pattern</button>
+                    <button class="tab" onclick="switchTab('clue_that_should_raise_suspicion', this)">Clue that should raise suspicion</button>
+                    <button class="tab" onclick="switchTab('management_priority', this)">Management priority</button>
                 </div>
-                <div id="men1-bank" class="word-bank active"></div>
-                <div id="men2a-bank" class="word-bank"></div>
-                <div id="men2b-bank" class="word-bank"></div>
-                <div id="men4-bank" class="word-bank"></div>
+                <div id="causative_gene-bank" class="word-bank active"></div>
+                <div id="genetic_mechanism-bank" class="word-bank"></div>
+                <div id="core_tumor_pattern-bank" class="word-bank"></div>
+                <div id="clue_that_should_raise_suspicion-bank" class="word-bank"></div>
+                <div id="management_priority-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -162,39 +164,37 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["men1", "men2a", "men2b", "men4"];
-        const categoryLabels = {"men1": "MEN1", "men2a": "MEN2A", "men2b": "MEN2B", "men4": "MEN4"};
+        const categoryKeys = ["causative_gene", "genetic_mechanism", "core_tumor_pattern", "clue_that_should_raise_suspicion", "management_priority"];
+        const categoryLabels = {"causative_gene": "Causative gene", "genetic_mechanism": "Genetic mechanism", "core_tumor_pattern": "Core tumor pattern", "clue_that_should_raise_suspicion": "Clue that should raise suspicion", "management_priority": "Management priority"};
 
         const gameData = {
-            "Causative gene": {
-                "men1": "MEN1, which encodes menin",
-                "men2a": "RET proto-oncogene, activating pathogenic variant",
-                "men2b": "RET, classically the highest-risk M918T variant",
-                "men4": "CDKN1B, which encodes p27Kip1"
+            "MEN1": {
+                "causative_gene": "MEN1, which encodes menin",
+                "genetic_mechanism": "Tumor suppressor; tumors arise on losing the remaining allele",
+                "core_tumor_pattern": "Parathyroid tumors, pituitary adenomas, pancreatic/duodenal NETs",
+                "clue_that_should_raise_suspicion": "Young patient with multigland hyperparathyroidism and kidney stones",
+                "management_priority": "Lifelong parathyroid, pituitary, and pancreatic/duodenal surveillance"
             },
-            "Genetic mechanism": {
-                "men1": "Tumor suppressor; tumors arise on losing the remaining allele",
-                "men2a": "Gain-of-function receptor tyrosine kinase signaling",
-                "men2b": "Activating RET signaling with the earliest, most aggressive MTC",
-                "men4": "Tumor suppressor; loss of the p27 cell-cycle brake"
+            "MEN2A": {
+                "causative_gene": "RET proto-oncogene, activating pathogenic variant",
+                "genetic_mechanism": "Gain-of-function receptor tyrosine kinase signaling",
+                "core_tumor_pattern": "Medullary thyroid carcinoma, pheochromocytoma, primary hyperparathyroidism",
+                "clue_that_should_raise_suspicion": "Medullary thyroid carcinoma plus episodic adrenergic spells",
+                "management_priority": "Screen for pheochromocytoma before thyroid surgery; RET-guided timing"
             },
-            "Core tumor pattern": {
-                "men1": "Parathyroid tumors, pituitary adenomas, pancreatic/duodenal NETs",
-                "men2a": "Medullary thyroid carcinoma, pheochromocytoma, primary hyperparathyroidism",
-                "men2b": "Medullary thyroid carcinoma, pheochromocytoma, intestinal ganglioneuromatosis",
-                "men4": "Parathyroid and pituitary tumors; GEP-NETs reported less often"
+            "MEN2B": {
+                "causative_gene": "RET, classically the highest-risk M918T variant",
+                "genetic_mechanism": "Activating RET signaling with the earliest, most aggressive MTC",
+                "core_tumor_pattern": "Medullary thyroid carcinoma, pheochromocytoma, intestinal ganglioneuromatosis",
+                "clue_that_should_raise_suspicion": "Mucosal neuromas, thickened lips, marfanoid habitus, severe constipation",
+                "management_priority": "Prophylactic thyroidectomy in infancy; test relatives soon after birth"
             },
-            "Clue that should raise suspicion": {
-                "men1": "Young patient with multigland hyperparathyroidism and kidney stones",
-                "men2a": "Medullary thyroid carcinoma plus episodic adrenergic spells",
-                "men2b": "Mucosal neuromas, thickened lips, marfanoid habitus, severe constipation",
-                "men4": "MEN1-like phenotype with negative MEN1 genetic testing"
-            },
-            "Management priority": {
-                "men1": "Lifelong parathyroid, pituitary, and pancreatic/duodenal surveillance",
-                "men2a": "Screen for pheochromocytoma before thyroid surgery; RET-guided timing",
-                "men2b": "Prophylactic thyroidectomy in infancy; test relatives soon after birth",
-                "men4": "MEN1-like surveillance guided by CDKN1B testing and phenotype"
+            "MEN4": {
+                "causative_gene": "CDKN1B, which encodes p27Kip1",
+                "genetic_mechanism": "Tumor suppressor; loss of the p27 cell-cycle brake",
+                "core_tumor_pattern": "Parathyroid and pituitary tumors; GEP-NETs reported less often",
+                "clue_that_should_raise_suspicion": "MEN1-like phenotype with negative MEN1 genetic testing",
+                "management_priority": "MEN1-like surveillance guided by CDKN1B testing and phenotype"
             }
         };
 

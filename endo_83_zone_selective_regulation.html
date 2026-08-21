@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #8b5cf6; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(139, 92, 246, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(139, 92, 246, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('cortisol', this)">Cortisol</button>
-                    <button class="tab" onclick="switchTab('aldosterone', this)">Aldosterone</button>
-                    <button class="tab" onclick="switchTab('adrenal_androgens', this)">Adrenal androgens</button>
+                    <button class="tab active" onclick="switchTab('dominant_stimulus', this)">Dominant stimulus</button>
+                    <button class="tab" onclick="switchTab('cellular_signaling_detail', this)">Cellular signaling detail</button>
+                    <button class="tab" onclick="switchTab('restraining_or_opposing_signal', this)">Restraining or opposing signal</button>
+                    <button class="tab" onclick="switchTab('when_output_rises', this)">When output rises</button>
+                    <button class="tab" onclick="switchTab('effect_of_losing_acth_drive', this)">Effect of losing ACTH drive</button>
                 </div>
-                <div id="cortisol-bank" class="word-bank active"></div>
-                <div id="aldosterone-bank" class="word-bank"></div>
-                <div id="adrenal_androgens-bank" class="word-bank"></div>
+                <div id="dominant_stimulus-bank" class="word-bank active"></div>
+                <div id="cellular_signaling_detail-bank" class="word-bank"></div>
+                <div id="restraining_or_opposing_signal-bank" class="word-bank"></div>
+                <div id="when_output_rises-bank" class="word-bank"></div>
+                <div id="effect_of_losing_acth_drive-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["cortisol", "aldosterone", "adrenal_androgens"];
-        const categoryLabels = {"cortisol": "Cortisol", "aldosterone": "Aldosterone", "adrenal_androgens": "Adrenal androgens"};
+        const categoryKeys = ["dominant_stimulus", "cellular_signaling_detail", "restraining_or_opposing_signal", "when_output_rises", "effect_of_losing_acth_drive"];
+        const categoryLabels = {"dominant_stimulus": "Dominant stimulus", "cellular_signaling_detail": "Cellular signaling detail", "restraining_or_opposing_signal": "Restraining or opposing signal", "when_output_rises": "When output rises", "effect_of_losing_acth_drive": "Effect of losing ACTH drive"};
 
         const gameData = {
-            "Dominant stimulus": {
-                "cortisol": "CRH then ACTH along the hypothalamic-pituitary-adrenal axis",
-                "aldosterone": "Renin-angiotensin-aldosterone system plus serum potassium",
-                "adrenal_androgens": "ACTH-dependent substrate delivery with no LH/FSH equivalent"
+            "Cortisol": {
+                "dominant_stimulus": "CRH then ACTH along the hypothalamic-pituitary-adrenal axis",
+                "cellular_signaling_detail": "ACTH binds MC2R; cAMP signaling that needs the MRAP accessory protein",
+                "restraining_or_opposing_signal": "Cortisol feeds back to suppress hypothalamic CRH and pituitary ACTH",
+                "when_output_rises": "Early morning peak, plus acute stress, hypoglycemia, and IL-1/IL-6/TNF-alpha",
+                "effect_of_losing_acth_drive": "Output falls quickly and the fasciculata atrophies over time"
             },
-            "Cellular signaling detail": {
-                "cortisol": "ACTH binds MC2R; cAMP signaling that needs the MRAP accessory protein",
-                "aldosterone": "Angiotensin II raises intracellular calcium and induces CYP11B2",
-                "adrenal_androgens": "17,20-lyase activity of CYP17A1, augmented by cytochrome b5"
+            "Aldosterone": {
+                "dominant_stimulus": "Renin-angiotensin-aldosterone system plus serum potassium",
+                "cellular_signaling_detail": "Angiotensin II raises intracellular calcium and induces CYP11B2",
+                "restraining_or_opposing_signal": "Atrial natriuretic peptide suppresses synthesis during volume expansion",
+                "when_output_rises": "Low renal perfusion, low distal sodium delivery, or hyperkalemia",
+                "effect_of_losing_acth_drive": "Largely preserved, since ACTH is only a minor transient stimulus"
             },
-            "Restraining or opposing signal": {
-                "cortisol": "Cortisol feeds back to suppress hypothalamic CRH and pituitary ACTH",
-                "aldosterone": "Atrial natriuretic peptide suppresses synthesis during volume expansion",
-                "adrenal_androgens": "No dedicated feedback loop; flux is set by reticularis programming"
-            },
-            "When output rises": {
-                "cortisol": "Early morning peak, plus acute stress, hypoglycemia, and IL-1/IL-6/TNF-alpha",
-                "aldosterone": "Low renal perfusion, low distal sodium delivery, or hyperkalemia",
-                "adrenal_androgens": "Adrenarche in mid-childhood as the reticularis matures"
-            },
-            "Effect of losing ACTH drive": {
-                "cortisol": "Output falls quickly and the fasciculata atrophies over time",
-                "aldosterone": "Largely preserved, since ACTH is only a minor transient stimulus",
-                "adrenal_androgens": "DHEA and DHEA-S fall as the reticularis loses trophic support"
+            "Adrenal androgens": {
+                "dominant_stimulus": "ACTH-dependent substrate delivery with no LH/FSH equivalent",
+                "cellular_signaling_detail": "17,20-lyase activity of CYP17A1, augmented by cytochrome b5",
+                "restraining_or_opposing_signal": "No dedicated feedback loop; flux is set by reticularis programming",
+                "when_output_rises": "Adrenarche in mid-childhood as the reticularis matures",
+                "effect_of_losing_acth_drive": "DHEA and DHEA-S fall as the reticularis loses trophic support"
             }
         };
 

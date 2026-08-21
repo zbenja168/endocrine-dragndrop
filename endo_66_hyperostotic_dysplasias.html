@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #10b981; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('craniodiaphyseal_dysplasia', this)">Craniodiaphyseal dysplasia</button>
-                    <button class="tab" onclick="switchTab('craniometaphyseal_dysplasia', this)">Craniometaphyseal dysplasia</button>
-                    <button class="tab" onclick="switchTab('osteopetrosis', this)">Osteopetrosis</button>
+                    <button class="tab active" onclick="switchTab('gene_and_inheritance', this)">Gene and inheritance</button>
+                    <button class="tab" onclick="switchTab('bone_cell_at_fault', this)">Bone cell at fault</button>
+                    <button class="tab" onclick="switchTab('direction_of_the_mutation', this)">Direction of the mutation</button>
+                    <button class="tab" onclick="switchTab('long_bone_imaging_clue', this)">Long bone imaging clue</button>
+                    <button class="tab" onclick="switchTab('laboratory_and_marrow_findings', this)">Laboratory and marrow findings</button>
+                    <button class="tab" onclick="switchTab('treatment_approach', this)">Treatment approach</button>
                 </div>
-                <div id="craniodiaphyseal_dysplasia-bank" class="word-bank active"></div>
-                <div id="craniometaphyseal_dysplasia-bank" class="word-bank"></div>
-                <div id="osteopetrosis-bank" class="word-bank"></div>
+                <div id="gene_and_inheritance-bank" class="word-bank active"></div>
+                <div id="bone_cell_at_fault-bank" class="word-bank"></div>
+                <div id="direction_of_the_mutation-bank" class="word-bank"></div>
+                <div id="long_bone_imaging_clue-bank" class="word-bank"></div>
+                <div id="laboratory_and_marrow_findings-bank" class="word-bank"></div>
+                <div id="treatment_approach-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,39 +166,33 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["craniodiaphyseal_dysplasia", "craniometaphyseal_dysplasia", "osteopetrosis"];
-        const categoryLabels = {"craniodiaphyseal_dysplasia": "Craniodiaphyseal dysplasia", "craniometaphyseal_dysplasia": "Craniometaphyseal dysplasia", "osteopetrosis": "Osteopetrosis"};
+        const categoryKeys = ["gene_and_inheritance", "bone_cell_at_fault", "direction_of_the_mutation", "long_bone_imaging_clue", "laboratory_and_marrow_findings", "treatment_approach"];
+        const categoryLabels = {"gene_and_inheritance": "Gene and inheritance", "bone_cell_at_fault": "Bone cell at fault", "direction_of_the_mutation": "Direction of the mutation", "long_bone_imaging_clue": "Long bone imaging clue", "laboratory_and_marrow_findings": "Laboratory and marrow findings", "treatment_approach": "Treatment approach"};
 
         const gameData = {
-            "Gene and inheritance": {
-                "craniodiaphyseal_dysplasia": "SOST at 17q21.31, autosomal dominant",
-                "craniometaphyseal_dysplasia": "ANKH at 5p15.2, autosomal dominant",
-                "osteopetrosis": "Multiple genes; dominant or recessive depending on the kindred"
+            "Craniodiaphyseal dysplasia": {
+                "gene_and_inheritance": "SOST at 17q21.31, autosomal dominant",
+                "bone_cell_at_fault": "Osteoblasts, the cells that lay down bone",
+                "direction_of_the_mutation": "Upregulating mutation drives osteoblast hyperfunctioning",
+                "long_bone_imaging_clue": "Policeman's night stick configuration of the femurs",
+                "laboratory_and_marrow_findings": "Increased PTH and alkaline phosphatase levels",
+                "treatment_approach": "Symptom driven; no medical therapy reverses the hyperostosis"
             },
-            "Bone cell at fault": {
-                "craniodiaphyseal_dysplasia": "Osteoblasts, the cells that lay down bone",
-                "craniometaphyseal_dysplasia": "Osteocytic osteocytes, which coordinate remodeling",
-                "osteopetrosis": "Osteoclasts, the cells that resorb bone"
+            "Craniometaphyseal dysplasia": {
+                "gene_and_inheritance": "ANKH at 5p15.2, autosomal dominant",
+                "bone_cell_at_fault": "Osteocytic osteocytes, which coordinate remodeling",
+                "direction_of_the_mutation": "ANKH mutation disrupts osteocyte control of remodeling",
+                "long_bone_imaging_clue": "Erlenmeyer flask flaring of the distal femoral metaphyses",
+                "laboratory_and_marrow_findings": "No distinctive labs; diagnosis is clinical, radiographic, and by DNA",
+                "treatment_approach": "Symptom driven; risky surgery to decompress cranial foramina"
             },
-            "Direction of the mutation": {
-                "craniodiaphyseal_dysplasia": "Upregulating mutation drives osteoblast hyperfunctioning",
-                "craniometaphyseal_dysplasia": "ANKH mutation disrupts osteocyte control of remodeling",
-                "osteopetrosis": "Downregulating mutations cause osteoclast hypofunctioning"
-            },
-            "Long bone imaging clue": {
-                "craniodiaphyseal_dysplasia": "Policeman's night stick configuration of the femurs",
-                "craniometaphyseal_dysplasia": "Erlenmeyer flask flaring of the distal femoral metaphyses",
-                "osteopetrosis": "Generalized dense bone that still fractures easily"
-            },
-            "Laboratory and marrow findings": {
-                "craniodiaphyseal_dysplasia": "Increased PTH and alkaline phosphatase levels",
-                "craniometaphyseal_dysplasia": "No distinctive labs; diagnosis is clinical, radiographic, and by DNA",
-                "osteopetrosis": "Marrow hypocellularity with compensatory extramedullary hematopoiesis"
-            },
-            "Treatment approach": {
-                "craniodiaphyseal_dysplasia": "Symptom driven; no medical therapy reverses the hyperostosis",
-                "craniometaphyseal_dysplasia": "Symptom driven; risky surgery to decompress cranial foramina",
-                "osteopetrosis": "Bone marrow transplant, because osteoclasts are transplantable cells"
+            "Osteopetrosis": {
+                "gene_and_inheritance": "Multiple genes; dominant or recessive depending on the kindred",
+                "bone_cell_at_fault": "Osteoclasts, the cells that resorb bone",
+                "direction_of_the_mutation": "Downregulating mutations cause osteoclast hypofunctioning",
+                "long_bone_imaging_clue": "Generalized dense bone that still fractures easily",
+                "laboratory_and_marrow_findings": "Marrow hypocellularity with compensatory extramedullary hematopoiesis",
+                "treatment_approach": "Bone marrow transplant, because osteoclasts are transplantable cells"
             }
         };
 

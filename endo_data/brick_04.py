@@ -44,27 +44,21 @@ BRICK = {
             "slug": "anterior_vs_posterior",
             "title": "Two Glands Fused Into One",
             "subtitle": "Sort each structural feature under the lobe of the pituitary it describes",
-            "categories": ["Anterior pituitary", "Posterior pituitary"],
+            "categories": ["Tissue of origin", "Route of the signal from the hypothalamus", "Where its hormones are synthesized", "Number of steps to reach the effect", "Hormones released"],
             "data": {
-                "Tissue of origin": {
-                    "Anterior pituitary": "Glandular epithelium",
-                    "Posterior pituitary": "Hypothalamic neural tissue"
+                "Anterior pituitary": {
+                    "Tissue of origin": "Glandular epithelium",
+                    "Route of the signal from the hypothalamus": "Releasing hormones carried by hypophyseal portal vessels",
+                    "Where its hormones are synthesized": "In the pituitary cells that secrete the tropic hormones",
+                    "Number of steps to reach the effect": "Three tiers, with signal amplification at each step",
+                    "Hormones released": "FSH, LH, ACTH, TSH, prolactin, and GH"
                 },
-                "Route of the signal from the hypothalamus": {
-                    "Anterior pituitary": "Releasing hormones carried by hypophyseal portal vessels",
-                    "Posterior pituitary": "Direct axonal transport through the infundibulum"
-                },
-                "Where its hormones are synthesized": {
-                    "Anterior pituitary": "In the pituitary cells that secrete the tropic hormones",
-                    "Posterior pituitary": "In hypothalamic supraoptic and paraventricular neurons"
-                },
-                "Number of steps to reach the effect": {
-                    "Anterior pituitary": "Three tiers, with signal amplification at each step",
-                    "Posterior pituitary": "One step, because the hypothalamic neuron is the gland"
-                },
-                "Hormones released": {
-                    "Anterior pituitary": "FSH, LH, ACTH, TSH, prolactin, and GH",
-                    "Posterior pituitary": "Oxytocin and vasopressin (ADH)"
+                "Posterior pituitary": {
+                    "Tissue of origin": "Hypothalamic neural tissue",
+                    "Route of the signal from the hypothalamus": "Direct axonal transport through the infundibulum",
+                    "Where its hormones are synthesized": "In hypothalamic supraoptic and paraventricular neurons",
+                    "Number of steps to reach the effect": "One step, because the hypothalamic neuron is the gland",
+                    "Hormones released": "Oxytocin and vasopressin (ADH)"
                 }
             }
         },
@@ -72,37 +66,35 @@ BRICK = {
             "slug": "failure_level_map",
             "title": "Failure-Level Map on the Cortisol Axis",
             "subtitle": "Sort each feature under the hormone pattern it belongs to",
-            "categories": ["Primary failure", "Secondary failure", "Primary overproduction", "Secondary overproduction"],
+            "categories": ["Plasma ACTH", "Serum cortisol", "Tier that has failed", "Classic example", "What the tropic hormone tells you"],
             "data": {
-                "Plasma ACTH": {
-                    "Primary failure": "High, because the intact pituitary is compensating",
-                    "Secondary failure": "Inappropriately normal or low, with no compensation",
-                    "Primary overproduction": "Low, because feedback has suppressed it",
-                    "Secondary overproduction": "High, because the pituitary is driving the axis"
+                "Primary failure": {
+                    "Plasma ACTH": "High, because the intact pituitary is compensating",
+                    "Serum cortisol": "Low despite maximal pituitary drive",
+                    "Tier that has failed": "Target gland, with hypothalamus and pituitary intact",
+                    "Classic example": "Addison disease",
+                    "What the tropic hormone tells you": "It rose appropriately, so look below the pituitary"
                 },
-                "Serum cortisol": {
-                    "Primary failure": "Low despite maximal pituitary drive",
-                    "Secondary failure": "Low because the adrenal is never stimulated",
-                    "Primary overproduction": "High and made independently of ACTH",
-                    "Secondary overproduction": "High and made in response to excess ACTH"
+                "Secondary failure": {
+                    "Plasma ACTH": "Inappropriately normal or low, with no compensation",
+                    "Serum cortisol": "Low because the adrenal is never stimulated",
+                    "Tier that has failed": "Anterior pituitary, which cannot make tropic hormone",
+                    "Classic example": "Pituitary tumor or surgical damage to the pituitary",
+                    "What the tropic hormone tells you": "It failed to rise, so the lesion is at the pituitary"
                 },
-                "Tier that has failed": {
-                    "Primary failure": "Target gland, with hypothalamus and pituitary intact",
-                    "Secondary failure": "Anterior pituitary, which cannot make tropic hormone",
-                    "Primary overproduction": "Target gland, escaping all upstream control",
-                    "Secondary overproduction": "Anterior pituitary, generating an unregulated signal"
+                "Primary overproduction": {
+                    "Plasma ACTH": "Low, because feedback has suppressed it",
+                    "Serum cortisol": "High and made independently of ACTH",
+                    "Tier that has failed": "Target gland, escaping all upstream control",
+                    "Classic example": "Cortisol-secreting adrenal tumor",
+                    "What the tropic hormone tells you": "It was suppressed, so the excess starts downstream"
                 },
-                "Classic example": {
-                    "Primary failure": "Addison disease",
-                    "Secondary failure": "Pituitary tumor or surgical damage to the pituitary",
-                    "Primary overproduction": "Cortisol-secreting adrenal tumor",
-                    "Secondary overproduction": "Cushing disease from a corticotroph adenoma"
-                },
-                "What the tropic hormone tells you": {
-                    "Primary failure": "It rose appropriately, so look below the pituitary",
-                    "Secondary failure": "It failed to rise, so the lesion is at the pituitary",
-                    "Primary overproduction": "It was suppressed, so the excess starts downstream",
-                    "Secondary overproduction": "It is high alongside the target hormone, so the pituitary is the source"
+                "Secondary overproduction": {
+                    "Plasma ACTH": "High, because the pituitary is driving the axis",
+                    "Serum cortisol": "High and made in response to excess ACTH",
+                    "Tier that has failed": "Anterior pituitary, generating an unregulated signal",
+                    "Classic example": "Cushing disease from a corticotroph adenoma",
+                    "What the tropic hormone tells you": "It is high alongside the target hormone, so the pituitary is the source"
                 }
             }
         },

@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #3b82f6; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(59, 130, 246, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(59, 130, 246, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('thyroid_storm', this)">Thyroid storm</button>
-                    <button class="tab" onclick="switchTab('uncomplicated_thyrotoxicosis', this)">Uncomplicated thyrotoxicosis</button>
-                    <button class="tab" onclick="switchTab('nonthyroidal_illness_syndrome', this)">Nonthyroidal illness syndrome</button>
+                    <button class="tab active" onclick="switchTab('defining_feature', this)">Defining feature</button>
+                    <button class="tab" onclick="switchTab('tsh_pattern', this)">TSH pattern</button>
+                    <button class="tab" onclick="switchTab('thyroid_hormone_pattern', this)">Thyroid hormone pattern</button>
+                    <button class="tab" onclick="switchTab('typical_setting', this)">Typical setting</button>
+                    <button class="tab" onclick="switchTab('management_priority', this)">Management priority</button>
                 </div>
-                <div id="thyroid_storm-bank" class="word-bank active"></div>
-                <div id="uncomplicated_thyrotoxicosis-bank" class="word-bank"></div>
-                <div id="nonthyroidal_illness_syndrome-bank" class="word-bank"></div>
+                <div id="defining_feature-bank" class="word-bank active"></div>
+                <div id="tsh_pattern-bank" class="word-bank"></div>
+                <div id="thyroid_hormone_pattern-bank" class="word-bank"></div>
+                <div id="typical_setting-bank" class="word-bank"></div>
+                <div id="management_priority-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["thyroid_storm", "uncomplicated_thyrotoxicosis", "nonthyroidal_illness_syndrome"];
-        const categoryLabels = {"thyroid_storm": "Thyroid storm", "uncomplicated_thyrotoxicosis": "Uncomplicated thyrotoxicosis", "nonthyroidal_illness_syndrome": "Nonthyroidal illness syndrome"};
+        const categoryKeys = ["defining_feature", "tsh_pattern", "thyroid_hormone_pattern", "typical_setting", "management_priority"];
+        const categoryLabels = {"defining_feature": "Defining feature", "tsh_pattern": "TSH pattern", "thyroid_hormone_pattern": "Thyroid hormone pattern", "typical_setting": "Typical setting", "management_priority": "Management priority"};
 
         const gameData = {
-            "Defining feature": {
-                "thyroid_storm": "Multisystem decompensation: fever, agitation, cardiovascular instability",
-                "uncomplicated_thyrotoxicosis": "Excess hormone effect without systemic decompensation",
-                "nonthyroidal_illness_syndrome": "Altered thyroid tests without primary thyroid disease"
+            "Thyroid storm": {
+                "defining_feature": "Multisystem decompensation: fever, agitation, cardiovascular instability",
+                "tsh_pattern": "Suppressed, but no lab value defines the emergency",
+                "thyroid_hormone_pattern": "Free T4 elevated, though no threshold makes the diagnosis",
+                "typical_setting": "Untreated thyrotoxicosis plus infection, surgery, trauma, or childbirth",
+                "management_priority": "Stacked blockade plus treatment of the precipitating trigger"
             },
-            "TSH pattern": {
-                "thyroid_storm": "Suppressed, but no lab value defines the emergency",
-                "uncomplicated_thyrotoxicosis": "Suppressed, which is what first flags the state",
-                "nonthyroidal_illness_syndrome": "Normal or low during severe systemic illness"
+            "Uncomplicated thyrotoxicosis": {
+                "defining_feature": "Excess hormone effect without systemic decompensation",
+                "tsh_pattern": "Suppressed, which is what first flags the state",
+                "thyroid_hormone_pattern": "Free T4 and/or free T3 clearly elevated",
+                "typical_setting": "Graves, nodular disease, thyroiditis, or exogenous hormone",
+                "management_priority": "Identify the mechanism, then match therapy to it"
             },
-            "Thyroid hormone pattern": {
-                "thyroid_storm": "Free T4 elevated, though no threshold makes the diagnosis",
-                "uncomplicated_thyrotoxicosis": "Free T4 and/or free T3 clearly elevated",
-                "nonthyroidal_illness_syndrome": "Low T3 with normal or low free T4; reverse T3 rises"
-            },
-            "Typical setting": {
-                "thyroid_storm": "Untreated thyrotoxicosis plus infection, surgery, trauma, or childbirth",
-                "uncomplicated_thyrotoxicosis": "Graves, nodular disease, thyroiditis, or exogenous hormone",
-                "nonthyroidal_illness_syndrome": "Critically ill patient with no autonomous hormone production"
-            },
-            "Management priority": {
-                "thyroid_storm": "Stacked blockade plus treatment of the precipitating trigger",
-                "uncomplicated_thyrotoxicosis": "Identify the mechanism, then match therapy to it",
-                "nonthyroidal_illness_syndrome": "Treat the underlying illness, not the thyroid number"
+            "Nonthyroidal illness syndrome": {
+                "defining_feature": "Altered thyroid tests without primary thyroid disease",
+                "tsh_pattern": "Normal or low during severe systemic illness",
+                "thyroid_hormone_pattern": "Low T3 with normal or low free T4; reverse T3 rises",
+                "typical_setting": "Critically ill patient with no autonomous hormone production",
+                "management_priority": "Treat the underlying illness, not the thyroid number"
             }
         };
 

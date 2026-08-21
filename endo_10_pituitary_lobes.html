@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #10b981; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,11 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('anterior_lobe_adenohypophysis', this)">Anterior lobe (adenohypophysis)</button>
-                    <button class="tab" onclick="switchTab('posterior_lobe_neurohypophysis', this)">Posterior lobe (neurohypophysis)</button>
+                    <button class="tab active" onclick="switchTab('tissue_of_origin', this)">Tissue of origin</button>
+                    <button class="tab" onclick="switchTab('germ_layer', this)">Germ layer</button>
+                    <button class="tab" onclick="switchTab('direction_of_growth_in_the_embryo', this)">Direction of growth in the embryo</button>
+                    <button class="tab" onclick="switchTab('mature_tissue_type', this)">Mature tissue type</button>
+                    <button class="tab" onclick="switchTab('how_the_hypothalamus_controls_it', this)">How the hypothalamus controls it</button>
+                    <button class="tab" onclick="switchTab('hormones_released', this)">Hormones released</button>
                 </div>
-                <div id="anterior_lobe_adenohypophysis-bank" class="word-bank active"></div>
-                <div id="posterior_lobe_neurohypophysis-bank" class="word-bank"></div>
+                <div id="tissue_of_origin-bank" class="word-bank active"></div>
+                <div id="germ_layer-bank" class="word-bank"></div>
+                <div id="direction_of_growth_in_the_embryo-bank" class="word-bank"></div>
+                <div id="mature_tissue_type-bank" class="word-bank"></div>
+                <div id="how_the_hypothalamus_controls_it-bank" class="word-bank"></div>
+                <div id="hormones_released-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -158,33 +166,25 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["anterior_lobe_adenohypophysis", "posterior_lobe_neurohypophysis"];
-        const categoryLabels = {"anterior_lobe_adenohypophysis": "Anterior lobe (adenohypophysis)", "posterior_lobe_neurohypophysis": "Posterior lobe (neurohypophysis)"};
+        const categoryKeys = ["tissue_of_origin", "germ_layer", "direction_of_growth_in_the_embryo", "mature_tissue_type", "how_the_hypothalamus_controls_it", "hormones_released"];
+        const categoryLabels = {"tissue_of_origin": "Tissue of origin", "germ_layer": "Germ layer", "direction_of_growth_in_the_embryo": "Direction of growth in the embryo", "mature_tissue_type": "Mature tissue type", "how_the_hypothalamus_controls_it": "How the hypothalamus controls it", "hormones_released": "Hormones released"};
 
         const gameData = {
-            "Tissue of origin": {
-                "anterior_lobe_adenohypophysis": "Rathke pouch from the roof of the primitive mouth",
-                "posterior_lobe_neurohypophysis": "Neuroectoderm of the developing diencephalon"
+            "Anterior lobe (adenohypophysis)": {
+                "tissue_of_origin": "Rathke pouch from the roof of the primitive mouth",
+                "germ_layer": "Oral ectoderm",
+                "direction_of_growth_in_the_embryo": "Grows upward from the oral cavity toward the brain",
+                "mature_tissue_type": "Glandular tissue with hormone-producing cells",
+                "how_the_hypothalamus_controls_it": "Through the hypophyseal portal system that matures with the gland",
+                "hormones_released": "GH, prolactin, ACTH, TSH, FSH, and LH"
             },
-            "Germ layer": {
-                "anterior_lobe_adenohypophysis": "Oral ectoderm",
-                "posterior_lobe_neurohypophysis": "Neuroectoderm"
-            },
-            "Direction of growth in the embryo": {
-                "anterior_lobe_adenohypophysis": "Grows upward from the oral cavity toward the brain",
-                "posterior_lobe_neurohypophysis": "Grows downward from the brain to meet the ascending pouch"
-            },
-            "Mature tissue type": {
-                "anterior_lobe_adenohypophysis": "Glandular tissue with hormone-producing cells",
-                "posterior_lobe_neurohypophysis": "Neural tissue containing hypothalamic axons"
-            },
-            "How the hypothalamus controls it": {
-                "anterior_lobe_adenohypophysis": "Through the hypophyseal portal system that matures with the gland",
-                "posterior_lobe_neurohypophysis": "Directly, by axons that release hormone from their terminals"
-            },
-            "Hormones released": {
-                "anterior_lobe_adenohypophysis": "GH, prolactin, ACTH, TSH, FSH, and LH",
-                "posterior_lobe_neurohypophysis": "ADH and oxytocin"
+            "Posterior lobe (neurohypophysis)": {
+                "tissue_of_origin": "Neuroectoderm of the developing diencephalon",
+                "germ_layer": "Neuroectoderm",
+                "direction_of_growth_in_the_embryo": "Grows downward from the brain to meet the ascending pouch",
+                "mature_tissue_type": "Neural tissue containing hypothalamic axons",
+                "how_the_hypothalamus_controls_it": "Directly, by axons that release hormone from their terminals",
+                "hormones_released": "ADH and oxytocin"
             }
         };
 

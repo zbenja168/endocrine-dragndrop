@@ -72,31 +72,23 @@ BRICK = {
             "slug": "insulin_vs_glucagon",
             "title": "Insulin versus Glucagon",
             "subtitle": "Sort each feature into the hormone it belongs to",
-            "categories": ["Insulin", "Glucagon"],
+            "categories": ["Islet cell of origin", "Precursor molecule", "Receptor type", "Signaling events", "Effect on liver glycogen", "Autonomic stimulus for release"],
             "data": {
-                "Islet cell of origin": {
-                    "Insulin": "Beta cells, the largest proportion of islet endocrine cells",
-                    "Glucagon": "Alpha cells, intermingled among the beta cells"
+                "Insulin": {
+                    "Islet cell of origin": "Beta cells, the largest proportion of islet endocrine cells",
+                    "Precursor molecule": "Preproinsulin cleaved to proinsulin, then to insulin plus C-peptide",
+                    "Receptor type": "Receptor tyrosine kinase that also binds IGF-1",
+                    "Signaling events": "Tyrosine autophosphorylation, then PI3K and MAP kinase arms",
+                    "Effect on liver glycogen": "Promotes glycogen synthesis and storage after a meal",
+                    "Autonomic stimulus for release": "Parasympathetic rest-and-digest signaling after eating"
                 },
-                "Precursor molecule": {
-                    "Insulin": "Preproinsulin cleaved to proinsulin, then to insulin plus C-peptide",
-                    "Glucagon": "Proglucagon, which the gut can instead process into GLP-1"
-                },
-                "Receptor type": {
-                    "Insulin": "Receptor tyrosine kinase that also binds IGF-1",
-                    "Glucagon": "G protein-coupled receptor, densest on hepatocytes"
-                },
-                "Signaling events": {
-                    "Insulin": "Tyrosine autophosphorylation, then PI3K and MAP kinase arms",
-                    "Glucagon": "Adenylate cyclase raises cAMP, which activates protein kinase A"
-                },
-                "Effect on liver glycogen": {
-                    "Insulin": "Promotes glycogen synthesis and storage after a meal",
-                    "Glucagon": "Activates phosphorylase a to break glycogen down within minutes"
-                },
-                "Autonomic stimulus for release": {
-                    "Insulin": "Parasympathetic rest-and-digest signaling after eating",
-                    "Glucagon": "Sympathetic fight-or-flight signaling during stress or exercise"
+                "Glucagon": {
+                    "Islet cell of origin": "Alpha cells, intermingled among the beta cells",
+                    "Precursor molecule": "Proglucagon, which the gut can instead process into GLP-1",
+                    "Receptor type": "G protein-coupled receptor, densest on hepatocytes",
+                    "Signaling events": "Adenylate cyclase raises cAMP, which activates protein kinase A",
+                    "Effect on liver glycogen": "Activates phosphorylase a to break glycogen down within minutes",
+                    "Autonomic stimulus for release": "Sympathetic fight-or-flight signaling during stress or exercise"
                 }
             }
         },

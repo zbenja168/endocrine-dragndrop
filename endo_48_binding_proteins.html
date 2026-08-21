@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #3b82f6; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(59, 130, 246, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(59, 130, 246, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('increased_thyroid_binding_globulin', this)">Increased thyroid-binding globulin</button>
-                    <button class="tab" onclick="switchTab('decreased_binding_proteins', this)">Decreased binding proteins</button>
-                    <button class="tab" onclick="switchTab('primary_hypothyroidism', this)">Primary hypothyroidism</button>
+                    <button class="tab active" onclick="switchTab('total_t4_and_total_t3', this)">Total T4 and total T3</button>
+                    <button class="tab" onclick="switchTab('free_t4', this)">Free T4</button>
+                    <button class="tab" onclick="switchTab('tsh', this)">TSH</button>
+                    <button class="tab" onclick="switchTab('typical_cause', this)">Typical cause</button>
+                    <button class="tab" onclick="switchTab('correct_interpretation', this)">Correct interpretation</button>
                 </div>
-                <div id="increased_thyroid_binding_globulin-bank" class="word-bank active"></div>
-                <div id="decreased_binding_proteins-bank" class="word-bank"></div>
-                <div id="primary_hypothyroidism-bank" class="word-bank"></div>
+                <div id="total_t4_and_total_t3-bank" class="word-bank active"></div>
+                <div id="free_t4-bank" class="word-bank"></div>
+                <div id="tsh-bank" class="word-bank"></div>
+                <div id="typical_cause-bank" class="word-bank"></div>
+                <div id="correct_interpretation-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["increased_thyroid_binding_globulin", "decreased_binding_proteins", "primary_hypothyroidism"];
-        const categoryLabels = {"increased_thyroid_binding_globulin": "Increased thyroid-binding globulin", "decreased_binding_proteins": "Decreased binding proteins", "primary_hypothyroidism": "Primary hypothyroidism"};
+        const categoryKeys = ["total_t4_and_total_t3", "free_t4", "tsh", "typical_cause", "correct_interpretation"];
+        const categoryLabels = {"total_t4_and_total_t3": "Total T4 and total T3", "free_t4": "Free T4", "tsh": "TSH", "typical_cause": "Typical cause", "correct_interpretation": "Correct interpretation"};
 
         const gameData = {
-            "Total T4 and total T3": {
-                "increased_thyroid_binding_globulin": "Increased, because more hormone is protein-bound",
-                "decreased_binding_proteins": "Decreased, because there is less protein to carry hormone",
-                "primary_hypothyroidism": "Low, because the gland is making less hormone"
+            "Increased thyroid-binding globulin": {
+                "total_t4_and_total_t3": "Increased, because more hormone is protein-bound",
+                "free_t4": "Usually normal; binding changes do not create hormone",
+                "tsh": "Normal, though early pregnancy hCG can lower it slightly",
+                "typical_cause": "Pregnancy or estrogen therapy",
+                "correct_interpretation": "High total hormone without true hyperthyroidism"
             },
-            "Free T4": {
-                "increased_thyroid_binding_globulin": "Usually normal; binding changes do not create hormone",
-                "decreased_binding_proteins": "Normal, since biologically available hormone is preserved",
-                "primary_hypothyroidism": "Low, reflecting a true hormone deficiency"
+            "Decreased binding proteins": {
+                "total_t4_and_total_t3": "Decreased, because there is less protein to carry hormone",
+                "free_t4": "Normal, since biologically available hormone is preserved",
+                "tsh": "Normal, because feedback sees normal free hormone",
+                "typical_cause": "Androgens, severe liver disease, nephrotic protein loss, drugs",
+                "correct_interpretation": "Low total hormone without true hypothyroidism"
             },
-            "TSH": {
-                "increased_thyroid_binding_globulin": "Normal, though early pregnancy hCG can lower it slightly",
-                "decreased_binding_proteins": "Normal, because feedback sees normal free hormone",
-                "primary_hypothyroidism": "Elevated, as the pituitary tries to drive the gland"
-            },
-            "Typical cause": {
-                "increased_thyroid_binding_globulin": "Pregnancy or estrogen therapy",
-                "decreased_binding_proteins": "Androgens, severe liver disease, nephrotic protein loss, drugs",
-                "primary_hypothyroidism": "Disease of the thyroid gland itself"
-            },
-            "Correct interpretation": {
-                "increased_thyroid_binding_globulin": "High total hormone without true hyperthyroidism",
-                "decreased_binding_proteins": "Low total hormone without true hypothyroidism",
-                "primary_hypothyroidism": "Real hormone deficiency, confirmed by the free hormone level"
+            "Primary hypothyroidism": {
+                "total_t4_and_total_t3": "Low, because the gland is making less hormone",
+                "free_t4": "Low, reflecting a true hormone deficiency",
+                "tsh": "Elevated, as the pituitary tries to drive the gland",
+                "typical_cause": "Disease of the thyroid gland itself",
+                "correct_interpretation": "Real hormone deficiency, confirmed by the free hormone level"
             }
         };
 

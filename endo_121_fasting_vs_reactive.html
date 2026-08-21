@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f59e0b; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(245, 158, 11, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('fasting_hypoglycemia', this)">Fasting hypoglycemia</button>
-                    <button class="tab" onclick="switchTab('reactive_hypoglycemia', this)">Reactive hypoglycemia</button>
-                    <button class="tab" onclick="switchTab('idiopathic_postprandial_syndrome', this)">Idiopathic postprandial syndrome</button>
+                    <button class="tab active" onclick="switchTab('timing_of_symptoms', this)">Timing of symptoms</button>
+                    <button class="tab" onclick="switchTab('glucose_level_during_a_spell', this)">Glucose level during a spell</button>
+                    <button class="tab" onclick="switchTab('usual_cause', this)">Usual cause</button>
+                    <button class="tab" onclick="switchTab('confirmatory_test', this)">Confirmatory test</button>
+                    <button class="tab" onclick="switchTab('management', this)">Management</button>
                 </div>
-                <div id="fasting_hypoglycemia-bank" class="word-bank active"></div>
-                <div id="reactive_hypoglycemia-bank" class="word-bank"></div>
-                <div id="idiopathic_postprandial_syndrome-bank" class="word-bank"></div>
+                <div id="timing_of_symptoms-bank" class="word-bank active"></div>
+                <div id="glucose_level_during_a_spell-bank" class="word-bank"></div>
+                <div id="usual_cause-bank" class="word-bank"></div>
+                <div id="confirmatory_test-bank" class="word-bank"></div>
+                <div id="management-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["fasting_hypoglycemia", "reactive_hypoglycemia", "idiopathic_postprandial_syndrome"];
-        const categoryLabels = {"fasting_hypoglycemia": "Fasting hypoglycemia", "reactive_hypoglycemia": "Reactive hypoglycemia", "idiopathic_postprandial_syndrome": "Idiopathic postprandial syndrome"};
+        const categoryKeys = ["timing_of_symptoms", "glucose_level_during_a_spell", "usual_cause", "confirmatory_test", "management"];
+        const categoryLabels = {"timing_of_symptoms": "Timing of symptoms", "glucose_level_during_a_spell": "Glucose level during a spell", "usual_cause": "Usual cause", "confirmatory_test": "Confirmatory test", "management": "Management"};
 
         const gameData = {
-            "Timing of symptoms": {
-                "fasting_hypoglycemia": "In the morning before eating, or during the day if a meal is missed",
-                "reactive_hypoglycemia": "After meals, typically 2 to 4 hours later",
-                "idiopathic_postprandial_syndrome": "After meals, with the same jittery postprandial complaints"
+            "Fasting hypoglycemia": {
+                "timing_of_symptoms": "In the morning before eating, or during the day if a meal is missed",
+                "glucose_level_during_a_spell": "Often severely low, low enough to cause marked symptoms",
+                "usual_cause": "Glucose-lowering drugs, low cortisol, or kidney or liver disease",
+                "confirmatory_test": "Supervised 72-hour fast with glucose and insulin every 6 hours",
+                "management": "Find and correct the underlying cause and adjust the offending drug"
             },
-            "Glucose level during a spell": {
-                "fasting_hypoglycemia": "Often severely low, low enough to cause marked symptoms",
-                "reactive_hypoglycemia": "Low but seldom low enough to produce severe symptoms",
-                "idiopathic_postprandial_syndrome": "No documented fall in blood glucose at all"
+            "Reactive hypoglycemia": {
+                "timing_of_symptoms": "After meals, typically 2 to 4 hours later",
+                "glucose_level_during_a_spell": "Low but seldom low enough to produce severe symptoms",
+                "usual_cause": "Upper GI surgery causing rapid glucose transit and an insulin surge",
+                "confirmatory_test": "Supervised mixed meal test with hourly glucose for 5 hours",
+                "management": "Frequent meals, less refined sugar, and more physical activity"
             },
-            "Usual cause": {
-                "fasting_hypoglycemia": "Glucose-lowering drugs, low cortisol, or kidney or liver disease",
-                "reactive_hypoglycemia": "Upper GI surgery causing rapid glucose transit and an insulin surge",
-                "idiopathic_postprandial_syndrome": "Unknown; no underlying disease is identified"
-            },
-            "Confirmatory test": {
-                "fasting_hypoglycemia": "Supervised 72-hour fast with glucose and insulin every 6 hours",
-                "reactive_hypoglycemia": "Supervised mixed meal test with hourly glucose for 5 hours",
-                "idiopathic_postprandial_syndrome": "Testing shows symptoms while glucose stays above 55 mg/dL"
-            },
-            "Management": {
-                "fasting_hypoglycemia": "Find and correct the underlying cause and adjust the offending drug",
-                "reactive_hypoglycemia": "Frequent meals, less refined sugar, and more physical activity",
-                "idiopathic_postprandial_syndrome": "Frequent snacks and avoidance of simple sugars in the diet"
+            "Idiopathic postprandial syndrome": {
+                "timing_of_symptoms": "After meals, with the same jittery postprandial complaints",
+                "glucose_level_during_a_spell": "No documented fall in blood glucose at all",
+                "usual_cause": "Unknown; no underlying disease is identified",
+                "confirmatory_test": "Testing shows symptoms while glucose stays above 55 mg/dL",
+                "management": "Frequent snacks and avoidance of simple sugars in the diet"
             }
         };
 

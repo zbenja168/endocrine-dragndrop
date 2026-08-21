@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #f97316; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(249, 115, 22, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(249, 115, 22, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #f97316 0%, #c2410c 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,15 +139,19 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('avp_deficiency_central_di', this)">AVP deficiency (central DI)</button>
-                    <button class="tab" onclick="switchTab('avp_resistance_nephrogenic_di', this)">AVP resistance (nephrogenic DI)</button>
-                    <button class="tab" onclick="switchTab('primary_polydipsia', this)">Primary polydipsia</button>
-                    <button class="tab" onclick="switchTab('siadh_siad', this)">SIADH / SIAD</button>
+                    <button class="tab active" onclick="switchTab('where_the_signal_fails', this)">Where the signal fails</button>
+                    <button class="tab" onclick="switchTab('serum_sodium_and_osmolality', this)">Serum sodium and osmolality</button>
+                    <button class="tab" onclick="switchTab('urine_volume', this)">Urine volume</button>
+                    <button class="tab" onclick="switchTab('urine_osmolality', this)">Urine osmolality</button>
+                    <button class="tab" onclick="switchTab('water_balance_testing', this)">Water-balance testing</button>
+                    <button class="tab" onclick="switchTab('typical_causes', this)">Typical causes</button>
                 </div>
-                <div id="avp_deficiency_central_di-bank" class="word-bank active"></div>
-                <div id="avp_resistance_nephrogenic_di-bank" class="word-bank"></div>
-                <div id="primary_polydipsia-bank" class="word-bank"></div>
-                <div id="siadh_siad-bank" class="word-bank"></div>
+                <div id="where_the_signal_fails-bank" class="word-bank active"></div>
+                <div id="serum_sodium_and_osmolality-bank" class="word-bank"></div>
+                <div id="urine_volume-bank" class="word-bank"></div>
+                <div id="urine_osmolality-bank" class="word-bank"></div>
+                <div id="water_balance_testing-bank" class="word-bank"></div>
+                <div id="typical_causes-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -162,45 +166,41 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["avp_deficiency_central_di", "avp_resistance_nephrogenic_di", "primary_polydipsia", "siadh_siad"];
-        const categoryLabels = {"avp_deficiency_central_di": "AVP deficiency (central DI)", "avp_resistance_nephrogenic_di": "AVP resistance (nephrogenic DI)", "primary_polydipsia": "Primary polydipsia", "siadh_siad": "SIADH / SIAD"};
+        const categoryKeys = ["where_the_signal_fails", "serum_sodium_and_osmolality", "urine_volume", "urine_osmolality", "water_balance_testing", "typical_causes"];
+        const categoryLabels = {"where_the_signal_fails": "Where the signal fails", "serum_sodium_and_osmolality": "Serum sodium and osmolality", "urine_volume": "Urine volume", "urine_osmolality": "Urine osmolality", "water_balance_testing": "Water-balance testing", "typical_causes": "Typical causes"};
 
         const gameData = {
-            "Where the signal fails": {
-                "avp_deficiency_central_di": "Not enough AVP/ADH is produced or released",
-                "avp_resistance_nephrogenic_di": "Kidney does not respond normally to AVP/ADH",
-                "primary_polydipsia": "Excess water intake appropriately suppresses AVP/ADH",
-                "siadh_siad": "AVP/ADH effect persists despite low plasma osmolality"
+            "AVP deficiency (central DI)": {
+                "where_the_signal_fails": "Not enough AVP/ADH is produced or released",
+                "serum_sodium_and_osmolality": "High or high-normal sodium with high serum osmolality",
+                "urine_volume": "High, from failure to reabsorb free water",
+                "urine_osmolality": "Low, so urine is dilute while the serum is hyperosmolar",
+                "water_balance_testing": "Desmopressin raises urine osmolality because the kidney can respond",
+                "typical_causes": "Pituitary or hypothalamic surgery, trauma, tumor, infiltrative disease"
             },
-            "Serum sodium and osmolality": {
-                "avp_deficiency_central_di": "High or high-normal sodium with high serum osmolality",
-                "avp_resistance_nephrogenic_di": "Same free-water-loss pattern of high sodium and osmolality",
-                "primary_polydipsia": "Low or low-normal sodium and serum osmolality",
-                "siadh_siad": "Hypotonic hyponatremia: low sodium with low serum osmolality"
+            "AVP resistance (nephrogenic DI)": {
+                "where_the_signal_fails": "Kidney does not respond normally to AVP/ADH",
+                "serum_sodium_and_osmolality": "Same free-water-loss pattern of high sodium and osmolality",
+                "urine_volume": "High, despite adequate circulating AVP/ADH",
+                "urine_osmolality": "Low, because aquaporin-2 insertion cannot be driven",
+                "water_balance_testing": "Desmopressin produces little or no rise in urine osmolality",
+                "typical_causes": "Lithium, hypercalcemia, hypokalemia, CKD, V2 or aquaporin-2 defects"
             },
-            "Urine volume": {
-                "avp_deficiency_central_di": "High, from failure to reabsorb free water",
-                "avp_resistance_nephrogenic_di": "High, despite adequate circulating AVP/ADH",
-                "primary_polydipsia": "High, matching the excessive water taken in",
-                "siadh_siad": "Low or normal; this is not a polyuria disorder"
+            "Primary polydipsia": {
+                "where_the_signal_fails": "Excess water intake appropriately suppresses AVP/ADH",
+                "serum_sodium_and_osmolality": "Low or low-normal sodium and serum osmolality",
+                "urine_volume": "High, matching the excessive water taken in",
+                "urine_osmolality": "Low, an appropriate response to excess water intake",
+                "water_balance_testing": "Urine may begin to concentrate during water deprivation as endogenous AVP rises",
+                "typical_causes": "Behavioral or compulsive intake of large volumes of water"
             },
-            "Urine osmolality": {
-                "avp_deficiency_central_di": "Low, so urine is dilute while the serum is hyperosmolar",
-                "avp_resistance_nephrogenic_di": "Low, because aquaporin-2 insertion cannot be driven",
-                "primary_polydipsia": "Low, an appropriate response to excess water intake",
-                "siadh_siad": "Inappropriately concentrated for the degree of hyponatremia"
-            },
-            "Water-balance testing": {
-                "avp_deficiency_central_di": "Desmopressin raises urine osmolality because the kidney can respond",
-                "avp_resistance_nephrogenic_di": "Desmopressin produces little or no rise in urine osmolality",
-                "primary_polydipsia": "Urine may begin to concentrate during water deprivation as endogenous AVP rises",
-                "siadh_siad": "Diagnosed from the sodium and urine pattern, not from desmopressin"
-            },
-            "Typical causes": {
-                "avp_deficiency_central_di": "Pituitary or hypothalamic surgery, trauma, tumor, infiltrative disease",
-                "avp_resistance_nephrogenic_di": "Lithium, hypercalcemia, hypokalemia, CKD, V2 or aquaporin-2 defects",
-                "primary_polydipsia": "Behavioral or compulsive intake of large volumes of water",
-                "siadh_siad": "Pulmonary or CNS disease, small cell lung carcinoma, SSRIs, carbamazepine"
+            "SIADH / SIAD": {
+                "where_the_signal_fails": "AVP/ADH effect persists despite low plasma osmolality",
+                "serum_sodium_and_osmolality": "Hypotonic hyponatremia: low sodium with low serum osmolality",
+                "urine_volume": "Low or normal; this is not a polyuria disorder",
+                "urine_osmolality": "Inappropriately concentrated for the degree of hyponatremia",
+                "water_balance_testing": "Diagnosed from the sodium and urine pattern, not from desmopressin",
+                "typical_causes": "Pulmonary or CNS disease, small cell lung carcinoma, SSRIs, carbamazepine"
             }
         };
 

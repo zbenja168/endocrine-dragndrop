@@ -77,31 +77,31 @@ BRICK = {
             "slug": "adrenal_layers",
             "title": "Layers of the Adrenal Gland (GFR)",
             "subtitle": "Sort each feature under the adrenal layer it belongs to",
-            "categories": ["Zona glomerulosa", "Zona fasciculata", "Zona reticularis", "Adrenal medulla"],
+            "categories": ["Position in the gland", "Cell arrangement", "Hormones secreted", "What those hormones regulate"],
             "data": {
-                "Position in the gland": {
-                    "Zona glomerulosa": "Outermost cortical layer and the thinnest of the three",
-                    "Zona fasciculata": "Middle cortical layer and the thickest of the three",
-                    "Zona reticularis": "Innermost layer of the cortex",
-                    "Adrenal medulla": "Core of the gland, deep to the entire cortex"
+                "Zona glomerulosa": {
+                    "Position in the gland": "Outermost cortical layer and the thinnest of the three",
+                    "Cell arrangement": "Small cells packed into little spherical groups (glomus, ball of thread)",
+                    "Hormones secreted": "Mineralocorticoids such as aldosterone",
+                    "What those hormones regulate": "Blood pressure and the sodium and potassium levels"
                 },
-                "Cell arrangement": {
-                    "Zona glomerulosa": "Small cells packed into little spherical groups (glomus, ball of thread)",
-                    "Zona fasciculata": "Large lipid-filled cells with clear cytoplasm strung into long cords",
-                    "Zona reticularis": "Compact cells in a meandering, net-like irregular pattern",
-                    "Adrenal medulla": "Clusters of chromaffin cells lacking axons and dendrites"
+                "Zona fasciculata": {
+                    "Position in the gland": "Middle cortical layer and the thickest of the three",
+                    "Cell arrangement": "Large lipid-filled cells with clear cytoplasm strung into long cords",
+                    "Hormones secreted": "Glucocorticoids such as cortisol",
+                    "What those hormones regulate": "Blood pressure, metabolism, and immune function during stress"
                 },
-                "Hormones secreted": {
-                    "Zona glomerulosa": "Mineralocorticoids such as aldosterone",
-                    "Zona fasciculata": "Glucocorticoids such as cortisol",
-                    "Zona reticularis": "Sex steroids such as DHEA",
-                    "Adrenal medulla": "Epinephrine and norepinephrine"
+                "Zona reticularis": {
+                    "Position in the gland": "Innermost layer of the cortex",
+                    "Cell arrangement": "Compact cells in a meandering, net-like irregular pattern",
+                    "Hormones secreted": "Sex steroids such as DHEA",
+                    "What those hormones regulate": "Development and function of the reproductive system"
                 },
-                "What those hormones regulate": {
-                    "Zona glomerulosa": "Blood pressure and the sodium and potassium levels",
-                    "Zona fasciculata": "Blood pressure, metabolism, and immune function during stress",
-                    "Zona reticularis": "Development and function of the reproductive system",
-                    "Adrenal medulla": "Fight-or-flight surge in heart rate, BP, and blood sugar"
+                "Adrenal medulla": {
+                    "Position in the gland": "Core of the gland, deep to the entire cortex",
+                    "Cell arrangement": "Clusters of chromaffin cells lacking axons and dendrites",
+                    "Hormones secreted": "Epinephrine and norepinephrine",
+                    "What those hormones regulate": "Fight-or-flight surge in heart rate, BP, and blood sugar"
                 }
             }
         },

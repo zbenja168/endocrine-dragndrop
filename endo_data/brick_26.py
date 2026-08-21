@@ -39,31 +39,23 @@ BRICK = {
             "slug": "primary_vs_secondary_aldo",
             "title": "Primary vs Secondary Aldosteronism",
             "subtitle": "Sort each feature into the form of aldosteronism it describes",
-            "categories": ["Primary aldosteronism", "Secondary aldosteronism"],
+            "categories": ["Renin level", "Aldosterone level", "Why aldosterone is high", "Representative causes", "Aldosterone-to-renin ratio", "Classic bedside pattern"],
             "data": {
-                "Renin level": {
-                    "Primary aldosteronism": "Suppressed, because effective circulating volume is sensed as expanded",
-                    "Secondary aldosteronism": "High, and it is the driver of the whole picture"
+                "Primary aldosteronism": {
+                    "Renin level": "Suppressed, because effective circulating volume is sensed as expanded",
+                    "Aldosterone level": "Elevated despite the suppressed renin signal",
+                    "Why aldosterone is high": "Adrenal secretion is autonomous and no longer under RAAS feedback",
+                    "Representative causes": "Bilateral adrenal hyperplasia or an aldosterone-producing adenoma",
+                    "Aldosterone-to-renin ratio": "Inappropriately high, which is what makes it a useful screen",
+                    "Classic bedside pattern": "Resistant hypertension with hypokalemia and metabolic alkalosis"
                 },
-                "Aldosterone level": {
-                    "Primary aldosteronism": "Elevated despite the suppressed renin signal",
-                    "Secondary aldosteronism": "Elevated in proportion to the upstream renin drive"
-                },
-                "Why aldosterone is high": {
-                    "Primary aldosteronism": "Adrenal secretion is autonomous and no longer under RAAS feedback",
-                    "Secondary aldosteronism": "Adrenal gland is responding appropriately to RAAS activation"
-                },
-                "Representative causes": {
-                    "Primary aldosteronism": "Bilateral adrenal hyperplasia or an aldosterone-producing adenoma",
-                    "Secondary aldosteronism": "Renal artery stenosis, heart failure, or cirrhosis"
-                },
-                "Aldosterone-to-renin ratio": {
-                    "Primary aldosteronism": "Inappropriately high, which is what makes it a useful screen",
-                    "Secondary aldosteronism": "Not the discriminating finding, since both hormones move together"
-                },
-                "Classic bedside pattern": {
-                    "Primary aldosteronism": "Resistant hypertension with hypokalemia and metabolic alkalosis",
-                    "Secondary aldosteronism": "Hypertension attributable to an identifiable upstream trigger"
+                "Secondary aldosteronism": {
+                    "Renin level": "High, and it is the driver of the whole picture",
+                    "Aldosterone level": "Elevated in proportion to the upstream renin drive",
+                    "Why aldosterone is high": "Adrenal gland is responding appropriately to RAAS activation",
+                    "Representative causes": "Renal artery stenosis, heart failure, or cirrhosis",
+                    "Aldosterone-to-renin ratio": "Not the discriminating finding, since both hormones move together",
+                    "Classic bedside pattern": "Hypertension attributable to an identifiable upstream trigger"
                 }
             }
         },
@@ -71,48 +63,39 @@ BRICK = {
             "slug": "four_water_disorders",
             "title": "Four Ways to Disrupt the Free-Water Message",
             "subtitle": "Place each laboratory or clinical feature under the water-balance disorder it fits",
-            "categories": [
-                "AVP deficiency (central DI)",
-                "AVP resistance (nephrogenic DI)",
-                "Primary polydipsia",
-                "SIADH / SIAD"
-            ],
+            "categories": ["Where the signal fails", "Serum sodium and osmolality", "Urine volume", "Urine osmolality", "Water-balance testing", "Typical causes"],
             "data": {
-                "Where the signal fails": {
-                    "AVP deficiency (central DI)": "Not enough AVP/ADH is produced or released",
-                    "AVP resistance (nephrogenic DI)": "Kidney does not respond normally to AVP/ADH",
-                    "Primary polydipsia": "Excess water intake appropriately suppresses AVP/ADH",
-                    "SIADH / SIAD": "AVP/ADH effect persists despite low plasma osmolality"
+                "AVP deficiency (central DI)": {
+                    "Where the signal fails": "Not enough AVP/ADH is produced or released",
+                    "Serum sodium and osmolality": "High or high-normal sodium with high serum osmolality",
+                    "Urine volume": "High, from failure to reabsorb free water",
+                    "Urine osmolality": "Low, so urine is dilute while the serum is hyperosmolar",
+                    "Water-balance testing": "Desmopressin raises urine osmolality because the kidney can respond",
+                    "Typical causes": "Pituitary or hypothalamic surgery, trauma, tumor, infiltrative disease"
                 },
-                "Serum sodium and osmolality": {
-                    "AVP deficiency (central DI)": "High or high-normal sodium with high serum osmolality",
-                    "AVP resistance (nephrogenic DI)": "Same free-water-loss pattern of high sodium and osmolality",
-                    "Primary polydipsia": "Low or low-normal sodium and serum osmolality",
-                    "SIADH / SIAD": "Hypotonic hyponatremia: low sodium with low serum osmolality"
+                "AVP resistance (nephrogenic DI)": {
+                    "Where the signal fails": "Kidney does not respond normally to AVP/ADH",
+                    "Serum sodium and osmolality": "Same free-water-loss pattern of high sodium and osmolality",
+                    "Urine volume": "High, despite adequate circulating AVP/ADH",
+                    "Urine osmolality": "Low, because aquaporin-2 insertion cannot be driven",
+                    "Water-balance testing": "Desmopressin produces little or no rise in urine osmolality",
+                    "Typical causes": "Lithium, hypercalcemia, hypokalemia, CKD, V2 or aquaporin-2 defects"
                 },
-                "Urine volume": {
-                    "AVP deficiency (central DI)": "High, from failure to reabsorb free water",
-                    "AVP resistance (nephrogenic DI)": "High, despite adequate circulating AVP/ADH",
-                    "Primary polydipsia": "High, matching the excessive water taken in",
-                    "SIADH / SIAD": "Low or normal; this is not a polyuria disorder"
+                "Primary polydipsia": {
+                    "Where the signal fails": "Excess water intake appropriately suppresses AVP/ADH",
+                    "Serum sodium and osmolality": "Low or low-normal sodium and serum osmolality",
+                    "Urine volume": "High, matching the excessive water taken in",
+                    "Urine osmolality": "Low, an appropriate response to excess water intake",
+                    "Water-balance testing": "Urine may begin to concentrate during water deprivation as endogenous AVP rises",
+                    "Typical causes": "Behavioral or compulsive intake of large volumes of water"
                 },
-                "Urine osmolality": {
-                    "AVP deficiency (central DI)": "Low, so urine is dilute while the serum is hyperosmolar",
-                    "AVP resistance (nephrogenic DI)": "Low, because aquaporin-2 insertion cannot be driven",
-                    "Primary polydipsia": "Low, an appropriate response to excess water intake",
-                    "SIADH / SIAD": "Inappropriately concentrated for the degree of hyponatremia"
-                },
-                "Water-balance testing": {
-                    "AVP deficiency (central DI)": "Desmopressin raises urine osmolality because the kidney can respond",
-                    "AVP resistance (nephrogenic DI)": "Desmopressin produces little or no rise in urine osmolality",
-                    "Primary polydipsia": "Urine may begin to concentrate during water deprivation as endogenous AVP rises",
-                    "SIADH / SIAD": "Diagnosed from the sodium and urine pattern, not from desmopressin"
-                },
-                "Typical causes": {
-                    "AVP deficiency (central DI)": "Pituitary or hypothalamic surgery, trauma, tumor, infiltrative disease",
-                    "AVP resistance (nephrogenic DI)": "Lithium, hypercalcemia, hypokalemia, CKD, V2 or aquaporin-2 defects",
-                    "Primary polydipsia": "Behavioral or compulsive intake of large volumes of water",
-                    "SIADH / SIAD": "Pulmonary or CNS disease, small cell lung carcinoma, SSRIs, carbamazepine"
+                "SIADH / SIAD": {
+                    "Where the signal fails": "AVP/ADH effect persists despite low plasma osmolality",
+                    "Serum sodium and osmolality": "Hypotonic hyponatremia: low sodium with low serum osmolality",
+                    "Urine volume": "Low or normal; this is not a polyuria disorder",
+                    "Urine osmolality": "Inappropriately concentrated for the degree of hyponatremia",
+                    "Water-balance testing": "Diagnosed from the sodium and urine pattern, not from desmopressin",
+                    "Typical causes": "Pulmonary or CNS disease, small cell lung carcinoma, SSRIs, carbamazepine"
                 }
             }
         },

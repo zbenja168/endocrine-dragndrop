@@ -6,37 +6,35 @@ BRICK = {
             "slug": "men_syndrome_compare",
             "title": "MEN1 vs MEN2A vs MEN2B vs MEN4",
             "subtitle": "Sort each feature under the multiple endocrine neoplasia syndrome it defines",
-            "categories": ["MEN1", "MEN2A", "MEN2B", "MEN4"],
+            "categories": ["Causative gene", "Genetic mechanism", "Core tumor pattern", "Clue that should raise suspicion", "Management priority"],
             "data": {
-                "Causative gene": {
-                    "MEN1": "MEN1, which encodes menin",
-                    "MEN2A": "RET proto-oncogene, activating pathogenic variant",
-                    "MEN2B": "RET, classically the highest-risk M918T variant",
-                    "MEN4": "CDKN1B, which encodes p27Kip1"
+                "MEN1": {
+                    "Causative gene": "MEN1, which encodes menin",
+                    "Genetic mechanism": "Tumor suppressor; tumors arise on losing the remaining allele",
+                    "Core tumor pattern": "Parathyroid tumors, pituitary adenomas, pancreatic/duodenal NETs",
+                    "Clue that should raise suspicion": "Young patient with multigland hyperparathyroidism and kidney stones",
+                    "Management priority": "Lifelong parathyroid, pituitary, and pancreatic/duodenal surveillance"
                 },
-                "Genetic mechanism": {
-                    "MEN1": "Tumor suppressor; tumors arise on losing the remaining allele",
-                    "MEN2A": "Gain-of-function receptor tyrosine kinase signaling",
-                    "MEN2B": "Activating RET signaling with the earliest, most aggressive MTC",
-                    "MEN4": "Tumor suppressor; loss of the p27 cell-cycle brake"
+                "MEN2A": {
+                    "Causative gene": "RET proto-oncogene, activating pathogenic variant",
+                    "Genetic mechanism": "Gain-of-function receptor tyrosine kinase signaling",
+                    "Core tumor pattern": "Medullary thyroid carcinoma, pheochromocytoma, primary hyperparathyroidism",
+                    "Clue that should raise suspicion": "Medullary thyroid carcinoma plus episodic adrenergic spells",
+                    "Management priority": "Screen for pheochromocytoma before thyroid surgery; RET-guided timing"
                 },
-                "Core tumor pattern": {
-                    "MEN1": "Parathyroid tumors, pituitary adenomas, pancreatic/duodenal NETs",
-                    "MEN2A": "Medullary thyroid carcinoma, pheochromocytoma, primary hyperparathyroidism",
-                    "MEN2B": "Medullary thyroid carcinoma, pheochromocytoma, intestinal ganglioneuromatosis",
-                    "MEN4": "Parathyroid and pituitary tumors; GEP-NETs reported less often"
+                "MEN2B": {
+                    "Causative gene": "RET, classically the highest-risk M918T variant",
+                    "Genetic mechanism": "Activating RET signaling with the earliest, most aggressive MTC",
+                    "Core tumor pattern": "Medullary thyroid carcinoma, pheochromocytoma, intestinal ganglioneuromatosis",
+                    "Clue that should raise suspicion": "Mucosal neuromas, thickened lips, marfanoid habitus, severe constipation",
+                    "Management priority": "Prophylactic thyroidectomy in infancy; test relatives soon after birth"
                 },
-                "Clue that should raise suspicion": {
-                    "MEN1": "Young patient with multigland hyperparathyroidism and kidney stones",
-                    "MEN2A": "Medullary thyroid carcinoma plus episodic adrenergic spells",
-                    "MEN2B": "Mucosal neuromas, thickened lips, marfanoid habitus, severe constipation",
-                    "MEN4": "MEN1-like phenotype with negative MEN1 genetic testing"
-                },
-                "Management priority": {
-                    "MEN1": "Lifelong parathyroid, pituitary, and pancreatic/duodenal surveillance",
-                    "MEN2A": "Screen for pheochromocytoma before thyroid surgery; RET-guided timing",
-                    "MEN2B": "Prophylactic thyroidectomy in infancy; test relatives soon after birth",
-                    "MEN4": "MEN1-like surveillance guided by CDKN1B testing and phenotype"
+                "MEN4": {
+                    "Causative gene": "CDKN1B, which encodes p27Kip1",
+                    "Genetic mechanism": "Tumor suppressor; loss of the p27 cell-cycle brake",
+                    "Core tumor pattern": "Parathyroid and pituitary tumors; GEP-NETs reported less often",
+                    "Clue that should raise suspicion": "MEN1-like phenotype with negative MEN1 genetic testing",
+                    "Management priority": "MEN1-like surveillance guided by CDKN1B testing and phenotype"
                 }
             }
         },

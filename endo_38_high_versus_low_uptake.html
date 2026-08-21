@@ -49,8 +49,8 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
         .word-bank-title { color: #84cc16; font-size: 1.3em; margin-bottom: 15px; text-align: center; font-weight: bold; }
-        .tabs { display: flex; gap: 5px; margin-bottom: 15px; border-bottom: 2px solid rgba(132, 204, 22, 0.3); }
-        .tab { flex: 1; padding: 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; padding-bottom: 6px; border-bottom: 2px solid rgba(132, 204, 22, 0.3); }
+        .tab { flex: 1 1 auto; min-width: 0; padding: 8px 10px; background: rgba(255,255,255,0.05); border: none; color: #a0a0a0; cursor: pointer; transition: all 0.3s ease; font-size: 0.82em; line-height: 1.25; font-weight: 600; border-radius: 8px 8px 0 0; text-align: center; overflow-wrap: anywhere; }
         .tab.active { background: linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%); color: white; }
         .tab:hover:not(.active) { background: rgba(255,255,255,0.1); color: #e4e4e4; }
         .word-bank { min-height: 400px; max-height: 70vh; overflow-y: auto; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; display: none; }
@@ -139,13 +139,17 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('graves_disease', this)">Graves disease</button>
-                    <button class="tab" onclick="switchTab('thyroiditis', this)">Thyroiditis</button>
-                    <button class="tab" onclick="switchTab('exogenous_hormone_exposure', this)">Exogenous hormone exposure</button>
+                    <button class="tab active" onclick="switchTab('is_the_gland_synthesizing_hormone', this)">Is the gland synthesizing hormone?</button>
+                    <button class="tab" onclick="switchTab('radioactive_iodine_uptake', this)">Radioactive iodine uptake</button>
+                    <button class="tab" onclick="switchTab('serum_thyroglobulin', this)">Serum thyroglobulin</button>
+                    <button class="tab" onclick="switchTab('value_of_a_thionamide', this)">Value of a thionamide</button>
+                    <button class="tab" onclick="switchTab('mechanism_matched_treatment', this)">Mechanism-matched treatment</button>
                 </div>
-                <div id="graves_disease-bank" class="word-bank active"></div>
-                <div id="thyroiditis-bank" class="word-bank"></div>
-                <div id="exogenous_hormone_exposure-bank" class="word-bank"></div>
+                <div id="is_the_gland_synthesizing_hormone-bank" class="word-bank active"></div>
+                <div id="radioactive_iodine_uptake-bank" class="word-bank"></div>
+                <div id="serum_thyroglobulin-bank" class="word-bank"></div>
+                <div id="value_of_a_thionamide-bank" class="word-bank"></div>
+                <div id="mechanism_matched_treatment-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,34 +164,30 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["graves_disease", "thyroiditis", "exogenous_hormone_exposure"];
-        const categoryLabels = {"graves_disease": "Graves disease", "thyroiditis": "Thyroiditis", "exogenous_hormone_exposure": "Exogenous hormone exposure"};
+        const categoryKeys = ["is_the_gland_synthesizing_hormone", "radioactive_iodine_uptake", "serum_thyroglobulin", "value_of_a_thionamide", "mechanism_matched_treatment"];
+        const categoryLabels = {"is_the_gland_synthesizing_hormone": "Is the gland synthesizing hormone?", "radioactive_iodine_uptake": "Radioactive iodine uptake", "serum_thyroglobulin": "Serum thyroglobulin", "value_of_a_thionamide": "Value of a thionamide", "mechanism_matched_treatment": "Mechanism-matched treatment"};
 
         const gameData = {
-            "Is the gland synthesizing hormone?": {
-                "graves_disease": "Yes, true hyperthyroidism driven by receptor stimulation",
-                "thyroiditis": "No, stored hormone is leaking from damaged follicles",
-                "exogenous_hormone_exposure": "No, the gland is suppressed by negative feedback"
+            "Graves disease": {
+                "is_the_gland_synthesizing_hormone": "Yes, true hyperthyroidism driven by receptor stimulation",
+                "radioactive_iodine_uptake": "Diffusely increased",
+                "serum_thyroglobulin": "Made by an actively stimulated gland",
+                "value_of_a_thionamide": "Useful, because it blocks the increased new synthesis",
+                "mechanism_matched_treatment": "Antithyroid drug, radioactive iodine, or surgery"
             },
-            "Radioactive iodine uptake": {
-                "graves_disease": "Diffusely increased",
-                "thyroiditis": "Low, because trapping is not driving the hormone excess",
-                "exogenous_hormone_exposure": "Low, because the source bypasses the gland"
+            "Thyroiditis": {
+                "is_the_gland_synthesizing_hormone": "No, stored hormone is leaking from damaged follicles",
+                "radioactive_iodine_uptake": "Low, because trapping is not driving the hormone excess",
+                "serum_thyroglobulin": "May be elevated as damaged follicles spill their contents",
+                "value_of_a_thionamide": "Usually unhelpful, since new synthesis is not the problem",
+                "mechanism_matched_treatment": "Supportive and anti-inflammatory therapy while the leak resolves"
             },
-            "Serum thyroglobulin": {
-                "graves_disease": "Made by an actively stimulated gland",
-                "thyroiditis": "May be elevated as damaged follicles spill their contents",
-                "exogenous_hormone_exposure": "Often low, since no endogenous hormone is released"
-            },
-            "Value of a thionamide": {
-                "graves_disease": "Useful, because it blocks the increased new synthesis",
-                "thyroiditis": "Usually unhelpful, since new synthesis is not the problem",
-                "exogenous_hormone_exposure": "Unhelpful, since the hormone is not made in the gland"
-            },
-            "Mechanism-matched treatment": {
-                "graves_disease": "Antithyroid drug, radioactive iodine, or surgery",
-                "thyroiditis": "Supportive and anti-inflammatory therapy while the leak resolves",
-                "exogenous_hormone_exposure": "Stop or reduce the outside source and control symptoms"
+            "Exogenous hormone exposure": {
+                "is_the_gland_synthesizing_hormone": "No, the gland is suppressed by negative feedback",
+                "radioactive_iodine_uptake": "Low, because the source bypasses the gland",
+                "serum_thyroglobulin": "Often low, since no endogenous hormone is released",
+                "value_of_a_thionamide": "Unhelpful, since the hormone is not made in the gland",
+                "mechanism_matched_treatment": "Stop or reduce the outside source and control symptoms"
             }
         };
 
