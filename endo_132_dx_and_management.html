@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnosing and Treating Hypoglycemia - Drag &amp; Drop Study Game</title>
+    <title>Diagnosis and Management Round-Up - Drag &amp; Drop Study Game</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -118,11 +118,11 @@
 </head>
 <body>
 <a href="endo_index.html" style="position:fixed;top:12px;left:12px;z-index:9999;background:rgba(0,0,0,0.55);color:#94a3b8;border:1px solid rgba(255,255,255,0.13);border-radius:20px;padding:5px 13px;font-size:.72rem;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(8px);transition:.15s;letter-spacing:.3px;" onmouseover="this.style.color='#f1f5f9';this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.color='#94a3b8';this.style.borderColor='rgba(255,255,255,0.13)'">&#8592; Index</a>
-<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_123_insulin_lab_patterns.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_125_wall_layers.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
+<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_131_reflux_duplication_subtypes.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_133_pkd_forms_compare.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
 
     <div class="container">
-        <h1>🔬 Diagnosing and Treating Hypoglycemia</h1>
-        <p class="subtitle">Match each test or treatment to what it is, when it is used, and its key detail</p>
+        <h1>🔬 Diagnosis and Management Round-Up</h1>
+        <p class="subtitle">Match each disorder to its key diagnostic study, imaging clue, and management</p>
         <div class="stats-controls">
             <div class="stats">
                 <div class="stat-item"><span class="stat-label">Score:</span><span id="score">0</span>/<span id="total">0</span></div>
@@ -139,13 +139,13 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('what_it_is', this)">What it is</button>
-                    <button class="tab" onclick="switchTab('when_it_is_used', this)">When it is used</button>
-                    <button class="tab" onclick="switchTab('key_detail_or_threshold', this)">Key detail or threshold</button>
+                    <button class="tab active" onclick="switchTab('key_diagnostic_study', this)">Key diagnostic study</button>
+                    <button class="tab" onclick="switchTab('classic_imaging_clue', this)">Classic imaging clue</button>
+                    <button class="tab" onclick="switchTab('management', this)">Management</button>
                 </div>
-                <div id="what_it_is-bank" class="word-bank active"></div>
-                <div id="when_it_is_used-bank" class="word-bank"></div>
-                <div id="key_detail_or_threshold-bank" class="word-bank"></div>
+                <div id="key_diagnostic_study-bank" class="word-bank active"></div>
+                <div id="classic_imaging_clue-bank" class="word-bank"></div>
+                <div id="management-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,39 +160,34 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["what_it_is", "when_it_is_used", "key_detail_or_threshold"];
-        const categoryLabels = {"what_it_is": "What it is", "when_it_is_used": "When it is used", "key_detail_or_threshold": "Key detail or threshold"};
+        const categoryKeys = ["key_diagnostic_study", "classic_imaging_clue", "management"];
+        const categoryLabels = {"key_diagnostic_study": "Key diagnostic study", "classic_imaging_clue": "Classic imaging clue", "management": "Management"};
 
         const gameData = {
-            "Whipple triad": {
-                "what_it_is": "Low glucose plus typical symptoms, both corrected by giving glucose",
-                "when_it_is_used": "Establishing the diagnosis of hypoglycemia, especially without diabetes",
-                "key_detail_or_threshold": "70 mg/dL or below is the general-population alert value"
+            "Vesicoureteral reflux": {
+                "key_diagnostic_study": "Voiding cystourethrogram is the gold standard",
+                "classic_imaging_clue": "Retrograde urine flow from bladder to ureter during voiding",
+                "management": "Watchful waiting, prophylactic antibiotics, or surgical correction"
             },
-            "Supervised 72-hour fast": {
-                "what_it_is": "Inpatient fast with glucose and insulin drawn every 6 hours",
-                "when_it_is_used": "Unexplained fasting hypoglycemia after initial testing is inconclusive",
-                "key_detail_or_threshold": "Ended for symptoms or a glucose below 55 mg/dL"
+            "UPJ obstruction": {
+                "key_diagnostic_study": "Often detected on prenatal screening ultrasound",
+                "classic_imaging_clue": "Bear paw hydronephrosis: dilated calyces around compressed parenchyma",
+                "management": "Observation with serial ultrasounds; surgery if function declines"
             },
-            "Mixed meal test": {
-                "what_it_is": "Supervised meal after an overnight fast with hourly glucose for 5 hours",
-                "when_it_is_used": "Confirming suspected reactive, postprandial hypoglycemia",
-                "key_detail_or_threshold": "Positive if symptoms occur below 55 mg/dL; poorly reproducible"
+            "Ureteral duplication": {
+                "key_diagnostic_study": "Detected on ultrasound",
+                "classic_imaging_clue": "More than one ureter attached to a kidney",
+                "management": "Ranges from observation to antibiotics to repair, by severity"
             },
-            "Intravenous dextrose": {
-                "what_it_is": "Sugar given directly into the vein, with glucagon as an alternative",
-                "when_it_is_used": "Symptomatic patient with altered mental status who cannot swallow safely",
-                "key_detail_or_threshold": "Given immediately to prevent irreversible neurologic damage"
+            "Bladder exstrophy": {
+                "key_diagnostic_study": "Second-trimester prenatal ultrasound",
+                "classic_imaging_clue": "Bladder not visualized or appears abnormal in utero",
+                "management": "Complex, staged surgical repair to restore storage and continence"
             },
-            "Acarbose or miglitol": {
-                "what_it_is": "Alpha-glucosidase inhibitors that block brush-border carbohydrate digestion",
-                "when_it_is_used": "Reactive hypoglycemia that persists despite dietary change",
-                "key_detail_or_threshold": "Slow absorption blunts the postprandial glucose and insulin spike"
-            },
-            "Octreotide or diazoxide": {
-                "what_it_is": "Agents that suppress pancreatic insulin release",
-                "when_it_is_used": "Selected hyperinsulinemic hypoglycemia under specialist management",
-                "key_detail_or_threshold": "Used for unresectable insulinoma or persistent post-bariatric spells"
+            "Posterior urethral valves": {
+                "key_diagnostic_study": "VCUG is the gold standard, in males only",
+                "classic_imaging_clue": "Keyhole sign: dilated posterior urethra and bladder",
+                "management": "Endoscopic valve ablation to relieve the obstruction"
             }
         };
 

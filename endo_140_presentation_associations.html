@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnosing and Treating Hypoglycemia - Drag &amp; Drop Study Game</title>
+    <title>Presentation and the Company It Keeps - Drag &amp; Drop Study Game</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -118,11 +118,11 @@
 </head>
 <body>
 <a href="endo_index.html" style="position:fixed;top:12px;left:12px;z-index:9999;background:rgba(0,0,0,0.55);color:#94a3b8;border:1px solid rgba(255,255,255,0.13);border-radius:20px;padding:5px 13px;font-size:.72rem;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(8px);transition:.15s;letter-spacing:.3px;" onmouseover="this.style.color='#f1f5f9';this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.color='#94a3b8';this.style.borderColor='rgba(255,255,255,0.13)'">&#8592; Index</a>
-<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_123_insulin_lab_patterns.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_125_wall_layers.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
+<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_139_management_toolbox.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_141_wilms_genetic_syndromes.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
 
     <div class="container">
-        <h1>🔬 Diagnosing and Treating Hypoglycemia</h1>
-        <p class="subtitle">Match each test or treatment to what it is, when it is used, and its key detail</p>
+        <h1>🔬 Presentation and the Company It Keeps</h1>
+        <p class="subtitle">Match each presentation or associated disorder to its hallmark features and its link to MSK</p>
         <div class="stats-controls">
             <div class="stats">
                 <div class="stat-item"><span class="stat-label">Score:</span><span id="score">0</span>/<span id="total">0</span></div>
@@ -139,13 +139,11 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('what_it_is', this)">What it is</button>
-                    <button class="tab" onclick="switchTab('when_it_is_used', this)">When it is used</button>
-                    <button class="tab" onclick="switchTab('key_detail_or_threshold', this)">Key detail or threshold</button>
+                    <button class="tab active" onclick="switchTab('hallmark_features', this)">Hallmark features</button>
+                    <button class="tab" onclick="switchTab('relationship_to_msk', this)">Relationship to MSK</button>
                 </div>
-                <div id="what_it_is-bank" class="word-bank active"></div>
-                <div id="when_it_is_used-bank" class="word-bank"></div>
-                <div id="key_detail_or_threshold-bank" class="word-bank"></div>
+                <div id="hallmark_features-bank" class="word-bank active"></div>
+                <div id="relationship_to_msk-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,39 +158,29 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["what_it_is", "when_it_is_used", "key_detail_or_threshold"];
-        const categoryLabels = {"what_it_is": "What it is", "when_it_is_used": "When it is used", "key_detail_or_threshold": "Key detail or threshold"};
+        const categoryKeys = ["hallmark_features", "relationship_to_msk"];
+        const categoryLabels = {"hallmark_features": "Hallmark features", "relationship_to_msk": "Relationship to MSK"};
 
         const gameData = {
-            "Whipple triad": {
-                "what_it_is": "Low glucose plus typical symptoms, both corrected by giving glucose",
-                "when_it_is_used": "Establishing the diagnosis of hypoglycemia, especially without diabetes",
-                "key_detail_or_threshold": "70 mg/dL or below is the general-population alert value"
+            "Kidney stone episode": {
+                "hallmark_features": "Flank pain and hematuria",
+                "relationship_to_msk": "Most common symptomatic presentation"
             },
-            "Supervised 72-hour fast": {
-                "what_it_is": "Inpatient fast with glucose and insulin drawn every 6 hours",
-                "when_it_is_used": "Unexplained fasting hypoglycemia after initial testing is inconclusive",
-                "key_detail_or_threshold": "Ended for symptoms or a glucose below 55 mg/dL"
+            "Urinary tract infection": {
+                "hallmark_features": "Urinary frequency and dysuria",
+                "relationship_to_msk": "Frequent infectious complication"
             },
-            "Mixed meal test": {
-                "what_it_is": "Supervised meal after an overnight fast with hourly glucose for 5 hours",
-                "when_it_is_used": "Confirming suspected reactive, postprandial hypoglycemia",
-                "key_detail_or_threshold": "Positive if symptoms occur below 55 mg/dL; poorly reproducible"
+            "Beckwith-Wiedemann syndrome": {
+                "hallmark_features": "Hemihypertrophy, macroglossia, omphalocele, gigantism",
+                "relationship_to_msk": "Less common associated congenital overgrowth disorder"
             },
-            "Intravenous dextrose": {
-                "what_it_is": "Sugar given directly into the vein, with glucagon as an alternative",
-                "when_it_is_used": "Symptomatic patient with altered mental status who cannot swallow safely",
-                "key_detail_or_threshold": "Given immediately to prevent irreversible neurologic damage"
+            "Marfan syndrome": {
+                "hallmark_features": "Joint laxity",
+                "relationship_to_msk": "Less common associated connective tissue disorder"
             },
-            "Acarbose or miglitol": {
-                "what_it_is": "Alpha-glucosidase inhibitors that block brush-border carbohydrate digestion",
-                "when_it_is_used": "Reactive hypoglycemia that persists despite dietary change",
-                "key_detail_or_threshold": "Slow absorption blunts the postprandial glucose and insulin spike"
-            },
-            "Octreotide or diazoxide": {
-                "what_it_is": "Agents that suppress pancreatic insulin release",
-                "when_it_is_used": "Selected hyperinsulinemic hypoglycemia under specialist management",
-                "key_detail_or_threshold": "Used for unresectable insulinoma or persistent post-bariatric spells"
+            "Cardiomyopathy": {
+                "hallmark_features": "Dyspnea and edema",
+                "relationship_to_msk": "Less common associated cardiac disorder"
             }
         };
 
