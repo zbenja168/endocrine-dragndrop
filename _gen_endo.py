@@ -37,7 +37,7 @@ WEEKS = [
     ("Week 1", "Foundations, Anatomy & the Pituitary", range(1, 10)),
     ("Week 2", "Thyroid, Parathyroid & Bone", range(10, 20)),
     ("Week 3", "Adrenal, Pancreas & Diabetes", range(20, 32)),
-    ("Week 4", "Kidney, Bladder & Urinary Tract", range(32, 42)),
+    ("Week 4", "Obesity, Metabolic Syndrome & Diabetes Care", range(32, 34)),
 ]
 
 
@@ -56,7 +56,7 @@ ICONS = ["🩸", "🧬", "⚗️", "🔬", "🧪", "💊", "🩺", "⚡"]
 def load_bricks():
     """Import all brick_NN.py files in number order, then the cross-brick synthesis at the end."""
     bricks = []
-    for i in range(1, 42):
+    for i in range(1, 34):
         path = os.path.join(DATA_DIR, f"brick_{i:02d}.py")
         if not os.path.exists(path):
             print(f"  WARNING: missing {path}")

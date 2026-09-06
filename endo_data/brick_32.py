@@ -1,112 +1,123 @@
 BRICK = {
     "brick_num": 32,
-    "brick_title": "Histology of the Ureters, Bladder, and Urethra",
+    "brick_title": "Obesity and Metabolic Syndrome",
     "games": [
         {
-            "slug": "wall_layers",
-            "title": "Layers of the Urinary Tract Wall",
-            "subtitle": "Match each wall layer to its composition, its role, and where it is found",
-            "categories": ["Composition", "Role", "Where it is found"],
+            "slug": "hunger_hormones",
+            "title": "Hunger and Satiety Hormones",
+            "subtitle": "Match each hormone to its source, effect on food intake, and distinctive feature",
+            "categories": ["Source", "Effect on food intake", "Distinctive feature"],
             "data": {
-                "Mucosa": {
-                    "Composition": "Transitional epithelium plus the lamina propria",
-                    "Role": "Urine-resistant lining that folds and stretches",
-                    "Where it is found": "Innermost layer, facing the lumen"
+                "Ghrelin": {
+                    "Source": "Gastric secretions from the fundus of the stomach",
+                    "Effect on food intake": "Increases food intake and decreases energy expenditure",
+                    "Distinctive feature": "Rises before meals; lower in obesity but rises again with weight loss"
                 },
-                "Muscularis": {
-                    "Composition": "Layers of smooth muscle",
-                    "Role": "Moves urine along and contracts for micturition",
-                    "Where it is found": "Middle layer, forming the pipe itself"
+                "Leptin": {
+                    "Source": "Secreted by fat cells (adipocytes)",
+                    "Effect on food intake": "Reduces intake in proportion to the body's energy excess",
+                    "Distinctive feature": "Circulates at high levels in obesity yet fails to curb appetite (resistance)"
                 },
-                "Adventitia": {
-                    "Composition": "Loose connective tissue blending with surroundings",
-                    "Role": "Insulating cover carrying vessels, nerves, and fat",
-                    "Where it is found": "Outer coat of retroperitoneal organs like the ureter"
+                "GLP-1": {
+                    "Source": "Ileum and colon, in the presence of digested food",
+                    "Effect on food intake": "Reduces food intake and stimulates insulin after glucose ingestion",
+                    "Distinctive feature": "Incretin targeted by semaglutide and liraglutide"
                 },
-                "Serosa": {
-                    "Composition": "Defined outer layer of mesothelium",
-                    "Role": "Smooth covering on intraperitoneal surfaces",
-                    "Where it is found": "Superior surface of the bladder"
+                "GIP": {
+                    "Source": "Duodenum (mostly) and jejunum of the small intestine",
+                    "Effect on food intake": "Reduces intake; boosts glucose-dependent insulin release",
+                    "Distinctive feature": "Incretin targeted together with GLP-1 by tirzepatide"
+                },
+                "PYY": {
+                    "Source": "Ileum and colon, alongside GLP-1 and CCK",
+                    "Effect on food intake": "Reduces food intake after meals as a satiety signal",
+                    "Distinctive feature": "Not an incretin; its fall after weight loss promotes regain"
                 }
             }
         },
         {
-            "slug": "male_urethra_segments",
-            "title": "Segments of the Male Urethra",
-            "subtitle": "Match each segment to its location, its lining, and its key association",
-            "categories": ["Location and length", "Epithelial lining", "Key association"],
+            "slug": "mets_criteria",
+            "title": "AHA/NHLBI Metabolic Syndrome Criteria",
+            "subtitle": "Match each criterion (3 or more = metabolic syndrome) to its male cutoff, female cutoff, and how it is assessed",
+            "categories": ["Cutoff in males", "Cutoff in females", "How it is assessed"],
             "data": {
-                "Preprostatic urethra": {
-                    "Location and length": "About 1 cm, from bladder neck to the prostate",
-                    "Epithelial lining": "Transitional epithelium",
-                    "Key association": "Begins at the neck of the bladder"
+                "Waist circumference": {
+                    "Cutoff in males": ">40 inches",
+                    "Cutoff in females": ">35 inches",
+                    "How it is assessed": "Measured on physical examination"
                 },
-                "Prostatic urethra": {
-                    "Location and length": "3 to 4 cm, within the prostate gland",
-                    "Epithelial lining": "Transitional epithelium, like the segment above it",
-                    "Key association": "Tunnels through and emerges from the prostate"
+                "Blood pressure": {
+                    "Cutoff in males": ">130 mm Hg systolic or >80 mm Hg diastolic",
+                    "Cutoff in females": "Same cutoffs; antihypertensive therapy also counts",
+                    "How it is assessed": "Office measurement or current medication list"
                 },
-                "Membranous urethra": {
-                    "Location and length": "Middle 1-cm segment in the deep perineal pouch",
-                    "Epithelial lining": "Stratified or pseudostratified columnar epithelium",
-                    "Key association": "Skeletal muscle here forms the external urethral sphincter"
+                "Triglycerides": {
+                    "Cutoff in males": ">150 mg/dL",
+                    "Cutoff in females": ">150 mg/dL (same as males)",
+                    "How it is assessed": "Fasting lipid profile"
                 },
-                "Penile (spongy) urethra": {
-                    "Location and length": "Distal segment opening to the outside of the body",
-                    "Epithelial lining": "Pseudostratified columnar, then stratified squamous distally",
-                    "Key association": "Bulbospongiosus proximally; corpus spongiosum in the shaft"
+                "HDL cholesterol": {
+                    "Cutoff in males": "<40 mg/dL",
+                    "Cutoff in females": "<50 mg/dL",
+                    "How it is assessed": "Fasting lipid profile (low value counts)"
+                },
+                "Glucose": {
+                    "Cutoff in males": ">100 mg/dL",
+                    "Cutoff in females": ">100 mg/dL (same as males)",
+                    "How it is assessed": "Fasting serum glucose concentration"
                 }
             }
         },
         {
-            "slug": "organ_comparison",
-            "title": "Ureter vs Bladder vs Urethra",
-            "subtitle": "Match each urinary passage to its lining, its course, and its distinctive feature",
-            "categories": ["Epithelial lining", "Length and course", "Distinctive feature"],
+            "slug": "obesity_drug_classes",
+            "title": "Anti-Obesity Drug Classes",
+            "subtitle": "Match each drug to its mechanism of action, adverse effects or cautions, and place in therapy",
+            "categories": ["Mechanism of action", "Adverse effects / cautions", "Place in therapy"],
             "data": {
-                "Ureter": {
-                    "Epithelial lining": "Transitional epithelium four or five cells thick",
-                    "Length and course": "Paired tubes from renal pelvis to urinary bladder",
-                    "Distinctive feature": "Three muscle layers: longitudinal, circular, longitudinal"
+                "Semaglutide / liraglutide": {
+                    "Mechanism of action": "GLP-1 receptor activation: satiety up, appetite down, slowed gastric emptying",
+                    "Adverse effects / cautions": "Avoid with personal or family history of medullary thyroid carcinoma or MEN2",
+                    "Place in therapy": "First-line options in conjunction with lifestyle modifications"
                 },
-                "Urinary bladder": {
-                    "Epithelial lining": "Transitional epithelium six or more cells thick",
-                    "Length and course": "Reservoir between the ureters and the urethra",
-                    "Distinctive feature": "Very thick detrusor muscle (muscularis propria)"
+                "Tirzepatide": {
+                    "Mechanism of action": "Activates both GIP and GLP-1 receptors, improving glycemic signaling",
+                    "Adverse effects / cautions": "Nausea, vomiting, delayed gastric emptying; rare gallbladder disease and pancreatitis",
+                    "Place in therapy": "First-line dual-agonist option alongside lifestyle changes"
                 },
-                "Male urethra": {
-                    "Epithelial lining": "Transitional, then pseudostratified, then stratified squamous",
-                    "Length and course": "About 20 cm with four distinct segments",
-                    "Distinctive feature": "Voluntary external sphincter at the membranous segment"
+                "Phentermine-topiramate ER": {
+                    "Mechanism of action": "Sympathomimetic catecholamine signaling plus topiramate satiety effects",
+                    "Adverse effects / cautions": "Caution in cardiovascular disease or uncontrolled hypertension; avoid in pregnancy",
+                    "Place in therapy": "Second-line when incretin-based therapy is not appropriate or tolerated"
                 },
-                "Female urethra": {
-                    "Epithelial lining": "Transitional at the start, stratified squamous by the end",
-                    "Length and course": "3 to 5 cm with no distinct segments",
-                    "Distinctive feature": "Short length and rectal proximity raise UTI risk"
+                "Naltrexone-bupropion ER": {
+                    "Mechanism of action": "Opioid antagonism plus increased NE/DA in hypothalamic appetite and reward pathways",
+                    "Adverse effects / cautions": "Insomnia, dry mouth; avoid with seizure risk or chronic opioid use",
+                    "Place in therapy": "Later-line, especially for craving/reward-driven eating"
+                },
+                "Orlistat": {
+                    "Mechanism of action": "Inhibits gastric and pancreatic lipases, blocking dietary triglyceride absorption",
+                    "Adverse effects / cautions": "Oily stools, fecal urgency, flatulence; reduced fat-soluble vitamin absorption",
+                    "Place in therapy": "Older, less preferred nonsystemic oral option with modest efficacy"
                 }
             }
         },
         {
-            "slug": "urothelium_thickness",
-            "title": "Transitional Epithelium Along the Tract",
-            "subtitle": "Match each site or state to its cell-layer count and its notable feature",
-            "categories": ["Cell layers seen", "Notable feature"],
+            "slug": "sleeve_vs_rygb",
+            "title": "Sleeve Gastrectomy vs Roux-en-Y Bypass",
+            "subtitle": "Sort each feature under the correct bariatric procedure",
+            "categories": ["Anatomic change", "Primary mechanism", "Key gut hormone effect", "Micronutrient deficiency risk"],
             "data": {
-                "Minor calyx": {
-                    "Cell layers seen": "Only two cell layers thick",
-                    "Notable feature": "Where transitional epithelium begins in the kidney"
+                "Sleeve gastrectomy": {
+                    "Anatomic change": "Removes about 80% of the stomach, including the fundus",
+                    "Primary mechanism": "Restrictive: volume reduction plus markedly reduced hunger signaling",
+                    "Key gut hormone effect": "Decreased ghrelin, since the fundus is its primary source",
+                    "Micronutrient deficiency risk": "Lower risk, but patients still require monitoring"
                 },
-                "Ureter lining": {
-                    "Cell layers seen": "Four or five cell layers thick",
-                    "Notable feature": "Layer count grows as urine moves downstream"
-                },
-                "Empty bladder": {
-                    "Cell layers seen": "Six or more cell layers thick",
-                    "Notable feature": "Rounded dome cells give the classic surface look"
-                },
-                "Distended bladder": {
-                    "Cell layers seen": "Appears to have as few as three layers",
-                    "Notable feature": "Layers flatten and unfold while the detrusor relaxes"
+                "Roux-en-Y gastric bypass": {
+                    "Anatomic change": "Small 15-30 mL gastric pouch draining into a 75-150 cm Roux limb",
+                    "Primary mechanism": "Restrictive plus some malabsorption from the bypassed segment",
+                    "Key gut hormone effect": "Increased GLP-1 and PYY from rapid nutrient delivery to distal L-cells",
+                    "Micronutrient deficiency risk": "Higher risk (iron, B12, calcium, vitamin D, folate); lifelong supplementation"
                 }
             }
         }

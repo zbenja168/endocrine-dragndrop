@@ -1,131 +1,130 @@
 BRICK = {
     "brick_num": 33,
-    "brick_title": "Congenital Disorders of the Lower Urinary Tract",
+    "brick_title": "Fighting the Diabetes Epidemic: Partnering with Patients for Better Outcomes",
     "games": [
         {
-            "slug": "embryo_origins",
-            "title": "Embryologic Origins of Lower Urinary Tract Malformations",
-            "subtitle": "Match each malformation to its structure of origin, developmental error, and urine flow problem",
-            "categories": ["Structure of origin", "Developmental error", "Resulting urine flow problem"],
+            "slug": "self_care_7",
+            "title": "The Diabetes Self-Care 7",
+            "subtitle": "Match each self-care skill to its purpose and its scientific rationale",
+            "categories": ["Purpose / goal", "Scientific rationale"],
             "data": {
-                "Vesicoureteral reflux": {
-                    "Structure of origin": "Ureterovesical junction as ureter enters bladder wall",
-                    "Developmental error": "Short intramural ureter weakens the one-way flap valve",
-                    "Resulting urine flow problem": "Urine refluxes from bladder back into ureter during voiding"
+                "Healthy Eating": {
+                    "Purpose / goal": "Improve glycemic stability and cardiometabolic health",
+                    "Scientific rationale": "Fiber, protein, and healthy fats slow gastric emptying and blunt post-prandial glucose excursions"
                 },
-                "UPJ obstruction": {
-                    "Structure of origin": "Junction where renal pelvis (ureteric bud) meets ureter",
-                    "Developmental error": "Failed recanalization or muscular development; aberrant renal artery",
-                    "Resulting urine flow problem": "Blocked drainage from renal pelvis into the ureter"
+                "Being Active": {
+                    "Purpose / goal": "Improve insulin sensitivity and cardiovascular fitness",
+                    "Scientific rationale": "Muscle contraction drives insulin-independent GLUT-4 glucose uptake; sensitivity rises for 24-72 hours"
                 },
-                "Ureteral duplication": {
-                    "Structure of origin": "Ureteric bud arising from the mesonephric duct",
-                    "Developmental error": "Premature branching of one bud, or two separate buds",
-                    "Resulting urine flow problem": "Ectopic insertion can predispose to reflux or obstruction"
+                "Self-Monitoring": {
+                    "Purpose / goal": "Guide informed daily decisions from personal glucose patterns",
+                    "Scientific rationale": "Glucose data reveal effects of meals, activity, stress, and sleep, allowing timely adjustments"
                 },
-                "Bladder exstrophy": {
-                    "Structure of origin": "Bladder forming from the urogenital sinus",
-                    "Developmental error": "Mesoderm fails to migrate; midline wall closure fails",
-                    "Resulting urine flow problem": "Open, exposed bladder cannot store urine at all"
+                "Medication Use / Adherence": {
+                    "Purpose / goal": "Achieve individualized glycemic targets safely",
+                    "Scientific rationale": "Drugs target specific defects such as insulin deficiency, insulin resistance, and excess hepatic glucose output"
                 },
-                "Posterior urethral valves": {
-                    "Structure of origin": "Prostatic urethra from pelvic part of urogenital sinus",
-                    "Developmental error": "Persistent obstructing folds of tissue and hypertrophied smooth muscle",
-                    "Resulting urine flow problem": "Bladder outlet obstruction raises intravesical pressure"
+                "Healthy Coping": {
+                    "Purpose / goal": "Reduce diabetes distress and sustain self-management",
+                    "Scientific rationale": "Chronic stress activates the SNS and HPA axis; cortisol and catecholamines worsen insulin resistance"
                 },
-                "Urachal anomaly": {
-                    "Structure of origin": "Allantois running from bladder apex to umbilicus",
-                    "Developmental error": "Incomplete obliteration into the median umbilical ligament",
-                    "Resulting urine flow problem": "Urine leaks or stagnates within a persistent tract"
+                "Annual Testing": {
+                    "Purpose / goal": "Detect complications early and reduce long-term morbidity",
+                    "Scientific rationale": "Hyperglycemia injures vessels and nerves via oxidative stress, inflammation, and AGEs; screening catches damage early"
                 }
             }
         },
         {
-            "slug": "urachal_variants",
-            "title": "Urachal Anomaly Variants",
-            "subtitle": "Match each urachal anomaly to its patent portion, its communication, and its clinical consequence",
-            "categories": ["Patent portion of urachus", "Communicates with", "Clinical consequence"],
+            "slug": "annual_risk_reduction",
+            "title": "Annual Testing: Protecting the Vulnerable Organs",
+            "subtitle": "Match each thing to protect with its recommended screening and purpose",
+            "categories": ["Recommended screening", "Purpose"],
             "data": {
-                "Patent urachus": {
-                    "Patent portion of urachus": "Entire channel from bladder apex to umbilicus",
-                    "Communicates with": "Both the bladder and the umbilicus",
-                    "Clinical consequence": "Urine leaks out through the umbilicus"
+                "Vision": {
+                    "Recommended screening": "Annual dilated eye exam",
+                    "Purpose": "Detect retinopathy early"
                 },
-                "Urachal cyst": {
-                    "Patent portion of urachus": "Midportion only, with both ends closed",
-                    "Communicates with": "Neither the bladder nor the umbilicus",
-                    "Clinical consequence": "Trapped fluid becomes infected: pain, swelling, abscess"
+                "Mobility (feet)": {
+                    "Recommended screening": "Foot exams with PCP, podiatrist, or endocrinologist",
+                    "Purpose": "Prevent ulcers and amputation"
                 },
-                "Urachal sinus": {
-                    "Patent portion of urachus": "Umbilical end open, bladder end closed",
-                    "Communicates with": "The umbilicus only",
-                    "Clinical consequence": "Persistent drainage or infection at the umbilicus"
+                "Kidneys": {
+                    "Recommended screening": "Urine albumin-to-creatinine ratio (UACR) plus eGFR",
+                    "Purpose": "Detect chronic kidney disease early"
                 },
-                "Vesicourachal diverticulum": {
-                    "Patent portion of urachus": "Bladder end open, umbilical end closed",
-                    "Communicates with": "The bladder only",
-                    "Clinical consequence": "Outpouching extends from the bladder apex"
+                "Heart": {
+                    "Recommended screening": "Blood pressure, lipids, and ASCVD risk assessment",
+                    "Purpose": "Reduce cardiovascular disease"
+                },
+                "Mouth": {
+                    "Recommended screening": "Dental exams 1-2 times per year",
+                    "Purpose": "Prevent periodontal disease"
+                },
+                "Well-being": {
+                    "Recommended screening": "Diabetes distress screening",
+                    "Purpose": "Support successful self-management"
                 }
             }
         },
         {
-            "slug": "reflux_duplication_subtypes",
-            "title": "Reflux and Duplication Subtypes",
-            "subtitle": "Match each subtype to its embryologic mechanism, urine flow pattern, and distinguishing point",
-            "categories": ["Embryologic mechanism", "Urine flow pattern", "Distinguishing point"],
+            "slug": "carb_choices",
+            "title": "Carb Counting with Carb Choices",
+            "subtitle": "Match each food to its exchange group, carbohydrate content, and number of carb choices",
+            "categories": ["Exchange group", "Carbohydrate content", "Carb choices"],
             "data": {
-                "Primary VUR": {
-                    "Embryologic mechanism": "Abnormal ureterovesical junction shortens the intramural ureter",
-                    "Urine flow pattern": "Reflux during micturition; can involve one or both ureters",
-                    "Distinguishing point": "Malformed ureteral entry often corrects itself with age"
+                "1 cup cooked rice": {
+                    "Exchange group": "Starch",
+                    "Carbohydrate content": "About 45 grams",
+                    "Carb choices": "3 carb choices"
                 },
-                "Secondary VUR": {
-                    "Embryologic mechanism": "Obstruction distal to the ureteric orifice raises bladder pressure",
-                    "Urine flow pattern": "Generally bilateral reflux into both ureters and kidneys",
-                    "Distinguishing point": "High pressure forces urine backward, as at a narrowed bladder neck"
+                "1 large wrap": {
+                    "Exchange group": "Starch",
+                    "Carbohydrate content": "About 30 grams",
+                    "Carb choices": "2 carb choices"
                 },
-                "Partial duplication": {
-                    "Embryologic mechanism": "Single ureteric bud branches prematurely along its length",
-                    "Urine flow pattern": "The two ureters usually join before entering the bladder",
-                    "Distinguishing point": "Urine flow is generally unaffected"
+                "3 cups popped popcorn": {
+                    "Exchange group": "Starch (high-fiber whole grain)",
+                    "Carbohydrate content": "15 grams",
+                    "Carb choices": "1 carb choice"
                 },
-                "Complete duplication": {
-                    "Embryologic mechanism": "Two ureteric buds each induce their own collecting system",
-                    "Urine flow pattern": "Ectopic or abnormal insertion disrupts one-way flow",
-                    "Distinguishing point": "Ectopic drainage to vagina or prostatic urethra causes incontinence"
+                "1 small apple": {
+                    "Exchange group": "Fruit",
+                    "Carbohydrate content": "15 grams",
+                    "Carb choices": "1 carb choice"
+                },
+                "1 cup milk": {
+                    "Exchange group": "Milk / yogurt",
+                    "Carbohydrate content": "12 grams",
+                    "Carb choices": "1 carb choice"
+                },
+                "Leafy greens, mustard, vinegar": {
+                    "Exchange group": "Free foods",
+                    "Carbohydrate content": "Negligible carbohydrate",
+                    "Carb choices": "0 carb choices"
                 }
             }
         },
         {
-            "slug": "dx_and_management",
-            "title": "Diagnosis and Management Round-Up",
-            "subtitle": "Match each disorder to its key diagnostic study, imaging clue, and management",
-            "categories": ["Key diagnostic study", "Classic imaging clue", "Management"],
+            "slug": "activity_modifications",
+            "title": "Tailoring Physical Activity",
+            "subtitle": "Match each patient situation to the right activity guidance and the reason behind it",
+            "categories": ["Activity guidance", "Reason"],
             "data": {
-                "Vesicoureteral reflux": {
-                    "Key diagnostic study": "Voiding cystourethrogram is the gold standard",
-                    "Classic imaging clue": "Retrograde urine flow from bladder to ureter during voiding",
-                    "Management": "Watchful waiting, prophylactic antibiotics, or surgical correction"
+                "Type 2 diabetes, wants fewer medications": {
+                    "Activity guidance": "Walk after meals or 30 minutes most days (150 min/week)",
+                    "Reason": "Contracting muscle takes up glucose without insulin, directly reducing insulin resistance"
                 },
-                "UPJ obstruction": {
-                    "Key diagnostic study": "Often detected on prenatal screening ultrasound",
-                    "Classic imaging clue": "Bear paw hydronephrosis: dilated calyces around compressed parenchyma",
-                    "Management": "Observation with serial ultrasounds; surgery if function declines"
+                "Hypertension or significant hyperglycemia": {
+                    "Activity guidance": "Avoid weight lifting overhead",
+                    "Reason": "Overhead lifting is contraindicated for eye health"
                 },
-                "Ureteral duplication": {
-                    "Key diagnostic study": "Detected on ultrasound",
-                    "Classic imaging clue": "More than one ureter attached to a kidney",
-                    "Management": "Ranges from observation to antibiotics to repair, by severity"
+                "Peripheral neuropathy": {
+                    "Activity guidance": "Avoid movements that could cause unsteady balance",
+                    "Reason": "Balance-challenging movement is difficult and dangerous with impaired sensation"
                 },
-                "Bladder exstrophy": {
-                    "Key diagnostic study": "Second-trimester prenatal ultrasound",
-                    "Classic imaging clue": "Bladder not visualized or appears abnormal in utero",
-                    "Management": "Complex, staged surgical repair to restore storage and continence"
-                },
-                "Posterior urethral valves": {
-                    "Key diagnostic study": "VCUG is the gold standard, in males only",
-                    "Classic imaging clue": "Keyhole sign: dilated posterior urethra and bladder",
-                    "Management": "Endoscopic valve ablation to relieve the obstruction"
+                "Multiple cardiovascular risk factors": {
+                    "Activity guidance": "Refer for cardiac stress testing or cardiac rehab before an intensive program",
+                    "Reason": "Screens the heart before exertion is escalated in a high-risk patient"
                 }
             }
         }

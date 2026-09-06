@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layers of the Urinary Tract Wall - Drag &amp; Drop Study Game</title>
+    <title>Hunger and Satiety Hormones - Drag &amp; Drop Study Game</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -118,11 +118,11 @@
 </head>
 <body>
 <a href="endo_index.html" style="position:fixed;top:12px;left:12px;z-index:9999;background:rgba(0,0,0,0.55);color:#94a3b8;border:1px solid rgba(255,255,255,0.13);border-radius:20px;padding:5px 13px;font-size:.72rem;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(8px);transition:.15s;letter-spacing:.3px;" onmouseover="this.style.color='#f1f5f9';this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.color='#94a3b8';this.style.borderColor='rgba(255,255,255,0.13)'">&#8592; Index</a>
-<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_124_diagnosis_and_treatment_tools.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_126_male_urethra_segments.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
+<div style="position:fixed;top:12px;right:12px;z-index:9999;display:flex;gap:8px;"><a href="endo_124_diagnosis_and_treatment_tools.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">&#8592; Prev</a><a href="endo_126_mets_criteria.html" style="background:rgba(0,0,0,0.72);color:#e2e8f0;border:1px solid rgba(255,255,255,0.22);border-radius:22px;padding:8px 18px;font-size:.85rem;font-weight:600;text-decoration:none;font-family:'Segoe UI',sans-serif;backdrop-filter:blur(10px);transition:.15s;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)';this.style.background='rgba(0,0,0,0.88)'" onmouseout="this.style.color='#e2e8f0';this.style.borderColor='rgba(255,255,255,0.22)';this.style.background='rgba(0,0,0,0.72)'">Next &#8594;</a></div>
 
     <div class="container">
-        <h1>🧪 Layers of the Urinary Tract Wall</h1>
-        <p class="subtitle">Match each wall layer to its composition, its role, and where it is found</p>
+        <h1>🧪 Hunger and Satiety Hormones</h1>
+        <p class="subtitle">Match each hormone to its source, effect on food intake, and distinctive feature</p>
         <div class="stats-controls">
             <div class="stats">
                 <div class="stat-item"><span class="stat-label">Score:</span><span id="score">0</span>/<span id="total">0</span></div>
@@ -139,13 +139,13 @@
             <div class="word-bank-container">
                 <div class="word-bank-title">&#x1F4DA; Word Bank</div>
                 <div class="tabs">
-                    <button class="tab active" onclick="switchTab('composition', this)">Composition</button>
-                    <button class="tab" onclick="switchTab('role', this)">Role</button>
-                    <button class="tab" onclick="switchTab('where_it_is_found', this)">Where it is found</button>
+                    <button class="tab active" onclick="switchTab('source', this)">Source</button>
+                    <button class="tab" onclick="switchTab('effect_on_food_intake', this)">Effect on food intake</button>
+                    <button class="tab" onclick="switchTab('distinctive_feature', this)">Distinctive feature</button>
                 </div>
-                <div id="composition-bank" class="word-bank active"></div>
-                <div id="role-bank" class="word-bank"></div>
-                <div id="where_it_is_found-bank" class="word-bank"></div>
+                <div id="source-bank" class="word-bank active"></div>
+                <div id="effect_on_food_intake-bank" class="word-bank"></div>
+                <div id="distinctive_feature-bank" class="word-bank"></div>
             </div>
             <div class="cards-container" id="cards-container"></div>
         </div>
@@ -160,29 +160,34 @@
         </div>
     </div>
     <script>
-        const categoryKeys = ["composition", "role", "where_it_is_found"];
-        const categoryLabels = {"composition": "Composition", "role": "Role", "where_it_is_found": "Where it is found"};
+        const categoryKeys = ["source", "effect_on_food_intake", "distinctive_feature"];
+        const categoryLabels = {"source": "Source", "effect_on_food_intake": "Effect on food intake", "distinctive_feature": "Distinctive feature"};
 
         const gameData = {
-            "Mucosa": {
-                "composition": "Transitional epithelium plus the lamina propria",
-                "role": "Urine-resistant lining that folds and stretches",
-                "where_it_is_found": "Innermost layer, facing the lumen"
+            "Ghrelin": {
+                "source": "Gastric secretions from the fundus of the stomach",
+                "effect_on_food_intake": "Increases food intake and decreases energy expenditure",
+                "distinctive_feature": "Rises before meals; lower in obesity but rises again with weight loss"
             },
-            "Muscularis": {
-                "composition": "Layers of smooth muscle",
-                "role": "Moves urine along and contracts for micturition",
-                "where_it_is_found": "Middle layer, forming the pipe itself"
+            "Leptin": {
+                "source": "Secreted by fat cells (adipocytes)",
+                "effect_on_food_intake": "Reduces intake in proportion to the body's energy excess",
+                "distinctive_feature": "Circulates at high levels in obesity yet fails to curb appetite (resistance)"
             },
-            "Adventitia": {
-                "composition": "Loose connective tissue blending with surroundings",
-                "role": "Insulating cover carrying vessels, nerves, and fat",
-                "where_it_is_found": "Outer coat of retroperitoneal organs like the ureter"
+            "GLP-1": {
+                "source": "Ileum and colon, in the presence of digested food",
+                "effect_on_food_intake": "Reduces food intake and stimulates insulin after glucose ingestion",
+                "distinctive_feature": "Incretin targeted by semaglutide and liraglutide"
             },
-            "Serosa": {
-                "composition": "Defined outer layer of mesothelium",
-                "role": "Smooth covering on intraperitoneal surfaces",
-                "where_it_is_found": "Superior surface of the bladder"
+            "GIP": {
+                "source": "Duodenum (mostly) and jejunum of the small intestine",
+                "effect_on_food_intake": "Reduces intake; boosts glucose-dependent insulin release",
+                "distinctive_feature": "Incretin targeted together with GLP-1 by tirzepatide"
+            },
+            "PYY": {
+                "source": "Ileum and colon, alongside GLP-1 and CCK",
+                "effect_on_food_intake": "Reduces food intake after meals as a satiety signal",
+                "distinctive_feature": "Not an incretin; its fall after weight loss promotes regain"
             }
         };
 
