@@ -588,7 +588,10 @@ def make_html(game, prev_file, next_file, idx_in_palette):
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    bricks = load_bricks()
+    # Class (Canvas To-Do) order, not brick-number order (2026-10-05).
+    sys.path.insert(0, r"C:\study-tools")
+    from _dnd_class_order import class_order
+    bricks = class_order(load_bricks(), "endocrine-dragndrop")
     print(f"Loaded {len(bricks)} bricks")
 
     # Flatten: list of (game_dict, brick_num, brick_title, palette_idx)
